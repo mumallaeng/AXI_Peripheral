@@ -40,3 +40,5 @@ void GPIO_WritePort(GPIO_TypeDef *GPIOx, uint32_t data);
 void GPIO_WritePin(GPIO_TypeDef *GPIOx, uint32_t gpio_pin, uint32_t gpio_pin_state);
 uint32_t GPIO_ReadPort(GPIO_TypeDef *GPIOx);
 uint32_t GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint32_t gpio_pin);
+
+#endif
