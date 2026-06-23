@@ -8,16 +8,16 @@
 
 typedef struct
 {
-    uint32_t CR;
-    uint32_t IDR;
-    uint32_t ODR;
+   uint32_t CR;
+   uint32_t IDR;
+   uint32_t ODR;
 } GPIO_TypeDef;
 
 #define GPIOA_BASEADDR XPAR_GPIO_0_S00_AXI_BASEADDR
 #define GPIOB_BASEADDR XPAR_GPIO_1_S00_AXI_BASEADDR
 #define GPIOC_BASEADDR XPAR_GPIO_2_S00_AXI_BASEADDR
 #define GPIOD_BASEADDR XPAR_GPIO_3_S00_AXI_BASEADDR
-
+//
 // #define GPIOA_CR   (*(uint32_t *)(GPIOA_BASEADDR + 0x00))
 // #define GPIOA_IDR   (*(uint32_t *)(GPIOA_BASEADDR + 0x04))
 // #define GPIOA_ODR   (*(uint32_t *)(GPIOA_BASEADDR + 0x08))
@@ -39,36 +39,86 @@ typedef struct
 #define GPIOC ((GPIO_TypeDef *)GPIOC_BASEADDR)
 #define GPIOD ((GPIO_TypeDef *)GPIOD_BASEADDR)
 
+#define GPIO_INPUT 0
+#define GPIO_OUTPUT 1
+#define GPIO_PIN_0 0x01
+#define GPIO_PIN_1 0x02
+#define GPIO_PIN_2 0x04
+#define GPIO_PIN_3 0x08
+#define GPIO_PIN_4 0x10
+#define GPIO_PIN_5 0x20
+#define GPIO_PIN_6 0x40
+#define GPIO_PIN_7 0x80
+
+#define GPIO_RESET 0
+#define GPIO_SET 1
+
+void GPIO_SetMode(GPIO_TypeDef *GPIOx, int mode)
+{
+   GPIOx->CR = mode;
+}
+
+void GPIO_WritePort(GPIO_TypeDef *GPIOx, uint32_t data)
+{
+   GPIOx->ODR = data;
+}
+
+void GPIO_WritePin(GPIO_TypeDef *GPIOx, uint32_t gpio_pin, uint32_t gpio_pin_state)
+{
+   if (gpio_pin_state == GPIO_SET)
+   {
+      GPIOx->ODR |= gpio_pin;
+   }
+   else
+   {
+      GPIOx->ODR &= ~gpio_pin;
+   }
+}
+
+uint32_t GPIO_ReadPort(GPIO_TypeDef *GPIOx)
+{
+   return GPIOx->IDR;
+}
+
+uint32_t GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint32_t gpio_pin)
+{
+   return (GPIOx->IDR & gpio_pin) ? 1 : 0;
+}
+
 int main()
 {
 
-    int counter = 0;
+   int counter = 0;
 
-    //   GPIOC_CR = 0xff;
-    //   GPIOD_CR = 0xff;
-    GPIOC->CR = 0xFF;
-    GPIOD->CR = 0xFF;
-    GPIO_SetMode(GPIOC, OUTPUT);
-    GPIO_SetMode(GPIOD, OUTPUT);
+   //   GPIOC_CR = 0xff;
+   //   GPIOD_CR = 0xff;
+   GPIOC->CR = 0xff; // output mode
+   GPIOD->CR = 0xff; // output mode
+   GPIO_SetMode(GPIOC, 0xff);
+   GPIO_SetMode(GPIOD, 0xff);
 
-    while (1)
-    {
-        xil_printf("counter = %d\n", counter++);
-        //   GPIOC_ODR = 0xff;
-        //   GPIOD_ODR = 0xff;
-        GPIOC->ODR = 0xFF;
-        GPIOD->ODR = 0xFF;
-        GPIO_WritePort(GPIOC, 0xff);
-        GPIO_WritePort(GPIOD, 0xff);
-        usleep(100000);
-        //  GPIOC_ODR = 0x00;
-        //  GPIOD_ODR = 0x00;
-        GPIOC->ODR = 0x00;
-        GPIOD->ODR = 0x00;
-        GPIO_WritePort(GPIOC, 0x00);
-        GPIO_WritePort(GPIOD, 0x00);
-        usleep(100000);
-    }
+   while (1)
+   {
+      xil_printf("counter = %d\n", counter++);
+      //      GPIOC_ODR = 0xff;
+      //      GPIOD_ODR = 0xff;
+      // GPIOC->ODR = 0xff; // led on
+      // GPIOD->ODR = 0xff; // led on
+      // GPIO_WritePort(GPIOC, 0xff);
+      // GPIO_WritePort(GPIOD, 0xff);
+      GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_SET);
+      GPIO_WritePin(GPIOD, GPIO_PIN_0, GPIO_SET);
+      usleep(100000);
+      //      GPIOC_ODR = 0x00;
+      //      GPIOD_ODR = 0x00;
+      // GPIOC->ODR = 0x00; // led off
+      // GPIOD->ODR = 0x00; // led off
+      // GPIO_WritePort(GPIOC, 0x00);
+      // GPIO_WritePort(GPIOD, 0x00);
+      GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_RESET);
+      GPIO_WritePin(GPIOD, GPIO_PIN_0, GPIO_RESET);
+      usleep(100000);
+   }
 
-    return 0;
+   return 0;
 }
