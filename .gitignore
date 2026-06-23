@@ -1,0 +1,82 @@
+# macOS / editor
+.DS_Store
+._*
+*.swp
+*.swo
+*~
+
+# Vivado generated state and logs
+.Xil/
+*.jou
+*.log
+*.str
+*.dmp
+*.debug
+*.backup.jou
+*.backup.log
+vivado_pid*.str
+
+# Vivado generated project output
+*.cache/
+*.gen/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.os/
+*.srcs/sources_1/bd/*/hw_handoff/
+*.srcs/sources_1/bd/*/ipshared/
+
+# Vivado hardware/export products
+*.bit
+*.bin
+*.ltx
+*.mcs
+*.mmi
+*.xsa
+*.hwh
+*.sysdef
+
+# Vitis / Eclipse workspace generated files
+.metadata/
+RemoteSystemsTempFiles/
+**/.analytics
+**/IDE.log
+**/_ide/
+**/Debug/
+**/Release/
+**/build/
+**/export/
+**/.launches/
+
+# Vitis generated BSP/platform outputs
+**/platform.spr
+**/platform.tcl
+**/*.xpfm
+**/*.bif
+**/psu_init.*
+**/fsbl/
+**/bsp/
+
+# C / embedded build artifacts
+*.o
+*.obj
+*.d
+*.a
+*.so
+*.elf
+*.map
+*.lst
+*.srec
+*.hex
+*.mem
+*.dump
+*.gcda
+*.gcno
+*.gcov
+
+# Temporary archives and local packaging
+*.zip
+*.tar
+*.tar.gz
+*.tgz
