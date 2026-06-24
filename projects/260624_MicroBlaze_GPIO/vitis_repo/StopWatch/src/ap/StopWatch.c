@@ -1,6 +1,7 @@
 #include "StopWatch.h"
 
 stopWatch_e stopWatchState;
+static uint32_t counter;
 
 void StopWatch_Init()
 {
@@ -9,6 +10,7 @@ void StopWatch_Init()
     Button_Init();
 
     stopWatchState = STOP;
+    counter = 0;
 }
 
 void StopWatch_Execute()
@@ -36,6 +38,8 @@ void StopWatch_Execute()
         }
         break;
     case CLEAR:
+        counter = 0;
+        FND_SetNum(counter);
         stopWatchState = STOP;
         break;
     default:
@@ -47,11 +51,15 @@ void StopWatch_Execute()
 void StopWatch_RunTime()
 {
     static uint32_t prevTime = 0;
-    uint32_t curTime = getTick();
+    uint32_t curTime = millis();
 
-    if (curTime - prevTime >= 1000)
+    if (curTime - prevTime < 100)
+        return;
+    prevTime = curTime;
+
+    if (stopWatchState == RUN)
     {
-        prevTime = curTime;
-        FND_IncNum();
+        counter = (counter + 1) % 10000;
+        FND_SetNum(counter);
     }
 }
