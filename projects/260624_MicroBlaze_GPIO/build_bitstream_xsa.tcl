@@ -3,6 +3,14 @@ set project_file [file join $script_dir "260624_MicroBlaze_GPIO.xpr"]
 set xsa_dir [file normalize [file join $script_dir "XSA"]]
 set xsa_file [file join $xsa_dir "stopwatch_design_wrapper.xsa"]
 
+foreach board_repo_dir [list "/home/user/local-board-repos" "/local-board-repos"] {
+    if {[file exists $board_repo_dir]} {
+        puts "== Use board repository: $board_repo_dir"
+        set_param board.repoPaths $board_repo_dir
+        break
+    }
+}
+
 puts "== Open project: $project_file"
 open_project $project_file
 

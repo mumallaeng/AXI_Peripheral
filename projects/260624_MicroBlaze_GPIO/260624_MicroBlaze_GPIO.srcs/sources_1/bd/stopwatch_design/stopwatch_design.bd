@@ -20,9 +20,6 @@
         "lmb_bram": ""
       },
       "mdm_1": "",
-      "clk_wiz_1": "",
-      "rst_clk_wiz_1_100M": "",
-      "axi_uartlite_0": "",
       "microblaze_0_axi_periph": {
         "xbar": "",
         "s00_couplers": {},
@@ -36,7 +33,10 @@
       "gpio_1": "",
       "gpio_2": "",
       "gpio_3": "",
-      "clk_wiz_reset_const0": ""
+      "clk_wiz_reset_const0": "",
+      "axi_uartlite_0": "",
+      "clk_wiz_1": "",
+      "rst_clk_wiz_1_100M": ""
     },
     "interface_ports": {
       "usb_uart": {
@@ -336,54 +336,6 @@
         "xci_name": "stopwatch_design_mdm_1_0",
         "xci_path": "ip/stopwatch_design_mdm_1_0/stopwatch_design_mdm_1_0.xci",
         "inst_hier_path": "mdm_1"
-      },
-      "clk_wiz_1": {
-        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
-        "xci_name": "stopwatch_design_clk_wiz_1_0",
-        "xci_path": "ip/stopwatch_design_clk_wiz_1_0/stopwatch_design_clk_wiz_1_0.xci",
-        "inst_hier_path": "clk_wiz_1",
-        "parameters": {
-          "CLK_IN1_BOARD_INTERFACE": {
-            "value": "sys_clock"
-          },
-          "PRIM_SOURCE": {
-            "value": "Single_ended_clock_capable_pin"
-          },
-          "RESET_BOARD_INTERFACE": {
-            "value": "reset"
-          },
-          "USE_BOARD_FLOW": {
-            "value": "true"
-          }
-        }
-      },
-      "rst_clk_wiz_1_100M": {
-        "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
-        "xci_name": "stopwatch_design_rst_clk_wiz_1_100M_0",
-        "xci_path": "ip/stopwatch_design_rst_clk_wiz_1_100M_0/stopwatch_design_rst_clk_wiz_1_100M_0.xci",
-        "inst_hier_path": "rst_clk_wiz_1_100M",
-        "parameters": {
-          "RESET_BOARD_INTERFACE": {
-            "value": "reset"
-          },
-          "USE_BOARD_FLOW": {
-            "value": "true"
-          }
-        }
-      },
-      "axi_uartlite_0": {
-        "vlnv": "xilinx.com:ip:axi_uartlite:2.0",
-        "xci_name": "stopwatch_design_axi_uartlite_0_0",
-        "xci_path": "ip/stopwatch_design_axi_uartlite_0_0/stopwatch_design_axi_uartlite_0_0.xci",
-        "inst_hier_path": "axi_uartlite_0",
-        "parameters": {
-          "UARTLITE_BOARD_INTERFACE": {
-            "value": "usb_uart"
-          },
-          "USE_BOARD_FLOW": {
-            "value": "true"
-          }
-        }
       },
       "microblaze_0_axi_periph": {
         "vlnv": "xilinx.com:ip:axi_interconnect:2.1",
@@ -888,22 +840,16 @@
           }
         },
         "interface_nets": {
-          "m00_couplers_to_microblaze_0_axi_periph": {
+          "m03_couplers_to_microblaze_0_axi_periph": {
             "interface_ports": [
-              "M00_AXI",
-              "m00_couplers/M_AXI"
+              "M03_AXI",
+              "m03_couplers/M_AXI"
             ]
           },
-          "s00_couplers_to_xbar": {
+          "xbar_to_m02_couplers": {
             "interface_ports": [
-              "s00_couplers/M_AXI",
-              "xbar/S00_AXI"
-            ]
-          },
-          "xbar_to_m00_couplers": {
-            "interface_ports": [
-              "xbar/M00_AXI",
-              "m00_couplers/S_AXI"
+              "xbar/M02_AXI",
+              "m02_couplers/S_AXI"
             ]
           },
           "m01_couplers_to_microblaze_0_axi_periph": {
@@ -912,22 +858,16 @@
               "m01_couplers/M_AXI"
             ]
           },
-          "xbar_to_m03_couplers": {
+          "m00_couplers_to_microblaze_0_axi_periph": {
             "interface_ports": [
-              "xbar/M03_AXI",
-              "m03_couplers/S_AXI"
+              "M00_AXI",
+              "m00_couplers/M_AXI"
             ]
           },
           "m04_couplers_to_microblaze_0_axi_periph": {
             "interface_ports": [
               "M04_AXI",
               "m04_couplers/M_AXI"
-            ]
-          },
-          "microblaze_0_axi_periph_to_s00_couplers": {
-            "interface_ports": [
-              "S00_AXI",
-              "s00_couplers/S_AXI"
             ]
           },
           "m02_couplers_to_microblaze_0_axi_periph": {
@@ -942,16 +882,28 @@
               "m01_couplers/S_AXI"
             ]
           },
-          "xbar_to_m02_couplers": {
+          "xbar_to_m03_couplers": {
             "interface_ports": [
-              "xbar/M02_AXI",
-              "m02_couplers/S_AXI"
+              "xbar/M03_AXI",
+              "m03_couplers/S_AXI"
             ]
           },
-          "m03_couplers_to_microblaze_0_axi_periph": {
+          "xbar_to_m00_couplers": {
             "interface_ports": [
-              "M03_AXI",
-              "m03_couplers/M_AXI"
+              "xbar/M00_AXI",
+              "m00_couplers/S_AXI"
+            ]
+          },
+          "s00_couplers_to_xbar": {
+            "interface_ports": [
+              "s00_couplers/M_AXI",
+              "xbar/S00_AXI"
+            ]
+          },
+          "microblaze_0_axi_periph_to_s00_couplers": {
+            "interface_ports": [
+              "S00_AXI",
+              "s00_couplers/S_AXI"
             ]
           },
           "xbar_to_m04_couplers": {
@@ -1037,6 +989,32 @@
             "value": "1"
           }
         }
+      },
+      "axi_uartlite_0": {
+        "vlnv": "xilinx.com:ip:axi_uartlite:2.0",
+        "xci_name": "stopwatch_design_axi_uartlite_0_0",
+        "xci_path": "ip/stopwatch_design_axi_uartlite_0_0/stopwatch_design_axi_uartlite_0_0.xci",
+        "inst_hier_path": "axi_uartlite_0",
+        "parameters": {
+          "UARTLITE_BOARD_INTERFACE": {
+            "value": "Custom"
+          },
+          "USE_BOARD_FLOW": {
+            "value": "true"
+          }
+        }
+      },
+      "clk_wiz_1": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "stopwatch_design_clk_wiz_1_0",
+        "xci_path": "ip/stopwatch_design_clk_wiz_1_0/stopwatch_design_clk_wiz_1_0.xci",
+        "inst_hier_path": "clk_wiz_1"
+      },
+      "rst_clk_wiz_1_100M": {
+        "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
+        "xci_name": "stopwatch_design_rst_clk_wiz_1_100M_0",
+        "xci_path": "ip/stopwatch_design_rst_clk_wiz_1_100M_0/stopwatch_design_rst_clk_wiz_1_100M_0.xci",
+        "inst_hier_path": "rst_clk_wiz_1_100M"
       }
     },
     "interface_nets": {
@@ -1107,9 +1085,7 @@
           "clk_wiz_1/clk_out1",
           "microblaze_0/Clk",
           "microblaze_0_local_memory/LMB_Clk",
-          "rst_clk_wiz_1_100M/slowest_sync_clk",
           "microblaze_0_axi_periph/S00_ACLK",
-          "axi_uartlite_0/s_axi_aclk",
           "microblaze_0_axi_periph/M00_ACLK",
           "microblaze_0_axi_periph/ACLK",
           "gpio_0/s00_axi_aclk",
@@ -1119,7 +1095,9 @@
           "gpio_2/s00_axi_aclk",
           "microblaze_0_axi_periph/M03_ACLK",
           "gpio_3/s00_axi_aclk",
-          "microblaze_0_axi_periph/M04_ACLK"
+          "microblaze_0_axi_periph/M04_ACLK",
+          "axi_uartlite_0/s_axi_aclk",
+          "rst_clk_wiz_1_100M/slowest_sync_clk"
         ]
       },
       "clk_wiz_1_locked": {
@@ -1162,7 +1140,6 @@
         "ports": [
           "rst_clk_wiz_1_100M/peripheral_aresetn",
           "microblaze_0_axi_periph/S00_ARESETN",
-          "axi_uartlite_0/s_axi_aresetn",
           "microblaze_0_axi_periph/M00_ARESETN",
           "microblaze_0_axi_periph/ARESETN",
           "gpio_0/s00_axi_aresetn",
@@ -1172,7 +1149,8 @@
           "gpio_2/s00_axi_aresetn",
           "microblaze_0_axi_periph/M03_ARESETN",
           "gpio_3/s00_axi_aresetn",
-          "microblaze_0_axi_periph/M04_ARESETN"
+          "microblaze_0_axi_periph/M04_ARESETN",
+          "axi_uartlite_0/s_axi_aresetn"
         ]
       },
       "Net": {
