@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<systemproject:SystemProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:systemproject="http://www.xilinx.com/systemproject" name="StopWatch_system" platform="/home/user/git/Vault/activities/korcham/helloHDL/260624_MicroBlaze_GPIO/vitis_repo/stopwatch_design_wrapper/export/stopwatch_design_wrapper/stopwatch_design_wrapper.xpfm" platformUID="" sysConfig="stopwatch_design_wrapper" runtime="cpp">
+  <configuration name="Debug" id="com.xilinx.sdx.system.managedbuilder.debugConfiguration.401350117">
+    <configBuildOptions xsi:type="systemproject:SystemOptions">
+      <applications name="StopWatch" domainName="standalone_microblaze_0" domainPrettyName="standalone_microblaze_0" appBuildConfig="Debug"/>
+    </configBuildOptions>
+  </configuration>
+  <configuration name="Release" id="com.xilinx.sdx.system.managedbuilder.releaseConfiguration.1295241261">
+    <configBuildOptions xsi:type="systemproject:SystemOptions">
+      <applications name="StopWatch" domainName="standalone_microblaze_0" domainPrettyName="standalone_microblaze_0" appBuildConfig="Release"/>
+    </configBuildOptions>
+  </configuration>
+</systemproject:SystemProject>
