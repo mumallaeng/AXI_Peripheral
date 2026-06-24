@@ -1,7 +1,8 @@
-#ifndef SRC_DRIVER_FND_FND_H
-#define SRC_DRIVER_FND_FND_H
-
 #include "../../HAL/GPIO/GPIO.h"
+#include <stdint.h>
+
+#ifndef SRC_DRIVER_FND_FNDH
+#define SRC_DRIVER_FND_FNDH
 
 #define FND_DATA_GPIO GPIOA
 #define FND_COM_GPIO GPIOB
@@ -16,7 +17,7 @@ void FND_SetNum(uint32_t num);
 void FND_Excute();
 void FND_SelDigit(uint32_t digit);
 void FND_DispDigit(uint32_t num);
-void FND_DispAllOff(uint32_t num);
+void FND_DispAllOff();
 void FND_DispNum(uint32_t num);
 
-#endif // SRC_DRIVER_FND_FND_H
+#endif /* SRC_DRIVER_FND_FNDH */
