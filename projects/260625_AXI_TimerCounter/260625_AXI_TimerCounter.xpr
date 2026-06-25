@@ -75,6 +75,15 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sources_1/imports/hdl/axi_template_v1_0_S00_AXI.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../ip_repo/axi_template_1.0/hdl/axi_template_v1_0_S00_AXI.v"/>
+          <Attr Name="ImportTime" Val="1782366618"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/hdl/axi_template_v1_0.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../ip_repo/axi_template_1.0/hdl/axi_template_v1_0.v"/>
@@ -84,17 +93,23 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/hdl/axi_template_v1_0_S00_AXI.v">
+      <File Path="$PSRCDIR/sources_1/new/TimerCounter.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../ip_repo/axi_template_1.0/hdl/axi_template_v1_0_S00_AXI.v"/>
-          <Attr Name="ImportTime" Val="1782192752"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/new/TimerCounter.v">
+      <File Path="$PSRCDIR/sources_1/imports/hdl/axi_template_v1_0_S00_AXI_y.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/hdl/axi_template_v1_0_y.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
