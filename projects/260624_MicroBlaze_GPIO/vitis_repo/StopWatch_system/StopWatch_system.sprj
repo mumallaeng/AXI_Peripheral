@@ -4,6 +4,9 @@
     <configBuildOptions xsi:type="systemproject:SystemOptions">
       <applications name="StopWatch" domainName="standalone_microblaze_0" domainPrettyName="standalone_microblaze_0" appBuildConfig="Debug"/>
     </configBuildOptions>
+    <lastBuildOptions xsi:type="systemproject:SystemOptions">
+      <applications name="StopWatch" domainName="standalone_microblaze_0" domainPrettyName="standalone_microblaze_0" appBuildConfig="Debug"/>
+    </lastBuildOptions>
   </configuration>
   <configuration name="Release" id="com.xilinx.sdx.system.managedbuilder.releaseConfiguration.1295241261">
     <configBuildOptions xsi:type="systemproject:SystemOptions">

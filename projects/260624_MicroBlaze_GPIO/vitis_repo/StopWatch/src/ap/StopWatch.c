@@ -72,8 +72,6 @@ void StopWatch_RunTime()
     if (stopWatchState == RUN)
     {
         counter++;
-        // ledstate = (ledstate<<1)|(ledstate>>7);
-        // LED_WritePort8(LED_LOW_GPIO, ledstate);
     }
 }
 
