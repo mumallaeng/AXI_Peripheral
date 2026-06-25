@@ -395,7 +395,7 @@ GPIOA만 먼저 확인할 때의 C code는 [helloworld.c](../helloHDL/260622_Mic
 | 구현 위치 | Vitis C application에서 GPIO register write |
 | 제출물 | 코드와 동작 영상 업로드 |
 
-과제용 정리 파일은 [260622-김연우-MicroBlaze-GPIO-LED-shift](../assignment/260622-김연우-MicroBlaze-GPIO-LED-shift)에 두었다. 여기에는 Vitis C application 예시와 `GPIOA/GPIOB` 16 LED용 XDC 기준을 함께 정리했다.
+과제용 정리 파일은 [260622-MicroBlaze-GPIO-LED-shift](../assignment/260622-MicroBlaze-GPIO-LED-shift)에 두었다. 여기에는 Vitis C application 예시와 `GPIOA/GPIOB` 16 LED용 XDC 기준을 함께 정리했다.
 
 ## 다음에 확인할 것
 
