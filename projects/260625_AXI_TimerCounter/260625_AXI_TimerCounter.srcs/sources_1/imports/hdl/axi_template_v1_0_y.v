@@ -19,8 +19,8 @@ module axi_template_v1_0_y #(
 
 
     // Ports of Axi Slave Bus Interface S00_AXI
-    input wire s00_axi_aclk,
-    input wire s00_axi_aresetn,
+    input wire                              s00_axi_aclk,
+    input wire                              s00_axi_aresetn,
     input wire [C_S00_AXI_ADDR_WIDTH-1 : 0] s00_axi_awaddr,
     input wire [2 : 0] s00_axi_awprot,
     input wire s00_axi_awvalid,
