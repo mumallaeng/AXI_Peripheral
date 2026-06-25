@@ -15,6 +15,8 @@
 	)
 	(
 		// Users to add ports here
+    	inout wire [7:0] io_port,
+
 
 		// User ports ends
 		// Do not modify the ports beyond this line
@@ -43,7 +45,10 @@
 		output wire  s00_axi_rvalid,
 		input wire  s00_axi_rready
 	);
-// Instantiation of Axi Bus Interface S00_AXI
+
+	
+	
+	// Instantiation of Axi Bus Interface S00_AXI
 	axi_template_v1_0_S00_AXI # ( 
 		.C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
 		.C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
