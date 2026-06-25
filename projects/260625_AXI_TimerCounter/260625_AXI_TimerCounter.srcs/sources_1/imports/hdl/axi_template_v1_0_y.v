@@ -89,7 +89,7 @@ module axi_template_v1_0_y #(
     );
 
     // Add user logic here
-    TimerCounter(
+    TimerCounter U_TimerCounter (
         .clk(s00_axi_aclk),
         .rst_n(s00_axi_aresetn),
         .cnt_en(cnt_en),

@@ -51,6 +51,9 @@ module tb_TimerCounter ();
     endtask
 
     initial begin
+        rst_n = 0;
+        cnt_en = 0;
+        intr_en = 0;
         i_cnt = 0;
         cnt_valid = 0;
         arr = 0;

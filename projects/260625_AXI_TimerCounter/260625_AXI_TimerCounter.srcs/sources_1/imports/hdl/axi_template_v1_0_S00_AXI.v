@@ -19,7 +19,7 @@ module axi_timer_v1_0_S00_AXI #(
     output wire [31:0] arr,
     output wire [31:0] i_cnt,
     output wire        cnt_valid,
-    output wire [31:0] o_cnt,
+    input  wire [31:0] o_cnt,
 
 
     // User ports ends
@@ -217,6 +217,7 @@ module axi_timer_v1_0_S00_AXI #(
             slv_reg1 <= 0;
             slv_reg2 <= 0;
             slv_reg3 <= 0;
+            cnt_valid_r <= 1'b0;
         end else begin
             cnt_valid_r <= 1'b0;
             if (slv_reg_wren) begin
