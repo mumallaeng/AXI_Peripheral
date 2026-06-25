@@ -1,3 +1,4 @@
+
 `timescale 1 ns / 1 ps
 
 module axi_template_v1_0_S00_AXI
@@ -31,9 +32,11 @@ module axi_template_v1_0_S00_AXI
     // R Chanals
     output wire [    32-1 : 0] S_AXI_RDATA,
     output wire [       1 : 0] S_AXI_RRESP,
-    output wire                S_AXI_RVALID,
     input  wire                S_AXI_RREADY
+    output wire                S_AXI_RVALID,
 );
+    // TimerCounter
+    
 
     // AXI4LITE signals
     reg [ 4-1 : 0] axi_awaddr;
