@@ -53,10 +53,7 @@ module uart_v1_0 #(
     assign intr = rx_ie & rx_valid;
 
     // Instantiation of Axi Bus Interface S00_AXI
-    uart_v1_0_S00_AXI #(
-        .C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
-        .C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
-    ) uart_v1_0_S00_AXI_inst (
+    uart_v1_0_S00_AXI uart_v1_0_S00_AXI_inst (
         .tx_data      (tx_data),
         .tx_valid     (tx_valid),
         .tx_ready     (tx_ready),

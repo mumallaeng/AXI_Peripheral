@@ -34,7 +34,7 @@ module tb_axi_timer ();
     assign s00_axi_aclk = clk;
     assign s00_axi_aresetn = reset_n;
 
-    axi_timer_v1_0 dut (.*);
+    timer_v1_0 dut (.*);
 
 
     initial clk = 0;

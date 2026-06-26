@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="StopWatch" location="/home/user/git/Vault/activities/korcham/helloHDL/260626_MicroBlaze_Timer_UART_Intr/vitis_repo/StopWatch" platform="/home/user/git/Vault/activities/korcham/helloHDL/260626_MicroBlaze_Timer_UART_Intr/vitis_repo/MicroBlazeTimerUARTIntr_wrapper/export/MicroBlazeTimerUARTIntr_wrapper/MicroBlazeTimerUARTIntr_wrapper.xpfm" platformUID="xilinx:basys3::0.0(custom)" systemProject="StopWatch_system" sysConfig="MicroBlazeTimerUARTIntr_wrapper" runtime="cpp" cpu="standalone_microblaze_0" cpuInstance="microblaze_0" os="standalone" mssSignature="c6af9f785b6cc19a5e14f716e19ebf8d">
+  <configuration name="Debug" id="xilinx.gnu.mb.exe.debug.1066087951" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.mb.exe.release.2086675665" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="empty_application"/>
+</sdkproject:SdkProject>
