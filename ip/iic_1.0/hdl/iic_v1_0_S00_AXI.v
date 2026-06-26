@@ -104,12 +104,12 @@
 	//-- Signals for user logic register space example
 	//------------------------------------------------
 	//-- Number of target Registers 4
-	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg0;
-	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg1;
-	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg2;
-	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg3;
-	wire	 slv_reg_rden;
-	wire	 slv_reg_wren;
+	reg [C_S_AXI_DATA_WIDTH-1:0]	target_reg0;
+	reg [C_S_AXI_DATA_WIDTH-1:0]	target_reg1;
+	reg [C_S_AXI_DATA_WIDTH-1:0]	target_reg2;
+	reg [C_S_AXI_DATA_WIDTH-1:0]	target_reg3;
+	wire	 target_reg_rden;
+	wire	 target_reg_wren;
 	reg [C_S_AXI_DATA_WIDTH-1:0]	 reg_data_out;
 	integer	 byte_index;
 	reg	 aw_en;
@@ -214,19 +214,19 @@
 	// These registers are cleared when reset (active low) is applied.
 	// target register write enable is asserted when valid address and data are available
 	// and the target is ready to accept the write address and write data.
-	assign slv_reg_wren = axi_wready && S_AXI_WVALID && axi_awready && S_AXI_AWVALID;
+	assign target_reg_wren = axi_wready && S_AXI_WVALID && axi_awready && S_AXI_AWVALID;
 
 	always @( posedge S_AXI_ACLK )
 	begin
 	  if ( S_AXI_ARESETN == 1'b0 )
 	    begin
-	      slv_reg0 <= 0;
-	      slv_reg1 <= 0;
-	      slv_reg2 <= 0;
-	      slv_reg3 <= 0;
+	      target_reg0 <= 0;
+	      target_reg1 <= 0;
+	      target_reg2 <= 0;
+	      target_reg3 <= 0;
 	    end 
 	  else begin
-	    if (slv_reg_wren)
+	    if (target_reg_wren)
 	      begin
 	        case ( axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] )
 	          2'h0:
@@ -234,34 +234,34 @@
 	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
 	                // Respective byte enables are asserted as per write strobes 
 	                // target register 0
-	                slv_reg0[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+	                target_reg0[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
 	              end  
 	          2'h1:
 	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
 	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
 	                // Respective byte enables are asserted as per write strobes 
 	                // target register 1
-	                slv_reg1[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+	                target_reg1[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
 	              end  
 	          2'h2:
 	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
 	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
 	                // Respective byte enables are asserted as per write strobes 
 	                // target register 2
-	                slv_reg2[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+	                target_reg2[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
 	              end  
 	          2'h3:
 	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
 	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
 	                // Respective byte enables are asserted as per write strobes 
 	                // target register 3
-	                slv_reg3[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+	                target_reg3[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
 	              end  
 	          default : begin
-	                      slv_reg0 <= slv_reg0;
-	                      slv_reg1 <= slv_reg1;
-	                      slv_reg2 <= slv_reg2;
-	                      slv_reg3 <= slv_reg3;
+	                      target_reg0 <= target_reg0;
+	                      target_reg1 <= target_reg1;
+	                      target_reg2 <= target_reg2;
+	                      target_reg3 <= target_reg3;
 	                    end
 	        endcase
 	      end
@@ -365,15 +365,15 @@
 	// Implement memory mapped register select and read logic generation
 	// target register read enable is asserted when valid address is available
 	// and the target is ready to accept the read address.
-	assign slv_reg_rden = axi_arready & S_AXI_ARVALID & ~axi_rvalid;
+	assign target_reg_rden = axi_arready & S_AXI_ARVALID & ~axi_rvalid;
 	always @(*)
 	begin
 	      // Address decoding for reading registers
 	      case ( axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] )
-	        2'h0   : reg_data_out <= slv_reg0;
-	        2'h1   : reg_data_out <= slv_reg1;
-	        2'h2   : reg_data_out <= slv_reg2;
-	        2'h3   : reg_data_out <= slv_reg3;
+	        2'h0   : reg_data_out <= target_reg0;
+	        2'h1   : reg_data_out <= target_reg1;
+	        2'h2   : reg_data_out <= target_reg2;
+	        2'h3   : reg_data_out <= target_reg3;
 	        default : reg_data_out <= 0;
 	      endcase
 	end
@@ -390,7 +390,7 @@
 	      // When there is a valid read address (S_AXI_ARVALID) with 
 	      // acceptance of read address by the target (axi_arready), 
 	      // output the read dada 
-	      if (slv_reg_rden)
+	      if (target_reg_rden)
 	        begin
 	          axi_rdata <= reg_data_out;     // register read data
 	        end   

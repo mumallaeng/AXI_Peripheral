@@ -17,7 +17,7 @@
  * If the hardware system is not built correctly, this function may never
  * return to the caller.
  *
- * @param   baseaddr_p is the base address of the AXI_TEMPLATEinstance to be worked on.
+ * @param   baseaddr_p is the base address of the SPI instance to be worked on.
  *
  * @return
  *
@@ -28,7 +28,7 @@
  * @note    Self test may fail if data memory and device are not on the same bus.
  *
  */
-XStatus AXI_TEMPLATE_Reg_SelfTest(void * baseaddr_p)
+XStatus SPI_Reg_SelfTest(void * baseaddr_p)
 {
 	u32 baseaddr;
 	int write_loop_index;
@@ -47,9 +47,9 @@ XStatus AXI_TEMPLATE_Reg_SelfTest(void * baseaddr_p)
 	xil_printf("User logic target module test...\n\r");
 
 	for (write_loop_index = 0 ; write_loop_index < 4; write_loop_index++)
-	  AXI_TEMPLATE_mWriteReg (baseaddr, write_loop_index*4, (write_loop_index+1)*READ_WRITE_MUL_FACTOR);
+	  SPI_mWriteReg (baseaddr, write_loop_index*4, (write_loop_index+1)*READ_WRITE_MUL_FACTOR);
 	for (read_loop_index = 0 ; read_loop_index < 4; read_loop_index++)
-	  if ( AXI_TEMPLATE_mReadReg (baseaddr, read_loop_index*4) != (read_loop_index+1)*READ_WRITE_MUL_FACTOR){
+	  if ( SPI_mReadReg (baseaddr, read_loop_index*4) != (read_loop_index+1)*READ_WRITE_MUL_FACTOR){
 	    xil_printf ("Error reading register value at address %x\n", (int)baseaddr + read_loop_index*4);
 	    return XST_FAILURE;
 	  }

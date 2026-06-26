@@ -69,8 +69,8 @@ module uart_v1_0_S00_AXI #(
     reg     [  C_S_AXI_DATA_WIDTH-1:0] uart_rdr;
     reg     [  C_S_AXI_DATA_WIDTH-1:0] uart_cr;
 
-    wire               slv_reg_rden;
-    wire               slv_reg_wren;
+    wire               target_reg_rden;
+    wire               target_reg_wren;
 
     reg     [  C_S_AXI_DATA_WIDTH-1:0] reg_data_out;
     integer            byte_index;
@@ -161,13 +161,13 @@ module uart_v1_0_S00_AXI #(
     // These registers are cleared when reset (active low) is applied.
     // target register write enable is asserted when valid address and data are available
     // and the target is ready to accept the write address and write data.
-    assign slv_reg_wren = axi_wready && S_AXI_WVALID && axi_awready && S_AXI_AWVALID;
+    assign target_reg_wren = axi_wready && S_AXI_WVALID && axi_awready && S_AXI_AWVALID;
 
     // always @(posedge S_AXI_ACLK) begin
     //     if (S_AXI_ARESETN == 1'b0) begin
     //         uart_sr <= 0;
     //     end else begin
-    //         if (slv_reg_wren && (axi_awaddr[3:2] == 2'd0)) begin
+    //         if (target_reg_wren && (axi_awaddr[3:2] == 2'd0)) begin
     //             uart_sr <= S_AXI_WDATA;
     //         end
     //     end
@@ -180,7 +180,7 @@ module uart_v1_0_S00_AXI #(
             uart_tdr   <= 0;
         end else begin
             tx_valid_r <= 1'b0;
-            if (slv_reg_wren && (axi_awaddr[3:2] == 2'd1)) begin
+            if (target_reg_wren && (axi_awaddr[3:2] == 2'd1)) begin
                 uart_tdr[7:0] <= S_AXI_WDATA[7:0];
                 tx_valid_r <= 1'b1;
             end
@@ -191,7 +191,7 @@ module uart_v1_0_S00_AXI #(
         if (S_AXI_ARESETN == 1'b0) begin
             uart_cr <= 0;
         end else begin
-            if (slv_reg_wren && (axi_awaddr[3:2] == 2'd3)) begin
+            if (target_reg_wren && (axi_awaddr[3:2] == 2'd3)) begin
                 uart_cr <= S_AXI_WDATA;
             end
         end
@@ -206,7 +206,7 @@ module uart_v1_0_S00_AXI #(
                 uart_rdr <= rx_data;  // latching
                 rx_flag  <= 1'b1;
             end
-            if (slv_reg_rden && (axi_araddr[3:2] == 2'd2)) begin
+            if (target_reg_rden && (axi_araddr[3:2] == 2'd2)) begin
                 rx_flag <= 1'b0;
             end
         end
@@ -293,14 +293,14 @@ module uart_v1_0_S00_AXI #(
     // Implement memory mapped register select and read logic generation
     // target register read enable is asserted when valid address is available
     // and the target is ready to accept the read address.
-    assign slv_reg_rden = axi_arready & S_AXI_ARVALID & ~axi_rvalid;
+    assign target_reg_rden = axi_arready & S_AXI_ARVALID & ~axi_rvalid;
     always @(*) begin
         // Address decoding for reading registers
         case (axi_araddr[3:2])
-            2'h0   : reg_data_out <= {30'b0, rx_flag, tx_ready};  // slv_reg0, status reg
-            2'h1   : reg_data_out <= uart_tdr; // slv_reg1
-            2'h2   : reg_data_out <= uart_rdr; // slv_reg2
-            2'h3   : reg_data_out <= uart_cr;  // slv_reg3
+            2'h0   : reg_data_out <= {30'b0, rx_flag, tx_ready};  // target_reg0, status reg
+            2'h1   : reg_data_out <= uart_tdr; // target_reg1
+            2'h2   : reg_data_out <= uart_rdr; // target_reg2
+            2'h3   : reg_data_out <= uart_cr;  // target_reg3
             default : reg_data_out <= 0;
         endcase
     end
@@ -313,7 +313,7 @@ module uart_v1_0_S00_AXI #(
             // When there is a valid read address (S_AXI_ARVALID) with 
             // acceptance of read address by the target (axi_arready), 
             // output the read dada 
-            if (slv_reg_rden) begin
+            if (target_reg_rden) begin
                 axi_rdata <= reg_data_out;  // register read data
             end
         end

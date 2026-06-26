@@ -695,7 +695,7 @@
         <spirit:userFileType>driver_src</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>drivers/iic_v1_0/src/IIC_selftest.c</spirit:name>
+        <spirit:name>drivers/iic_v1_0/src/iic_selftest.c</spirit:name>
         <spirit:fileType>cSource</spirit:fileType>
         <spirit:userFileType>driver_src</spirit:userFileType>
       </spirit:file>

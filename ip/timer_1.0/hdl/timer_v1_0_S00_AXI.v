@@ -109,12 +109,12 @@ module timer_v1_0_S00_AXI #(
     //-- Signals for user logic register space example
     //------------------------------------------------
     //-- Number of target Registers 4
-    reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg0;  // CR
-    reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg1;  // PSC
-    reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg2;  // ARR
-    reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg3;  // CNT
-    wire slv_reg_rden;
-    wire slv_reg_wren;
+    reg [C_S_AXI_DATA_WIDTH-1:0] target_reg0;  // CR
+    reg [C_S_AXI_DATA_WIDTH-1:0] target_reg1;  // PSC
+    reg [C_S_AXI_DATA_WIDTH-1:0] target_reg2;  // ARR
+    reg [C_S_AXI_DATA_WIDTH-1:0] target_reg3;  // CNT
+    wire target_reg_rden;
+    wire target_reg_wren;
     reg [C_S_AXI_DATA_WIDTH-1:0] reg_data_out;
     integer byte_index;
     reg aw_en;
@@ -122,11 +122,11 @@ module timer_v1_0_S00_AXI #(
     reg cnt_valid_r;
 
     // External Signal assignments
-    assign cnt_en        = slv_reg0[0];
-    assign intr_en       = slv_reg0[1];
-    assign psc           = slv_reg1;
-    assign arr           = slv_reg2;
-    assign i_cnt         = slv_reg3;
+    assign cnt_en        = target_reg0[0];
+    assign intr_en       = target_reg0[1];
+    assign psc           = target_reg1;
+    assign arr           = target_reg2;
+    assign i_cnt         = target_reg3;
     assign cnt_valid     = cnt_valid_r;
 
     // I/O Connections assignments
@@ -208,18 +208,18 @@ module timer_v1_0_S00_AXI #(
     // These registers are cleared when reset (active low) is applied.
     // target register write enable is asserted when valid address and data are available
     // and the target is ready to accept the write address and write data.
-    assign slv_reg_wren = axi_wready && S_AXI_WVALID && axi_awready && S_AXI_AWVALID;
+    assign target_reg_wren = axi_wready && S_AXI_WVALID && axi_awready && S_AXI_AWVALID;
 
     always @(posedge S_AXI_ACLK) begin
         if (S_AXI_ARESETN == 1'b0) begin
-            slv_reg0 <= 0;
-            slv_reg1 <= 0;
-            slv_reg2 <= 0;
-            slv_reg3 <= 0;
+            target_reg0 <= 0;
+            target_reg1 <= 0;
+            target_reg2 <= 0;
+            target_reg3 <= 0;
             cnt_valid_r <= 1'b0;
         end else begin
             cnt_valid_r <= 1'b0;
-            if (slv_reg_wren) begin
+            if (target_reg_wren) begin
                 case (axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB])
                     2'h0:
                     for (
@@ -230,7 +230,7 @@ module timer_v1_0_S00_AXI #(
                     if (S_AXI_WSTRB[byte_index] == 1) begin
                         // Respective byte enables are asserted as per write strobes 
                         // target register 0
-                        slv_reg0[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+                        target_reg0[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
                     end
                     2'h1:
                     for (
@@ -241,7 +241,7 @@ module timer_v1_0_S00_AXI #(
                     if (S_AXI_WSTRB[byte_index] == 1) begin
                         // Respective byte enables are asserted as per write strobes 
                         // target register 1
-                        slv_reg1[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+                        target_reg1[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
                     end
                     2'h2:
                     for (
@@ -252,7 +252,7 @@ module timer_v1_0_S00_AXI #(
                     if (S_AXI_WSTRB[byte_index] == 1) begin
                         // Respective byte enables are asserted as per write strobes 
                         // target register 2
-                        slv_reg2[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+                        target_reg2[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
                     end
                     2'h3:
                     for (
@@ -263,14 +263,14 @@ module timer_v1_0_S00_AXI #(
                     if (S_AXI_WSTRB[byte_index] == 1) begin
                         // Respective byte enables are asserted as per write strobes 
                         // target register 3
-                        slv_reg3[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+                        target_reg3[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
                         cnt_valid_r <= 1'b1;
                     end
                     default: begin
-                        slv_reg0 <= slv_reg0;
-                        slv_reg1 <= slv_reg1;
-                        slv_reg2 <= slv_reg2;
-                        slv_reg3 <= slv_reg3;
+                        target_reg0 <= target_reg0;
+                        target_reg1 <= target_reg1;
+                        target_reg2 <= target_reg2;
+                        target_reg3 <= target_reg3;
                     end
                 endcase
             end
@@ -356,13 +356,13 @@ module timer_v1_0_S00_AXI #(
     // Implement memory mapped register select and read logic generation
     // target register read enable is asserted when valid address is available
     // and the target is ready to accept the read address.
-    assign slv_reg_rden = axi_arready & S_AXI_ARVALID & ~axi_rvalid;
+    assign target_reg_rden = axi_arready & S_AXI_ARVALID & ~axi_rvalid;
     always @(*) begin
         // Address decoding for reading registers
         case (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB])
-            2'h0   : reg_data_out <= slv_reg0;
-            2'h1   : reg_data_out <= slv_reg1;
-            2'h2   : reg_data_out <= slv_reg2;
+            2'h0   : reg_data_out <= target_reg0;
+            2'h1   : reg_data_out <= target_reg1;
+            2'h2   : reg_data_out <= target_reg2;
             2'h3   : reg_data_out <= o_cnt;
             default : reg_data_out <= 0;
         endcase
@@ -376,7 +376,7 @@ module timer_v1_0_S00_AXI #(
             // When there is a valid read address (S_AXI_ARVALID) with 
             // acceptance of read address by the target (axi_arready), 
             // output the read dada 
-            if (slv_reg_rden) begin
+            if (target_reg_rden) begin
                 axi_rdata <= reg_data_out;  // register read data
             end
         end

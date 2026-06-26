@@ -862,27 +862,6 @@
       <xilinx:coreRevision>2</xilinx:coreRevision>
       <xilinx:coreCreationDateTime>2026-06-26T05:11:25Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@6db82a0a_ARCHIVE_LOCATION">/home/user/git/Vault/activities/korcham/helloHDL/ip_repo/timer_1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@355e1786_ARCHIVE_LOCATION">/home/user/git/Vault/activities/korcham/helloHDL/ip_repo/timer_1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@463f517_ARCHIVE_LOCATION">/home/user/git/Vault/activities/korcham/helloHDL/ip_repo/timer_1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@17aa7551_ARCHIVE_LOCATION">/home/user/git/Vault/activities/korcham/helloHDL/ip_repo/timer_1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@792093c1_ARCHIVE_LOCATION">/home/user/git/Vault/activities/korcham/helloHDL/ip_repo/timer_1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@47015e0b_ARCHIVE_LOCATION">/home/user/git/Vault/activities/korcham/helloHDL/ip_repo/timer_1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@2b0c1573_ARCHIVE_LOCATION">/home/user/git/Vault/activities/korcham/helloHDL/ip_repo/timer_1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@6e41f0fe_ARCHIVE_LOCATION">/home/user/git/Vault/activities/korcham/helloHDL/ip_repo/timer_1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@6a096223_ARCHIVE_LOCATION">/home/user/git/Vault/activities/korcham/helloHDL/ip_repo/timer_1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@5d44e165_ARCHIVE_LOCATION">/home/user/git/Vault/activities/korcham/helloHDL/ip_repo/timer_1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@3a183016_ARCHIVE_LOCATION">/home/user/git/Vault/activities/korcham/helloHDL/ip_repo/timer_1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@18542928_ARCHIVE_LOCATION">/home/user/git/Vault/activities/korcham/helloHDL/ip_repo/timer_1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@e5608b8_ARCHIVE_LOCATION">/home/user/git/Vault/activities/korcham/helloHDL/ip_repo/timer_1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@46b81fad_ARCHIVE_LOCATION">/home/user/git/Vault/activities/korcham/helloHDL/ip_repo/timer_1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@1bfd9440_ARCHIVE_LOCATION">/home/user/git/Vault/activities/korcham/helloHDL/ip_repo/timer_1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@da94fe9_ARCHIVE_LOCATION">/home/user/git/Vault/activities/korcham/helloHDL/ip_repo/timer_1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@6d2602e7_ARCHIVE_LOCATION">/home/user/git/Vault/activities/korcham/helloHDL/ip_repo/timer_1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@12d7d2b4_ARCHIVE_LOCATION">/home/user/git/Vault/activities/korcham/helloHDL/ip_repo/timer_1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@31b8406c_ARCHIVE_LOCATION">/home/user/git/Vault/activities/korcham/helloHDL/ip_repo/timer_1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@7796433b_ARCHIVE_LOCATION">/home/user/git/Vault/activities/korcham/helloHDL/ip_repo/timer_1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.dd@73b63331_ARCHIVE_LOCATION">/home/user/git/Vault/activities/korcham/helloHDL/ip_repo/timer_1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

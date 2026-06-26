@@ -9,7 +9,7 @@ module spi_controller (
     input logic cpol,  // SPI clock polarity
     input logic cpha,  // SPI clock phase
     input logic [7:0] clk_div,  // SCLK = clk / (2*(clk_div+1))
-    input logic [1:0] cs_sel,  // 슬레이브 선택 (0~3)
+    input logic [1:0] cs_sel,  // target 선택 (0~3)
     input  logic [7:0]  tx_data,        // 전송 데이터 (start 전에 유효해야 함)
     output logic busy,  // 전송 중 HIGH
     output logic [7:0] rx_data,  // 수신 데이터 (done 후 유효)

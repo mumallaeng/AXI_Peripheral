@@ -36,11 +36,7 @@
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/ip/gpio_1.0"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/ip/timer_1.0"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/ip/uart_1.0"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/ip/spi_1.0"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/ip/iic_1.0"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/ip"/>
     <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
     <Option Name="IPDefaultOutputPath" Val="$PGENDIR/sources_1"/>
     <Option Name="IPCachePermission" Val="read"/>

@@ -7,10 +7,10 @@
 #include "xil_types.h"
 #include "xstatus.h"
 
-#define TIMER_S00_AXI_SLV_REG0_OFFSET 0
-#define TIMER_S00_AXI_SLV_REG1_OFFSET 4
-#define TIMER_S00_AXI_SLV_REG2_OFFSET 8
-#define TIMER_S00_AXI_SLV_REG3_OFFSET 12
+#define TIMER_S00_AXI_TARGET_REG0_OFFSET 0
+#define TIMER_S00_AXI_TARGET_REG1_OFFSET 4
+#define TIMER_S00_AXI_TARGET_REG2_OFFSET 8
+#define TIMER_S00_AXI_TARGET_REG3_OFFSET 12
 
 
 /**************************** Type Definitions *****************************/
