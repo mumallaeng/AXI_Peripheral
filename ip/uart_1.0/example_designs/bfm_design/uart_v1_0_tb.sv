@@ -3,7 +3,7 @@
 `include "uart_v1_0_tb_include.svh"
 
 import axi_vip_pkg::*;
-import uart_v1_0_bfm_1_master_0_0_pkg::*;
+import uart_v1_0_bfm_1_controller_0_0_pkg::*;
 
 module uart_v1_0_tb();
 
@@ -13,26 +13,26 @@ xil_axi_uint                            comparison_cnt = 0;
 axi_transaction                         wr_transaction;   
 axi_transaction                         rd_transaction;   
 axi_monitor_transaction                 mst_monitor_transaction;  
-axi_monitor_transaction                 master_moniter_transaction_queue[$];  
-xil_axi_uint                            master_moniter_transaction_queue_size =0;  
+axi_monitor_transaction                 controller_moniter_transaction_queue[$];  
+xil_axi_uint                            controller_moniter_transaction_queue_size =0;  
 axi_monitor_transaction                 mst_scb_transaction;  
 axi_monitor_transaction                 passthrough_monitor_transaction;  
-axi_monitor_transaction                 passthrough_master_moniter_transaction_queue[$];  
-xil_axi_uint                            passthrough_master_moniter_transaction_queue_size =0;  
+axi_monitor_transaction                 passthrough_controller_moniter_transaction_queue[$];  
+xil_axi_uint                            passthrough_controller_moniter_transaction_queue_size =0;  
 axi_monitor_transaction                 passthrough_mst_scb_transaction;  
-axi_monitor_transaction                 passthrough_slave_moniter_transaction_queue[$];  
-xil_axi_uint                            passthrough_slave_moniter_transaction_queue_size =0;  
+axi_monitor_transaction                 passthrough_target_moniter_transaction_queue[$];  
+xil_axi_uint                            passthrough_target_moniter_transaction_queue_size =0;  
 axi_monitor_transaction                 passthrough_slv_scb_transaction;  
 axi_monitor_transaction                 slv_monitor_transaction;  
-axi_monitor_transaction                 slave_moniter_transaction_queue[$];  
-xil_axi_uint                            slave_moniter_transaction_queue_size =0;  
+axi_monitor_transaction                 target_moniter_transaction_queue[$];  
+xil_axi_uint                            target_moniter_transaction_queue_size =0;  
 axi_monitor_transaction                 slv_scb_transaction;  
 xil_axi_uint                           mst_agent_verbosity = 0;  
 xil_axi_uint                           slv_agent_verbosity = 0;  
 xil_axi_uint                           passthrough_agent_verbosity = 0;  
 bit                                     clock;
 bit                                     reset;
-integer result_slave;  
+integer result_target;  
 bit [31:0] S00_AXI_test_data[3:0]; 
  localparam LC_AXI_BURST_LENGTH = 8; 
  localparam LC_AXI_DATA_WIDTH = 32; 
@@ -42,11 +42,11 @@ task automatic COMPARE_DATA;
   begin 
     if (expected === 'hx || actual === 'hx) begin 
       $display("TESTBENCH ERROR! COMPARE_DATA cannot be performed with an expected or actual vector that is all 'x'!"); 
- result_slave = 0;    $stop; 
+ result_target = 0;    $stop; 
   end 
   if (actual != expected) begin 
     $display("TESTBENCH ERROR! Data expected is not equal to actual.",     " expected = 0x%h",expected,     " actual   = 0x%h",actual); 
-    result_slave = 0; 
+    result_target = 0; 
     $stop; 
   end 
   else  
@@ -60,9 +60,9 @@ integer                                 i;
 integer                                 j;  
 xil_axi_uint                            trans_cnt_before_switch = 48;  
 xil_axi_uint                            passthrough_cmd_switch_cnt = 0;  
-event                                   passthrough_mastermode_start_event;  
-event                                   passthrough_mastermode_end_event;  
-event                                   passthrough_slavemode_end_event;  
+event                                   passthrough_controllermode_start_event;  
+event                                   passthrough_controllermode_end_event;  
+event                                   passthrough_targetmode_end_event;  
 xil_axi_uint                            mtestID;  
 xil_axi_ulong                           mtestADDR;  
 xil_axi_len_t                           mtestBurstLength;  
@@ -104,7 +104,7 @@ axi_ready_gen                           awready_gen2;
 axi_ready_gen                           wready_gen2;  
 axi_ready_gen                           arready_gen2;  
 xil_axi_payload_byte                    data_mem[xil_axi_ulong];  
-uart_v1_0_bfm_1_master_0_0_mst_t          mst_agent_0;
+uart_v1_0_bfm_1_controller_0_0_mst_t          mst_agent_0;
 
   `BD_WRAPPER DUT(
       .ARESETN(reset), 
@@ -112,11 +112,11 @@ uart_v1_0_bfm_1_master_0_0_mst_t          mst_agent_0;
     ); 
   
 initial begin
-     mst_agent_0 = new("master vip agent",DUT.`BD_INST_NAME.master_0.inst.IF);//ms  
+     mst_agent_0 = new("controller vip agent",DUT.`BD_INST_NAME.controller_0.inst.IF);//ms  
    mst_agent_0.vif_proxy.set_dummy_drive_type(XIL_AXI_VIF_DRIVE_NONE); 
-   mst_agent_0.set_agent_tag("Master VIP"); 
+   mst_agent_0.set_agent_tag("controller VIP"); 
    mst_agent_0.set_verbosity(mst_agent_verbosity); 
-   mst_agent_0.start_master(); 
+   mst_agent_0.start_controller(); 
      $timeformat (-12, 1, " ps", 1);
   end
   initial begin
@@ -146,7 +146,7 @@ begin
    mtestProtectionType = 0;  
    mtestRegion = 0; 
    mtestQOS = 0; 
-   result_slave = 1; 
+   result_target = 1; 
   mtestWDataL[31:0] = 32'h00000001; 
   for(int i = 0; i < 4;i++) begin 
   S00_AXI_test_data[i] <= mtestWDataL[31:0];   
@@ -185,7 +185,7 @@ begin
      $display("Sequential read transfers example similar to  AXI VIP READ_BURST method completes"); 
      $display("---------------------------------------------------------"); 
      $display("EXAMPLE TEST S00_AXI: PTGEN_TEST_FINISHED!"); 
-     if ( result_slave ) begin                    
+     if ( result_target ) begin                    
        $display("PTGEN_TEST: PASSED!");                  
      end    else begin                                       
        $display("PTGEN_TEST: FAILED!");                  

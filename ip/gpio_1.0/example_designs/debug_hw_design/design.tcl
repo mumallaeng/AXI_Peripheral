@@ -49,7 +49,7 @@ proc create_ipi_design { offsetfile design_name } {
 	connect_bd_net [get_bd_pins axi_peri_interconnect/M00_ACLK] [get_bd_pins sys_clk_0/clk_out1]
 	connect_bd_net [get_bd_pins axi_peri_interconnect/M00_ARESETN] [get_bd_pins sys_reset_0/peripheral_aresetn]
 
-	# Connect all clock & reset of gpio_0 slave interfaces..
+	# Connect all clock & reset of gpio_0 target interfaces..
 	connect_bd_intf_net [get_bd_intf_pins axi_peri_interconnect/M00_AXI] [get_bd_intf_pins gpio_0/S00_AXI]
 	connect_bd_net [get_bd_pins gpio_0/s00_axi_aclk] [get_bd_pins sys_clk_0/clk_out1]
 	connect_bd_net [get_bd_pins gpio_0/s00_axi_aresetn] [get_bd_pins sys_reset_0/peripheral_aresetn]

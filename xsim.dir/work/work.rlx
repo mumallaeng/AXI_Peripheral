@@ -1,0 +1,8 @@
+0.7
+2020.2
+Nov 18 2020
+09:47:47
+c:/Users/kccistc/Desktop/AXI_Peripheral/ip/spi_1.0/hdl/spi_controller.sv,1782485792,systemVerilog,,,,spi_controller,,,,,,,,
+c:/Users/kccistc/Desktop/AXI_Peripheral/ip/spi_1.0/hdl/spi_controller_top.sv,1782486010,systemVerilog,,,,spi_controller_top,,,,,,,,
+c:/Users/kccistc/Desktop/AXI_Peripheral/ip/spi_1.0/hdl/spi_v1_0.v,1782485821,verilog,,,,axi_spi_controller_v1_0,,,,,,,,
+c:/Users/kccistc/Desktop/AXI_Peripheral/ip/spi_1.0/hdl/spi_v1_0_S00_AXI.v,1782485651,verilog,,,,axi_spi_controller_v1_0_S00_AXI,,,,,,,,

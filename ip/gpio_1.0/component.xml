@@ -9,9 +9,9 @@
       <spirit:name>S00_AXI</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="aximm" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="aximm_rtl" spirit:version="1.0"/>
-      <spirit:slave>
+      <spirit:target>
         <spirit:memoryMapRef spirit:memoryMapRef="S00_AXI"/>
-      </spirit:slave>
+      </spirit:target>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -185,7 +185,7 @@
       <spirit:name>S00_AXI_RST</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:target/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
@@ -207,7 +207,7 @@
       <spirit:name>S00_AXI_CLK</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
+      <spirit:target/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>

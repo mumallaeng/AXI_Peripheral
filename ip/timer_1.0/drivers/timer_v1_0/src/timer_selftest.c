@@ -42,9 +42,9 @@ XStatus TIMER_Reg_SelfTest(void * baseaddr_p)
 	xil_printf("******************************\n\n\r");
 
 	/*
-	 * Write to user logic slave module register(s) and read back
+	 * Write to user logic target module register(s) and read back
 	 */
-	xil_printf("User logic slave module test...\n\r");
+	xil_printf("User logic target module test...\n\r");
 
 	for (write_loop_index = 0 ; write_loop_index < 4; write_loop_index++)
 	  TIMER_mWriteReg (baseaddr, write_loop_index*4, (write_loop_index+1)*READ_WRITE_MUL_FACTOR);
@@ -54,7 +54,7 @@ XStatus TIMER_Reg_SelfTest(void * baseaddr_p)
 	    return XST_FAILURE;
 	  }
 
-	xil_printf("   - slave register write/read passed\n\n\r");
+	xil_printf("   - target register write/read passed\n\n\r");
 
 	return XST_SUCCESS;
 }

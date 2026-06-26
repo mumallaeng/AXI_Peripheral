@@ -1,184 +1,190 @@
-// spi 1 Controller : 1 Target 기본 코드
-// 수업 baseline 범위: MODE0(CPOL=0, CPHA=0)
-// MSB-first
-// active-low cs_n
-// 1-byte transfer
-// runtime clk_div 입력으로 SCLK 속도 transaction별 설정
-
 `timescale 1ns / 1ps
 
-module spi_controller #(
-    parameter int DATA_W = 8,
-    parameter int CLK_DIV_W = 16,
-    parameter int CLK_DIV_INIT = 50
-) (
-    // 공통 입력
+module spi_controller (
+    // global signals
     input logic clk,
     input logic reset_n,
-
-    // spi 설정
-    // 현재 mini project는 MODE0으로 고정한다.
-    // cpol/cpha port는 수업 controller interface와 후속 확장 호환성을 위해 유지한다.
-    input logic                 cpol,
-    input logic                 cpha,
-    input logic [CLK_DIV_W-1:0] clk_div,
-
-    // spi 외부 신호
+    // control signals
+    input logic start,  // 1클럭 펄스: 전송 시작
+    input logic cpol,  // SPI clock polarity
+    input logic cpha,  // SPI clock phase
+    input logic [7:0] clk_div,  // SCLK = clk / (2*(clk_div+1))
+    input logic [1:0] cs_sel,  // 슬레이브 선택 (0~3)
+    input  logic [7:0]  tx_data,        // 전송 데이터 (start 전에 유효해야 함)
+    output logic busy,  // 전송 중 HIGH
+    output logic [7:0] rx_data,  // 수신 데이터 (done 후 유효)
+    output logic done,  // 전송 완료 1클럭 펄스
+    // external SPI signals
     output logic sclk,
-    output logic cs_n,
-    input  logic ctrl_sdi,
-    output logic ctrl_sdo,
-
-    // transaction 제어 신호
-    input  logic              start,
-    input  logic [DATA_W-1:0] tx_data,
-    output logic              busy,
-    output logic              done,
-    output logic [DATA_W-1:0] rx_data,
-    output logic              rx_valid
+    output logic sdo,
+    input logic sdi,
+    output logic [3:0] cs_n  // Chip Select, active low (4개)
 );
 
     typedef enum logic [1:0] {
-        CTRL_IDLE,
-        CTRL_SETUP,
-        CTRL_TRANSFER,
-        CTRL_DONE
-    } state_t;
+        IDLE  = 2'b00,
+        START = 2'b01,
+        DATA  = 2'b10,
+        STOP  = 2'b11
+    } spi_state_e;
 
-    state_t state;
+    spi_state_e       state;
 
-    localparam logic [CLK_DIV_W-1:0] CLK_DIV_INIT_VALUE = CLK_DIV_INIT;
-    localparam int BIT_CNT_W = (DATA_W <= 1) ? 1 : $clog2(DATA_W);
+    logic       [7:0] div_cnt;
+    logic       [7:0] clk_div_r;
+    logic             half_tick;
+    logic       [7:0] tx_shift_reg;
+    logic       [7:0] rx_shift_reg;
+    logic       [2:0] bit_cnt;
+    logic             step;
+    logic             cpol_r;
+    logic             cpha_r;
+    logic             sclk_r;
+    logic       [1:0] cs_sel_r;
+    logic       [3:0] cs_n_r;
 
-    logic                 sclk_half_tick;
-    logic [CLK_DIV_W-1:0] clk_div_r;
-    logic [CLK_DIV_W-1:0] div_cnt;
+    // ── 2단 동기화기 (sdi 메타스태빌리티 방지) ──────────
+    logic sdi_sync0, sdi_sync;
 
-    logic [DATA_W-1:0] tx_shift_reg;
-    logic [DATA_W-1:0] rx_shift_reg;
-    logic [BIT_CNT_W-1:0] bit_cnt;
-
-    logic sclk_r;
-    logic sclk_edge_cnt;
+    always_ff @(posedge clk or negedge reset_n) begin
+        if (!reset_n) begin
+            sdi_sync0 <= 1'b0;
+            sdi_sync  <= 1'b0;
+        end else begin
+            sdi_sync0 <= sdi;
+            sdi_sync  <= sdi_sync0;
+        end
+    end
 
     assign sclk = sclk_r;
+    assign cs_n = cs_n_r;
 
-    always_ff @(posedge clk or negedge reset_n) begin : sclk_divider
+    // CS 디코더 (active low)
+    function automatic logic [3:0] cs_decode;
+        input logic [1:0] sel;
+        input logic active;
+        begin
+            if (active) cs_decode = ~(4'b0001 << sel);
+            else cs_decode = 4'b1111;
+        end
+    endfunction
+
+    // ── 클럭 분주 (half_tick 생성) ───────────────────────
+    always_ff @(posedge clk or negedge reset_n) begin
         if (!reset_n) begin
-            div_cnt        <= '0;
-            sclk_half_tick <= 1'b0;
+            div_cnt   <= 0;
+            half_tick <= 1'b0;
         end else begin
-            if (state == CTRL_TRANSFER) begin
-                if (div_cnt == clk_div_r - 1'b1) begin
-                    div_cnt        <= '0;
-                    sclk_half_tick <= 1'b1;
+            if (state == DATA) begin
+                if (div_cnt == clk_div_r) begin
+                    div_cnt   <= 0;
+                    half_tick <= 1'b1;
                 end else begin
-                    div_cnt        <= div_cnt + 1'b1;
-                    sclk_half_tick <= 1'b0;
+                    div_cnt   <= div_cnt + 1;
+                    half_tick <= 1'b0;
                 end
             end else begin
-                div_cnt        <= '0;
-                sclk_half_tick <= 1'b0;
+                div_cnt   <= 0;
+                half_tick <= 1'b0;
             end
         end
     end
 
-    always_ff @(posedge clk or negedge reset_n) begin : SPI_CONTROLLER_P2P_FSM
+    // ── 메인 FSM ─────────────────────────────────────────
+    always_ff @(posedge clk or negedge reset_n) begin
         if (!reset_n) begin
-            // FSM 상태
-            state         <= CTRL_IDLE;
-
-            // transaction 설정값
-            clk_div_r     <= '0;
-
-            // TX/RX datapath
-            tx_shift_reg  <= '0;
-            rx_shift_reg  <= '0;
-            rx_data       <= '0;
-            rx_valid      <= 1'b0;
-
-            // 상태 출력
-            busy          <= 1'b0;
-            done          <= 1'b0;
-
-            // counter
-            bit_cnt       <= '0;
-            sclk_edge_cnt <= 1'b0;
-
-            // spi 외부 신호
-            ctrl_sdo      <= 1'b1;
-            cs_n          <= 1'b1;
-            sclk_r        <= 1'b0;
+            state        <= IDLE;
+            sdo         <= 1'b1;
+            cs_n_r       <= 4'b1111;
+            busy         <= 1'b0;
+            done         <= 1'b0;
+            tx_shift_reg <= 0;
+            rx_shift_reg <= 0;
+            rx_data      <= 0;
+            bit_cnt      <= 0;
+            step         <= 1'b0;
+            sclk_r       <= 1'b0;
+            cpol_r       <= 1'b0;
+            cpha_r       <= 1'b0;
+            clk_div_r    <= 0;
+            cs_sel_r     <= 0;
         end else begin
-            done     <= 1'b0;
-            rx_valid <= 1'b0;
+            done <= 1'b0;  // done은 1사이클 펄스
 
             case (state)
-                CTRL_IDLE: begin
-                    busy     <= 1'b0;
-                    ctrl_sdo <= 1'b1;
-                    cs_n     <= 1'b1;
-                    sclk_r   <= 1'b0;
-
+                IDLE: begin
+                    sdo   <= 1'b1;
+                    cs_n_r <= 4'b1111;
+                    sclk_r <= cpol;
                     if (start) begin
-                        state         <= CTRL_SETUP;
-                        busy          <= 1'b1;
-                        clk_div_r     <= (clk_div == '0) ? CLK_DIV_INIT_VALUE : clk_div;
-                        tx_shift_reg  <= tx_data;
-                        rx_shift_reg  <= '0;
-                        bit_cnt       <= '0;
-                        sclk_edge_cnt <= 1'b0;
-                        cs_n          <= 1'b0;
-                        sclk_r        <= 1'b0;
+                        state        <= START;
+                        cpol_r       <= cpol;
+                        cpha_r       <= cpha;
+                        clk_div_r    <= clk_div;
+                        tx_shift_reg <= tx_data;
+                        cs_sel_r     <= cs_sel;
+                        bit_cnt      <= 0;
+                        step         <= 1'b0;
+                        busy         <= 1'b1;
+                        cs_n_r       <= cs_decode(cs_sel, 1'b1);
                     end
                 end
 
-                CTRL_SETUP: begin
-                    ctrl_sdo     <= tx_shift_reg[DATA_W-1];
-                    tx_shift_reg <= {tx_shift_reg[DATA_W-2:0], 1'b0};
-
-                    state <= CTRL_TRANSFER;
+                START: begin
+                    // CPHA=0: CS assert 직후 첫 비트 출력
+                    if (cpha_r == 1'b0) begin
+                        sdo         <= tx_shift_reg[7];
+                        tx_shift_reg <= {tx_shift_reg[6:0], 1'b0};
+                    end
+                    state <= DATA;
                 end
 
-                CTRL_TRANSFER: begin
-                    if (sclk_half_tick) begin
+                DATA: begin
+                    if (half_tick) begin
                         sclk_r <= ~sclk_r;
-
-                        if (sclk_edge_cnt == 1'b0) begin
-                            sclk_edge_cnt <= 1'b1;
-
-                            rx_shift_reg <= {rx_shift_reg[DATA_W-2:0], ctrl_sdi};
-                        end else begin
-                            sclk_edge_cnt <= 1'b0;
-
-                            if (bit_cnt != DATA_W - 1) begin
-                                ctrl_sdo     <= tx_shift_reg[DATA_W-1];
-                                tx_shift_reg <= {tx_shift_reg[DATA_W-2:0], 1'b0};
+                        if (step == 0) begin  // 첫 번째 엣지
+                            step <= 1'b1;
+                            if (cpha_r == 1'b0)
+                                rx_shift_reg <= {
+                                    rx_shift_reg[6:0], sdi_sync
+                                };  // 동기화된 sdi 샘플링
+                            else begin
+                                sdo         <= tx_shift_reg[7];
+                                tx_shift_reg <= {tx_shift_reg[6:0], 1'b0};
                             end
+                        end else begin  // 두 번째 엣지
+                            step <= 1'b0;
+                            if (cpha_r == 1'b0) begin
+                                if (bit_cnt < 7) begin
+                                    sdo         <= tx_shift_reg[7];
+                                    tx_shift_reg <= {tx_shift_reg[6:0], 1'b0};
+                                end
+                            end else
+                                rx_shift_reg <= {
+                                    rx_shift_reg[6:0], sdi_sync
+                                };  // 동기화된 sdi 샘플링
 
-                            if (bit_cnt == DATA_W - 1) begin
-                                state <= CTRL_DONE;
-                                rx_data <= rx_shift_reg;
-                            end else begin
-                                bit_cnt <= bit_cnt + 1'b1;
-                            end
+                            if (bit_cnt == 7) begin
+                                state <= STOP;
+                                rx_data <= (cpha_r == 1'b0) ? rx_shift_reg
+                                                             : {rx_shift_reg[6:0], sdi_sync};
+                            end else bit_cnt <= bit_cnt + 1;
                         end
                     end
                 end
 
-                CTRL_DONE: begin
-                    state    <= CTRL_IDLE;
-                    busy     <= 1'b0;
-                    done     <= 1'b1;
-                    rx_valid <= 1'b1;
-                    sclk_r   <= 1'b0;
-                    cs_n     <= 1'b1;
-                    ctrl_sdo <= 1'b1;
+                STOP: begin
+                    done    <= 1'b1;
+                    busy    <= 1'b0;
+                    cs_n_r  <= 4'b1111;
+                    sclk_r  <= cpol_r;
+                    sdo    <= 1'b1;
+                    state   <= IDLE;
+                    bit_cnt <= 0;
+                    step    <= 1'b0;
                 end
 
-                default: begin
-                    state <= CTRL_IDLE;
-                end
+                default: state <= IDLE;
             endcase
         end
     end

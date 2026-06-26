@@ -7,7 +7,7 @@ proc init { cellpath otherInfo } {
 	set full_sbusif_list [list  ]
 			                                                                                                 
 	foreach busif $all_busif {                                                                               
-		if { [string equal -nocase [get_property MODE $busif] "slave"] == 1 } {                            
+		if { [string equal -nocase [get_property MODE $busif] "target"] == 1 } {                            
 			set busif_param_list [list]                                                                      
 			set busif_name [get_property NAME $busif]					                                     
 			if { [lsearch -exact -nocase $full_sbusif_list $busif_name ] == -1 } {					         
@@ -32,7 +32,7 @@ proc pre_propagate {cellpath otherInfo } {
 		if { [string equal -nocase [get_property CONFIG.PROTOCOL $busif] "AXI4"] != 1 } {                  
 			continue                                                                                         
 		}                                                                                                    
-		if { [string equal -nocase [get_property MODE $busif] "master"] != 1 } {                           
+		if { [string equal -nocase [get_property MODE $busif] "controller"] != 1 } {                           
 			continue                                                                                         
 		}			                                                                                         
 		                                                                                                     
@@ -63,7 +63,7 @@ proc propagate {cellpath otherInfo } {
 		if { [string equal -nocase [get_property CONFIG.PROTOCOL $busif] "AXI4"] != 1 } {                  
 			continue                                                                                         
 		}                                                                                                    
-		if { [string equal -nocase [get_property MODE $busif] "slave"] != 1 } {                            
+		if { [string equal -nocase [get_property MODE $busif] "target"] != 1 } {                            
 			continue                                                                                         
 		}			                                                                                         
 	                                                                                                         
@@ -75,7 +75,7 @@ proc propagate {cellpath otherInfo } {
 			set val_on_cell [get_property CONFIG.${busif_param_name} $cell_handle]                           
 			                                                                                                 
 			if { [string equal -nocase $val_on_cell_intf_pin $val_on_cell] != 1 } {                          
-				#override property of bd_interface_net to bd_cell -- only for slaves.  May check for supported values..
+				#override property of bd_interface_net to bd_cell -- only for targets.  May check for supported values..
 				if { $val_on_cell_intf_pin != "" } {                                                         
 					set_property CONFIG.${busif_param_name} $val_on_cell_intf_pin $cell_handle               
 				}                                                                                            

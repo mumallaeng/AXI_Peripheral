@@ -63,7 +63,7 @@ module uart_v1_0_S00_AXI #(
     //----------------------------------------------
     //-- Signals for user logic register space example
     //------------------------------------------------
-    //-- Number of Slave Registers 4
+    //-- Number of target Registers 4
     reg     [  C_S_AXI_DATA_WIDTH-1:0] uart_sr;
     reg     [  C_S_AXI_DATA_WIDTH-1:0] uart_tdr;
     reg     [  C_S_AXI_DATA_WIDTH-1:0] uart_rdr;
@@ -103,7 +103,7 @@ module uart_v1_0_S00_AXI #(
             aw_en <= 1'b1;
         end else begin
             if (~axi_awready && S_AXI_AWVALID && S_AXI_WVALID && aw_en) begin
-                // slave is ready to accept write address when 
+                // target is ready to accept write address when 
                 // there is a valid write address and write data
                 // on the write address and data bus. This design 
                 // expects no outstanding transactions. 
@@ -143,7 +143,7 @@ module uart_v1_0_S00_AXI #(
             axi_wready <= 1'b0;
         end else begin
             if (~axi_wready && S_AXI_WVALID && S_AXI_AWVALID && aw_en) begin
-                // slave is ready to accept write data when 
+                // target is ready to accept write data when 
                 // there is a valid write address and write data
                 // on the write address and data bus. This design 
                 // expects no outstanding transactions. 
@@ -157,10 +157,10 @@ module uart_v1_0_S00_AXI #(
     // Implement memory mapped register select and write logic generation
     // The write data is accepted and written to memory mapped registers when
     // axi_awready, S_AXI_WVALID, axi_wready and S_AXI_WVALID are asserted. Write strobes are used to
-    // select byte enables of slave registers while writing.
+    // select byte enables of target registers while writing.
     // These registers are cleared when reset (active low) is applied.
-    // Slave register write enable is asserted when valid address and data are available
-    // and the slave is ready to accept the write address and write data.
+    // target register write enable is asserted when valid address and data are available
+    // and the target is ready to accept the write address and write data.
     assign slv_reg_wren = axi_wready && S_AXI_WVALID && axi_awready && S_AXI_AWVALID;
 
     // always @(posedge S_AXI_ACLK) begin
@@ -215,7 +215,7 @@ module uart_v1_0_S00_AXI #(
 
 
     // Implement write response logic generation
-    // The write response and response valid signals are asserted by the slave 
+    // The write response and response valid signals are asserted by the target 
     // when axi_wready, S_AXI_WVALID, axi_wready and S_AXI_WVALID are asserted.  
     // This marks the acceptance of address and indicates the status of 
     // write transaction.
@@ -256,7 +256,7 @@ module uart_v1_0_S00_AXI #(
             axi_araddr  <= 32'b0;
         end else begin
             if (~axi_arready && S_AXI_ARVALID) begin
-                // indicates that the slave has acceped the valid read address
+                // indicates that the target has acceped the valid read address
                 axi_arready <= 1'b1;
                 // Read address latching
                 axi_araddr  <= S_AXI_ARADDR;
@@ -268,7 +268,7 @@ module uart_v1_0_S00_AXI #(
 
     // Implement axi_arvalid generation
     // axi_rvalid is asserted for one S_AXI_ACLK clock cycle when both 
-    // S_AXI_ARVALID and axi_arready are asserted. The slave registers 
+    // S_AXI_ARVALID and axi_arready are asserted. The target registers 
     // data are available on the axi_rdata bus at this instance. The 
     // assertion of axi_rvalid marks the validity of read data on the 
     // bus and axi_rresp indicates the status of read transaction.axi_rvalid 
@@ -284,15 +284,15 @@ module uart_v1_0_S00_AXI #(
                 axi_rvalid <= 1'b1;
                 axi_rresp  <= 2'b0;  // 'OKAY' response
             end else if (axi_rvalid && S_AXI_RREADY) begin
-                // Read data is accepted by the master
+                // Read data is accepted by the controller
                 axi_rvalid <= 1'b0;
             end
         end
     end
 
     // Implement memory mapped register select and read logic generation
-    // Slave register read enable is asserted when valid address is available
-    // and the slave is ready to accept the read address.
+    // target register read enable is asserted when valid address is available
+    // and the target is ready to accept the read address.
     assign slv_reg_rden = axi_arready & S_AXI_ARVALID & ~axi_rvalid;
     always @(*) begin
         // Address decoding for reading registers
@@ -311,7 +311,7 @@ module uart_v1_0_S00_AXI #(
             axi_rdata <= 0;
         end else begin
             // When there is a valid read address (S_AXI_ARVALID) with 
-            // acceptance of read address by the slave (axi_arready), 
+            // acceptance of read address by the target (axi_arready), 
             // output the read dada 
             if (slv_reg_rden) begin
                 axi_rdata <= reg_data_out;  // register read data
