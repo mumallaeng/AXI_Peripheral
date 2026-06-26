@@ -1,7 +1,7 @@
 
 #include "xil_printf.h"
 #include "common/delay/delay.h"
-#include "ap/StopWatch.h"
+#include "app/AXI_Peripheral_App.h"
 #include "common/interrupt/interrupt.h"
 #include "HAL/TMR/TMR.h"
 #include "HAL/UART/UART.h"
@@ -17,7 +17,7 @@ int main()
 
 	UART_StartInterrupt(UART0);
 
-	StopWatch_Init();
+	AXI_Peripheral_App_Init();
 	SetupInterruptsystem();
 
 	//	uint32_t prevTime = 0;
@@ -25,7 +25,7 @@ int main()
 	while (1)
 	{
 
-		StopWatch_Excute();
+		AXI_Peripheral_App_Execute();
 
 		if (Button_GetState(&hbtnLeft) == ACT_RELEASED) {
 		UART_Transmit(UART0, 'r');
@@ -59,7 +59,7 @@ int main()
 		//		}
 
 		/*********polling service routine***********/
-		//		FND_Excute();
+		//		FND_Execute();
 		//		incTick();
 		//		delay_ms(1);
 	}
