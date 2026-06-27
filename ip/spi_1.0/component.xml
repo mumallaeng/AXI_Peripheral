@@ -781,7 +781,7 @@
         <spirit:fileType>systemVerilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/spi_controller_top.sv</spirit:name>
+        <spirit:name>hdl/spi_controller_top.v</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -801,7 +801,7 @@
         <spirit:fileType>systemVerilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/spi_controller_top.sv</spirit:name>
+        <spirit:name>hdl/spi_controller_top.v</spirit:name>
         <spirit:fileType>systemVerilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>

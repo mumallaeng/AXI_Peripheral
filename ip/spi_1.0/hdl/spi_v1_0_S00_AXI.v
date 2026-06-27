@@ -1,6 +1,6 @@
 `timescale 1 ns / 1 ps
 
-module axi_spi_controller_v1_0_S00_AXI #(
+module spi_v1_0_S00_AXI #(
     parameter integer C_S_AXI_DATA_WIDTH = 32,
     parameter integer C_S_AXI_ADDR_WIDTH = 4
 ) (

@@ -1,7 +1,7 @@
 
 `timescale 1 ns / 1 ps
 
-module axi_spi_controller_v1_0 #(
+module spi_v1_0 #(
     // Users to add parameters here
 
     // User parameters ends
@@ -20,9 +20,9 @@ module axi_spi_controller_v1_0 #(
     output wire       sclk,
     output wire       mosi,
     input  wire       miso,
-    output wire [3:0] ss_n,  // active low, 4개
+    output wire [3:0] cs_n,  // active low, 4개
 
-    // ── 인터럽트 
+    // ── 인터럽트
     output wire intr,  // done_ie & done_flag
 
     // Ports of Axi Slave Bus Interface S00_AXI
@@ -61,10 +61,10 @@ module axi_spi_controller_v1_0 #(
 
 
     // Instantiation of Axi Bus Interface S00_AXI
-    axi_spi_controller_v1_0_S00_AXI #(
+    spi_v1_0_S00_AXI #(
         .C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
         .C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
-    ) axi_spi_controller_v1_0_S00_AXI_inst (
+    ) spi_v1_0_S00_AXI_inst (
         .S_AXI_ACLK   (s00_axi_aclk),
         .S_AXI_ARESETN(s00_axi_aresetn),
         .S_AXI_AWADDR (s00_axi_awaddr),
@@ -117,7 +117,7 @@ module axi_spi_controller_v1_0 #(
         .sclk(sclk),
         .mosi(mosi),
         .miso(miso),
-        .ss_n(ss_n)  // active low, 4개
+        .ss_n(cs_n)  // active low, 4개
     );
     // User logic ends
 

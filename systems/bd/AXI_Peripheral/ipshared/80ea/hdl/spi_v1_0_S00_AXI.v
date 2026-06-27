@@ -4,26 +4,26 @@ module spi_v1_0_S00_AXI #(
     parameter integer C_S_AXI_DATA_WIDTH = 32,
     parameter integer C_S_AXI_ADDR_WIDTH = 4
 ) (
-    // ── CTRL (target_reg0 → spi_controller_top) ─────────────────
-    output wire       start,   // target_reg0[0]    전송 시작 1클럭 펄스
-    output wire       cpol,    // target_reg0[2]    clock polarity
-    output wire       cpha,    // target_reg0[3]    clock phase
-    output wire [1:0] cs_sel,  // target_reg0[5:4]  SPI device 선택
-    output wire [7:0] clk_div, // target_reg1[15:8] SCLK 분주값
-    // done_ie = target_reg0[1] → 내부에서 직접 사용
+    // ── CTRL (slv_reg0 → spi_master_top) ─────────────────
+    output wire       start,   // slv_reg0[0]    전송 시작 1클럭 펄스
+    output wire       cpol,    // slv_reg0[2]    clock polarity
+    output wire       cpha,    // slv_reg0[3]    clock phase
+    output wire [1:0] cs_sel,  // slv_reg0[5:4]  슬레이브 선택
+    output wire [7:0] clk_div, // slv_reg1[15:8] SCLK 분주값
+    // done_ie = slv_reg0[1] → 내부에서 직접 사용
 
-    // ── TX DATA (target_reg1 → spi_controller_top) ──────────────
-    output wire [7:0] tx_data,  // target_reg1[7:0]
+    // ── TX DATA (slv_reg1 → spi_master_top) ──────────────
+    output wire [7:0] tx_data,  // slv_reg1[7:0]
 
-    // ── STATUS (spi_controller_top → target_reg2) ───────────────
-    input wire busy,  // target_reg2[0]
+    // ── STATUS (spi_master_top → slv_reg2) ───────────────
+    input wire busy,  // slv_reg2[0]
     input wire done,  // 1클럭 펄스
 
-    // ── RX DATA (spi_controller_top → target_reg3) ──────────────
+    // ── RX DATA (spi_master_top → slv_reg3) ──────────────
     input wire [7:0] rx_data,  // done 시 래칭
 
     // ── 인터럽트 ──────────────────────────────────────────
-    output wire intr,  // target_reg0[1](done_ie) & done
+    output wire intr,  // slv_reg0[1](done_ie) & done
 
     // ── AXI4-Lite 버스 ────────────────────────────────────
     input  wire                              S_AXI_ACLK,
@@ -66,27 +66,27 @@ module spi_v1_0_S00_AXI #(
     reg axi_rvalid;
     reg aw_en;
 
-    wire target_reg_wren;
-    wire target_reg_rden;
+    wire slv_reg_wren;
+    wire slv_reg_rden;
     reg [C_S_AXI_DATA_WIDTH-1:0] reg_data_out;
     integer byte_index;
 
-    // ── AXI register bank ─────────────────────────────────
-    reg [C_S_AXI_DATA_WIDTH-1:0] target_reg0;  // 0x00 CTRL   (R/W)
-    reg [C_S_AXI_DATA_WIDTH-1:0] target_reg1;  // 0x04 TX DATA (W)
-    reg [C_S_AXI_DATA_WIDTH-1:0] target_reg3;  // 0x0C RX DATA (R, done 시 래칭)
-    // target_reg2 0x08 STATUS — 하드와이어 (busy, done), 레지스터 불필요
+    // ── 슬레이브 레지스터 ─────────────────────────────────
+    reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg0;  // 0x00 CTRL   (R/W)
+    reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg1;  // 0x04 TX DATA (W)
+    reg [C_S_AXI_DATA_WIDTH-1:0] slv_reg3;  // 0x0C RX DATA (R, done 시 래칭)
+    // slv_reg2 0x08 STATUS — 하드와이어 (busy, done), 레지스터 불필요
 
     reg start_r;  // start 1클럭 펄스
 
     // ── I/O assign ────────────────────────────────────────
     assign start   = start_r;
-    assign cpol    = target_reg0[2];
-    assign cpha    = target_reg0[3];
-    assign cs_sel  = target_reg0[5:4];
-    assign clk_div = target_reg0[15:8];
-    assign tx_data = target_reg1[7:0];
-    assign intr    = target_reg0[1] & done;   // done_ie & done 펄스
+    assign cpol    = slv_reg0[2];
+    assign cpha    = slv_reg0[3];
+    assign cs_sel  = slv_reg0[5:4];
+    assign clk_div = slv_reg0[15:8];
+    assign tx_data = slv_reg1[7:0];
+    assign intr    = slv_reg0[1] & done;   // done_ie & done 펄스
 
     assign S_AXI_AWREADY = axi_awready;
     assign S_AXI_WREADY  = axi_wready;
@@ -136,15 +136,15 @@ module spi_v1_0_S00_AXI #(
         end
     end
 
-    assign target_reg_wren = axi_wready && S_AXI_WVALID && axi_awready && S_AXI_AWVALID;
+    assign slv_reg_wren = axi_wready && S_AXI_WVALID && axi_awready && S_AXI_AWVALID;
 
     // ── 레지스터 쓰기 (byte strobe 지원, 원본 템플릿 구조 동일) ──
     always @(posedge S_AXI_ACLK) begin
         if (S_AXI_ARESETN == 1'b0) begin
-            target_reg0 <= 0;
-            target_reg1 <= 0;
+            slv_reg0 <= 0;
+            slv_reg1 <= 0;
         end else begin
-            if (target_reg_wren) begin
+            if (slv_reg_wren) begin
                 case (axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB])
                     2'h0: begin  // CTRL
                         for (
@@ -153,8 +153,8 @@ module spi_v1_0_S00_AXI #(
                             byte_index = byte_index + 1
                         )
                         if (S_AXI_WSTRB[byte_index])
-                            target_reg0[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
-                        target_reg0[0] <= 1'b0;  // start는 write-only 펄스, 저장 안 함
+                            slv_reg0[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+                        slv_reg0[0] <= 1'b0;  // start는 write-only 펄스, 저장 안 함
                     end
                     2'h1:  // TX DATA
                     for (
@@ -163,7 +163,7 @@ module spi_v1_0_S00_AXI #(
                         byte_index = byte_index + 1
                     )
                     if (S_AXI_WSTRB[byte_index])
-                        target_reg1[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+                        slv_reg1[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
                     // 2'h2: STATUS — read only, 쓰기 무시
                     // 2'h3: RX DATA — read only, 쓰기 무시
                     default: ;
@@ -179,7 +179,7 @@ module spi_v1_0_S00_AXI #(
             start_r <= 1'b0;
         end else begin
             start_r <= 1'b0;
-            if (target_reg_wren && (axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h0)
+            if (slv_reg_wren && (axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB] == 2'h0)
                              && S_AXI_WDATA[0])
                 start_r <= 1'b1;
         end
@@ -188,9 +188,9 @@ module spi_v1_0_S00_AXI #(
     // ── RX DATA 래칭 (done 펄스 시) ──────────────────────
     always @(posedge S_AXI_ACLK) begin
         if (S_AXI_ARESETN == 1'b0) begin
-            target_reg3 <= 0;
+            slv_reg3 <= 0;
         end else begin
-            if (done) target_reg3[7:0] <= rx_data;
+            if (done) slv_reg3[7:0] <= rx_data;
         end
     end
 
@@ -240,22 +240,22 @@ module spi_v1_0_S00_AXI #(
     end
 
     // ── 레지스터 읽기 ─────────────────────────────────────
-    assign target_reg_rden = axi_arready & S_AXI_ARVALID & ~axi_rvalid;
+    assign slv_reg_rden = axi_arready & S_AXI_ARVALID & ~axi_rvalid;
 
     always @(*) begin
         case (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB])
-            2'h0: reg_data_out = target_reg0;  // CTRL
-            2'h1: reg_data_out = target_reg1;  // TX DATA
+            2'h0: reg_data_out = slv_reg0;  // CTRL
+            2'h1: reg_data_out = slv_reg1;  // TX DATA
             2'h2:
             reg_data_out = {30'b0, done, busy};  // STATUS (하드와이어)
-            2'h3: reg_data_out = {24'b0, target_reg3[7:0]};  // RX DATA
+            2'h3: reg_data_out = {24'b0, slv_reg3[7:0]};  // RX DATA
             default: reg_data_out = 0;
         endcase
     end
 
     always @(posedge S_AXI_ACLK) begin
         if (S_AXI_ARESETN == 1'b0) axi_rdata <= 0;
-        else if (target_reg_rden) axi_rdata <= reg_data_out;
+        else if (slv_reg_rden) axi_rdata <= reg_data_out;
     end
 
 endmodule

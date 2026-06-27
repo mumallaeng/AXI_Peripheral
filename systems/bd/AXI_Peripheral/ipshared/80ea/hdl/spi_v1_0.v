@@ -8,7 +8,7 @@ module spi_v1_0 #(
     // Do not modify the parameters beyond this line
 
 
-    // Parameters of AXI subordinate Bus Interface S00_AXI
+    // Parameters of Axi Slave Bus Interface S00_AXI
     parameter integer C_S00_AXI_DATA_WIDTH = 32,
     parameter integer C_S00_AXI_ADDR_WIDTH = 4
 ) (
@@ -18,14 +18,14 @@ module spi_v1_0 #(
     // Do not modify the ports beyond this line
     // ── 외부 SPI 핀
     output wire       sclk,
-    output wire       sdo,
-    input  wire       sdi,
+    output wire       mosi,
+    input  wire       miso,
     output wire [3:0] cs_n,  // active low, 4개
 
     // ── 인터럽트
     output wire intr,  // done_ie & done_flag
 
-    // Ports of AXI subordinate Bus Interface S00_AXI
+    // Ports of Axi Slave Bus Interface S00_AXI
     input  wire                                  s00_axi_aclk,
     input  wire                                  s00_axi_aresetn,
     input  wire [    C_S00_AXI_ADDR_WIDTH-1 : 0] s00_axi_awaddr,
@@ -102,7 +102,7 @@ module spi_v1_0 #(
 
 
     // Add user logic here
-    spi_controller_top U_SPI_CON (
+    spi_master_top U_SPI_CON (
         .clk(s00_axi_aclk),
         .rst(s00_axi_aresetn),
         .start(start),  // [0]
@@ -115,9 +115,9 @@ module spi_v1_0 #(
         .done(done),  // [1] → 래퍼에서 done_flag로 래칭
         .rx_data(rx_data),  // [7:0]
         .sclk(sclk),
-        .sdo(sdo),
-        .sdi(sdi),
-        .cs_n(cs_n)  // active low, 4개
+        .mosi(mosi),
+        .miso(miso),
+        .ss_n(cs_n)  // active low, 4개
     );
     // User logic ends
 

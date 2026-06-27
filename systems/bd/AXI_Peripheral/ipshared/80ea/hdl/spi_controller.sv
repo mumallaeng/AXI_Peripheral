@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module spi_controller (
+module spi_master (
     // global signals
     input logic clk,
     input logic reset_n,
@@ -9,16 +9,16 @@ module spi_controller (
     input logic cpol,  // SPI clock polarity
     input logic cpha,  // SPI clock phase
     input logic [7:0] clk_div,  // SCLK = clk / (2*(clk_div+1))
-    input logic [1:0] cs_sel,  // SPI device 선택 (0~3)
+    input logic [1:0] cs_sel,  // 슬레이브 선택 (0~3)
     input  logic [7:0]  tx_data,        // 전송 데이터 (start 전에 유효해야 함)
     output logic busy,  // 전송 중 HIGH
     output logic [7:0] rx_data,  // 수신 데이터 (done 후 유효)
     output logic done,  // 전송 완료 1클럭 펄스
     // external SPI signals
     output logic sclk,
-    output logic sdo,
-    input logic sdi,
-    output logic [3:0] cs_n  // Chip Select, active low (4개)
+    output logic mosi,
+    input logic miso,
+    output logic [3:0] ss_n  // Chip Select, active low (4개)
 );
 
     typedef enum logic [1:0] {
@@ -41,23 +41,23 @@ module spi_controller (
     logic             cpha_r;
     logic             sclk_r;
     logic       [1:0] cs_sel_r;
-    logic       [3:0] cs_n_r;
+    logic       [3:0] ss_n_r;
 
-    // ── 2단 동기화기 (sdi 메타스태빌리티 방지) ──────────
-    logic sdi_sync0, sdi_sync;
+    // ── 2단 동기화기 (miso 메타스태빌리티 방지) ──────────
+    logic miso_sync0, miso_sync;
 
     always_ff @(posedge clk or negedge reset_n) begin
         if (!reset_n) begin
-            sdi_sync0 <= 1'b0;
-            sdi_sync  <= 1'b0;
+            miso_sync0 <= 1'b0;
+            miso_sync  <= 1'b0;
         end else begin
-            sdi_sync0 <= sdi;
-            sdi_sync  <= sdi_sync0;
+            miso_sync0 <= miso;
+            miso_sync  <= miso_sync0;
         end
     end
 
     assign sclk = sclk_r;
-    assign cs_n = cs_n_r;
+    assign ss_n = ss_n_r;
 
     // CS 디코더 (active low)
     function automatic logic [3:0] cs_decode;
@@ -94,8 +94,8 @@ module spi_controller (
     always_ff @(posedge clk or negedge reset_n) begin
         if (!reset_n) begin
             state        <= IDLE;
-            sdo         <= 1'b1;
-            cs_n_r       <= 4'b1111;
+            mosi         <= 1'b1;
+            ss_n_r       <= 4'b1111;
             busy         <= 1'b0;
             done         <= 1'b0;
             tx_shift_reg <= 0;
@@ -113,8 +113,8 @@ module spi_controller (
 
             case (state)
                 IDLE: begin
-                    sdo   <= 1'b1;
-                    cs_n_r <= 4'b1111;
+                    mosi   <= 1'b1;
+                    ss_n_r <= 4'b1111;
                     sclk_r <= cpol;
                     if (start) begin
                         state        <= START;
@@ -126,14 +126,14 @@ module spi_controller (
                         bit_cnt      <= 0;
                         step         <= 1'b0;
                         busy         <= 1'b1;
-                        cs_n_r       <= cs_decode(cs_sel, 1'b1);
+                        ss_n_r       <= cs_decode(cs_sel, 1'b1);
                     end
                 end
 
                 START: begin
                     // CPHA=0: CS assert 직후 첫 비트 출력
                     if (cpha_r == 1'b0) begin
-                        sdo         <= tx_shift_reg[7];
+                        mosi         <= tx_shift_reg[7];
                         tx_shift_reg <= {tx_shift_reg[6:0], 1'b0};
                     end
                     state <= DATA;
@@ -146,28 +146,28 @@ module spi_controller (
                             step <= 1'b1;
                             if (cpha_r == 1'b0)
                                 rx_shift_reg <= {
-                                    rx_shift_reg[6:0], sdi_sync
-                                };  // 동기화된 sdi 샘플링
+                                    rx_shift_reg[6:0], miso_sync
+                                };  // 동기화된 miso 샘플링
                             else begin
-                                sdo         <= tx_shift_reg[7];
+                                mosi         <= tx_shift_reg[7];
                                 tx_shift_reg <= {tx_shift_reg[6:0], 1'b0};
                             end
                         end else begin  // 두 번째 엣지
                             step <= 1'b0;
                             if (cpha_r == 1'b0) begin
                                 if (bit_cnt < 7) begin
-                                    sdo         <= tx_shift_reg[7];
+                                    mosi         <= tx_shift_reg[7];
                                     tx_shift_reg <= {tx_shift_reg[6:0], 1'b0};
                                 end
                             end else
                                 rx_shift_reg <= {
-                                    rx_shift_reg[6:0], sdi_sync
-                                };  // 동기화된 sdi 샘플링
+                                    rx_shift_reg[6:0], miso_sync
+                                };  // 동기화된 miso 샘플링
 
                             if (bit_cnt == 7) begin
                                 state <= STOP;
                                 rx_data <= (cpha_r == 1'b0) ? rx_shift_reg
-                                                             : {rx_shift_reg[6:0], sdi_sync};
+                                                             : {rx_shift_reg[6:0], miso_sync};
                             end else bit_cnt <= bit_cnt + 1;
                         end
                     end
@@ -176,9 +176,9 @@ module spi_controller (
                 STOP: begin
                     done    <= 1'b1;
                     busy    <= 1'b0;
-                    cs_n_r  <= 4'b1111;
+                    ss_n_r  <= 4'b1111;
                     sclk_r  <= cpol_r;
-                    sdo    <= 1'b1;
+                    mosi    <= 1'b1;
                     state   <= IDLE;
                     bit_cnt <= 0;
                     step    <= 1'b0;
