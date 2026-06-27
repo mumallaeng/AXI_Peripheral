@@ -23,61 +23,61 @@
 		input wire  S_AXI_ACLK,
 		// Global Reset Signal. This Signal is Active LOW
 		input wire  S_AXI_ARESETN,
-		// Write address (issued by controller, acceped by target)
+		// Write address (issued by manager, accepted by subordinate)
 		input wire [C_S_AXI_ADDR_WIDTH-1 : 0] S_AXI_AWADDR,
 		// Write channel Protection type. This signal indicates the
-    		// privilege and security level of the transaction, and whether
-    		// the transaction is a data access or an instruction access.
+		// privilege and security level of the transaction, and whether
+		// the transaction is a data access or an instruction access.
 		input wire [2 : 0] S_AXI_AWPROT,
-		// Write address valid. This signal indicates that the controller signaling
-    		// valid write address and control information.
+		// Write address valid. This signal indicates that the manager signaling
+		// valid write address and control information.
 		input wire  S_AXI_AWVALID,
-		// Write address ready. This signal indicates that the target is ready
-    		// to accept an address and associated control signals.
+		// Write address ready. This signal indicates that the subordinate is ready
+		// to accept an address and associated control signals.
 		output wire  S_AXI_AWREADY,
-		// Write data (issued by controller, acceped by target) 
+		// Write data (issued by manager, accepted by subordinate)
 		input wire [C_S_AXI_DATA_WIDTH-1 : 0] S_AXI_WDATA,
 		// Write strobes. This signal indicates which byte lanes hold
-    		// valid data. There is one write strobe bit for each eight
-    		// bits of the write data bus.    
+		// valid data. There is one write strobe bit for each eight
+		// bits of the write data bus.
 		input wire [(C_S_AXI_DATA_WIDTH/8)-1 : 0] S_AXI_WSTRB,
 		// Write valid. This signal indicates that valid write
-    		// data and strobes are available.
+		// data and strobes are available.
 		input wire  S_AXI_WVALID,
-		// Write ready. This signal indicates that the target
-    		// can accept the write data.
+		// Write ready. This signal indicates that the subordinate
+		// can accept the write data.
 		output wire  S_AXI_WREADY,
 		// Write response. This signal indicates the status
-    		// of the write transaction.
+		// of the write transaction.
 		output wire [1 : 0] S_AXI_BRESP,
 		// Write response valid. This signal indicates that the channel
-    		// is signaling a valid write response.
+		// is signaling a valid write response.
 		output wire  S_AXI_BVALID,
-		// Response ready. This signal indicates that the controller
-    		// can accept a write response.
+		// Response ready. This signal indicates that the manager
+		// can accept a write response.
 		input wire  S_AXI_BREADY,
-		// Read address (issued by controller, acceped by target)
+		// Read address (issued by manager, accepted by subordinate)
 		input wire [C_S_AXI_ADDR_WIDTH-1 : 0] S_AXI_ARADDR,
 		// Protection type. This signal indicates the privilege
-    		// and security level of the transaction, and whether the
-    		// transaction is a data access or an instruction access.
+		// and security level of the transaction, and whether the
+		// transaction is a data access or an instruction access.
 		input wire [2 : 0] S_AXI_ARPROT,
 		// Read address valid. This signal indicates that the channel
-    		// is signaling valid read address and control information.
+		// is signaling valid read address and control information.
 		input wire  S_AXI_ARVALID,
-		// Read address ready. This signal indicates that the target is
-    		// ready to accept an address and associated control signals.
+		// Read address ready. This signal indicates that the subordinate is
+		// ready to accept an address and associated control signals.
 		output wire  S_AXI_ARREADY,
-		// Read data (issued by target)
+		// Read data (issued by subordinate)
 		output wire [C_S_AXI_DATA_WIDTH-1 : 0] S_AXI_RDATA,
 		// Read response. This signal indicates the status of the
-    		// read transfer.
+		// read transfer.
 		output wire [1 : 0] S_AXI_RRESP,
 		// Read valid. This signal indicates that the channel is
-    		// signaling the required read data.
+		// signaling the required read data.
 		output wire  S_AXI_RVALID,
-		// Read ready. This signal indicates that the controller can
-    		// accept the read data and response information.
+		// Read ready. This signal indicates that the manager can
+		// accept the read data and response information.
 		input wire  S_AXI_RREADY
 	);
 
@@ -103,7 +103,7 @@
 	//----------------------------------------------
 	//-- Signals for user logic register space example
 	//------------------------------------------------
-	//-- Number of target Registers 4
+	//-- Number of subordinate registers 4
 	reg [C_S_AXI_DATA_WIDTH-1:0]	target_reg0;
 	reg [C_S_AXI_DATA_WIDTH-1:0]	target_reg1;
 	reg [C_S_AXI_DATA_WIDTH-1:0]	target_reg2;
@@ -135,15 +135,15 @@
 	    begin
 	      axi_awready <= 1'b0;
 	      aw_en <= 1'b1;
-	    end 
+	    end
 	  else
-	    begin    
+	    begin
 	      if (~axi_awready && S_AXI_AWVALID && S_AXI_WVALID && aw_en)
 	        begin
-	          // target is ready to accept write address when 
+	          // subordinate is ready to accept write address when
 	          // there is a valid write address and write data
-	          // on the write address and data bus. This design 
-	          // expects no outstanding transactions. 
+	          // on the write address and data bus. This design
+	          // expects no outstanding transactions.
 	          axi_awready <= 1'b1;
 	          aw_en <= 1'b0;
 	        end
@@ -152,68 +152,68 @@
 	              aw_en <= 1'b1;
 	              axi_awready <= 1'b0;
 	            end
-	      else           
+	      else
 	        begin
 	          axi_awready <= 1'b0;
 	        end
-	    end 
-	end       
+	    end
+	end
 
 	// Implement axi_awaddr latching
-	// This process is used to latch the address when both 
-	// S_AXI_AWVALID and S_AXI_WVALID are valid. 
+	// This process is used to latch the address when both
+	// S_AXI_AWVALID and S_AXI_WVALID are valid.
 
 	always @( posedge S_AXI_ACLK )
 	begin
 	  if ( S_AXI_ARESETN == 1'b0 )
 	    begin
 	      axi_awaddr <= 0;
-	    end 
+	    end
 	  else
-	    begin    
+	    begin
 	      if (~axi_awready && S_AXI_AWVALID && S_AXI_WVALID && aw_en)
 	        begin
-	          // Write Address latching 
+	          // Write Address latching
 	          axi_awaddr <= S_AXI_AWADDR;
 	        end
-	    end 
-	end       
+	    end
+	end
 
 	// Implement axi_wready generation
 	// axi_wready is asserted for one S_AXI_ACLK clock cycle when both
-	// S_AXI_AWVALID and S_AXI_WVALID are asserted. axi_wready is 
-	// de-asserted when reset is low. 
+	// S_AXI_AWVALID and S_AXI_WVALID are asserted. axi_wready is
+	// de-asserted when reset is low.
 
 	always @( posedge S_AXI_ACLK )
 	begin
 	  if ( S_AXI_ARESETN == 1'b0 )
 	    begin
 	      axi_wready <= 1'b0;
-	    end 
+	    end
 	  else
-	    begin    
+	    begin
 	      if (~axi_wready && S_AXI_WVALID && S_AXI_AWVALID && aw_en )
 	        begin
-	          // target is ready to accept write data when 
+	          // subordinate is ready to accept write data when
 	          // there is a valid write address and write data
-	          // on the write address and data bus. This design 
-	          // expects no outstanding transactions. 
+	          // on the write address and data bus. This design
+	          // expects no outstanding transactions.
 	          axi_wready <= 1'b1;
 	        end
 	      else
 	        begin
 	          axi_wready <= 1'b0;
 	        end
-	    end 
-	end       
+	    end
+	end
 
 	// Implement memory mapped register select and write logic generation
 	// The write data is accepted and written to memory mapped registers when
 	// axi_awready, S_AXI_WVALID, axi_wready and S_AXI_WVALID are asserted. Write strobes are used to
-	// select byte enables of target registers while writing.
+	// select byte enables of subordinate registers while writing.
 	// These registers are cleared when reset (active low) is applied.
-	// target register write enable is asserted when valid address and data are available
-	// and the target is ready to accept the write address and write data.
+	// subordinate register write enable is asserted when valid address and data are available
+	// and the subordinate is ready to accept the write address and write data.
 	assign target_reg_wren = axi_wready && S_AXI_WVALID && axi_awready && S_AXI_AWVALID;
 
 	always @( posedge S_AXI_ACLK )
@@ -224,7 +224,7 @@
 	      target_reg1 <= 0;
 	      target_reg2 <= 0;
 	      target_reg3 <= 0;
-	    end 
+	    end
 	  else begin
 	    if (target_reg_wren)
 	      begin
@@ -232,31 +232,31 @@
 	          2'h0:
 	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
 	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
-	                // Respective byte enables are asserted as per write strobes 
-	                // target register 0
+	                // Respective byte enables are asserted as per write strobes
+	                // subordinate register 0
 	                target_reg0[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
-	              end  
+	              end
 	          2'h1:
 	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
 	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
-	                // Respective byte enables are asserted as per write strobes 
-	                // target register 1
+	                // Respective byte enables are asserted as per write strobes
+	                // subordinate register 1
 	                target_reg1[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
-	              end  
+	              end
 	          2'h2:
 	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
 	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
-	                // Respective byte enables are asserted as per write strobes 
-	                // target register 2
+	                // Respective byte enables are asserted as per write strobes
+	                // subordinate register 2
 	                target_reg2[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
-	              end  
+	              end
 	          2'h3:
 	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
 	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
-	                // Respective byte enables are asserted as per write strobes 
-	                // target register 3
+	                // Respective byte enables are asserted as per write strobes
+	                // subordinate register 3
 	                target_reg3[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
-	              end  
+	              end
 	          default : begin
 	                      target_reg0 <= target_reg0;
 	                      target_reg1 <= target_reg1;
@@ -266,12 +266,12 @@
 	        endcase
 	      end
 	  end
-	end    
+	end
 
 	// Implement write response logic generation
-	// The write response and response valid signals are asserted by the target 
-	// when axi_wready, S_AXI_WVALID, axi_wready and S_AXI_WVALID are asserted.  
-	// This marks the acceptance of address and indicates the status of 
+	// The write response and response valid signals are asserted by the subordinate
+	// when axi_wready, S_AXI_WVALID, axi_wready and S_AXI_WVALID are asserted.
+	// This marks the acceptance of address and indicates the status of
 	// write transaction.
 
 	always @( posedge S_AXI_ACLK )
@@ -280,32 +280,32 @@
 	    begin
 	      axi_bvalid  <= 0;
 	      axi_bresp   <= 2'b0;
-	    end 
+	    end
 	  else
-	    begin    
+	    begin
 	      if (axi_awready && S_AXI_AWVALID && ~axi_bvalid && axi_wready && S_AXI_WVALID)
 	        begin
 	          // indicates a valid write response is available
 	          axi_bvalid <= 1'b1;
-	          axi_bresp  <= 2'b0; // 'OKAY' response 
+	          axi_bresp  <= 2'b0; // 'OKAY' response
 	        end                   // work error responses in future
 	      else
 	        begin
-	          if (S_AXI_BREADY && axi_bvalid) 
-	            //check if bready is asserted while bvalid is high) 
-	            //(there is a possibility that bready is always asserted high)   
+	          if (S_AXI_BREADY && axi_bvalid)
+	            //check if bready is asserted while bvalid is high)
+	            //(there is a possibility that bready is always asserted high)
 	            begin
-	              axi_bvalid <= 1'b0; 
-	            end  
+	              axi_bvalid <= 1'b0;
+	            end
 	        end
 	    end
-	end   
+	end
 
 	// Implement axi_arready generation
 	// axi_arready is asserted for one S_AXI_ACLK clock cycle when
-	// S_AXI_ARVALID is asserted. axi_awready is 
-	// de-asserted when reset (active low) is asserted. 
-	// The read address is also latched when S_AXI_ARVALID is 
+	// S_AXI_ARVALID is asserted. axi_awready is
+	// de-asserted when reset (active low) is asserted.
+	// The read address is also latched when S_AXI_ARVALID is
 	// asserted. axi_araddr is reset to zero on reset assertion.
 
 	always @( posedge S_AXI_ACLK )
@@ -314,12 +314,12 @@
 	    begin
 	      axi_arready <= 1'b0;
 	      axi_araddr  <= 32'b0;
-	    end 
+	    end
 	  else
-	    begin    
+	    begin
 	      if (~axi_arready && S_AXI_ARVALID)
 	        begin
-	          // indicates that the target has acceped the valid read address
+	          // indicates that the subordinate has accepted the valid read address
 	          axi_arready <= 1'b1;
 	          // Read address latching
 	          axi_araddr  <= S_AXI_ARADDR;
@@ -328,43 +328,43 @@
 	        begin
 	          axi_arready <= 1'b0;
 	        end
-	    end 
-	end       
+	    end
+	end
 
 	// Implement axi_arvalid generation
-	// axi_rvalid is asserted for one S_AXI_ACLK clock cycle when both 
-	// S_AXI_ARVALID and axi_arready are asserted. The target registers 
-	// data are available on the axi_rdata bus at this instance. The 
-	// assertion of axi_rvalid marks the validity of read data on the 
-	// bus and axi_rresp indicates the status of read transaction.axi_rvalid 
-	// is deasserted on reset (active low). axi_rresp and axi_rdata are 
-	// cleared to zero on reset (active low).  
+	// axi_rvalid is asserted for one S_AXI_ACLK clock cycle when both
+	// S_AXI_ARVALID and axi_arready are asserted. The subordinate registers
+	// data are available on the axi_rdata bus at this instance. The
+	// assertion of axi_rvalid marks the validity of read data on the
+	// bus and axi_rresp indicates the status of read transaction.axi_rvalid
+	// is deasserted on reset (active low). axi_rresp and axi_rdata are
+	// cleared to zero on reset (active low).
 	always @( posedge S_AXI_ACLK )
 	begin
 	  if ( S_AXI_ARESETN == 1'b0 )
 	    begin
 	      axi_rvalid <= 0;
 	      axi_rresp  <= 0;
-	    end 
+	    end
 	  else
-	    begin    
+	    begin
 	      if (axi_arready && S_AXI_ARVALID && ~axi_rvalid)
 	        begin
 	          // Valid read data is available at the read data bus
 	          axi_rvalid <= 1'b1;
 	          axi_rresp  <= 2'b0; // 'OKAY' response
-	        end   
+	        end
 	      else if (axi_rvalid && S_AXI_RREADY)
 	        begin
-	          // Read data is accepted by the controller
+	          // Read data is accepted by the manager
 	          axi_rvalid <= 1'b0;
-	        end                
+	        end
 	    end
-	end    
+	end
 
 	// Implement memory mapped register select and read logic generation
-	// target register read enable is asserted when valid address is available
-	// and the target is ready to accept the read address.
+	// subordinate register read enable is asserted when valid address is available
+	// and the subordinate is ready to accept the read address.
 	assign target_reg_rden = axi_arready & S_AXI_ARVALID & ~axi_rvalid;
 	always @(*)
 	begin
@@ -384,18 +384,18 @@
 	  if ( S_AXI_ARESETN == 1'b0 )
 	    begin
 	      axi_rdata  <= 0;
-	    end 
+	    end
 	  else
-	    begin    
-	      // When there is a valid read address (S_AXI_ARVALID) with 
-	      // acceptance of read address by the target (axi_arready), 
-	      // output the read dada 
+	    begin
+	      // When there is a valid read address (S_AXI_ARVALID) with
+	      // acceptance of read address by the subordinate (axi_arready),
+	      // output the read dada
 	      if (target_reg_rden)
 	        begin
 	          axi_rdata <= reg_data_out;     // register read data
-	        end   
+	        end
 	    end
-	end    
+	end
 
 	// Add user logic here
 

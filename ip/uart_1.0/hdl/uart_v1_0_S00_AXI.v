@@ -63,7 +63,7 @@ module uart_v1_0_S00_AXI #(
     //----------------------------------------------
     //-- Signals for user logic register space example
     //------------------------------------------------
-    //-- Number of target Registers 4
+    //-- Number of subordinate registers 4
     reg     [  C_S_AXI_DATA_WIDTH-1:0] uart_sr;
     reg     [  C_S_AXI_DATA_WIDTH-1:0] uart_tdr;
     reg     [  C_S_AXI_DATA_WIDTH-1:0] uart_rdr;
@@ -103,10 +103,10 @@ module uart_v1_0_S00_AXI #(
             aw_en <= 1'b1;
         end else begin
             if (~axi_awready && S_AXI_AWVALID && S_AXI_WVALID && aw_en) begin
-                // target is ready to accept write address when 
+                // subordinate is ready to accept write address when
                 // there is a valid write address and write data
-                // on the write address and data bus. This design 
-                // expects no outstanding transactions. 
+                // on the write address and data bus. This design
+                // expects no outstanding transactions.
                 axi_awready <= 1'b1;
                 aw_en <= 1'b0;
             end else if (S_AXI_BREADY && axi_bvalid) begin
@@ -119,15 +119,15 @@ module uart_v1_0_S00_AXI #(
     end
 
     // Implement axi_awaddr latching
-    // This process is used to latch the address when both 
-    // S_AXI_AWVALID and S_AXI_WVALID are valid. 
+    // This process is used to latch the address when both
+    // S_AXI_AWVALID and S_AXI_WVALID are valid.
 
     always @(posedge S_AXI_ACLK) begin
         if (S_AXI_ARESETN == 1'b0) begin
             axi_awaddr <= 0;
         end else begin
             if (~axi_awready && S_AXI_AWVALID && S_AXI_WVALID && aw_en) begin
-                // Write Address latching 
+                // Write Address latching
                 axi_awaddr <= S_AXI_AWADDR;
             end
         end
@@ -135,18 +135,18 @@ module uart_v1_0_S00_AXI #(
 
     // Implement axi_wready generation
     // axi_wready is asserted for one S_AXI_ACLK clock cycle when both
-    // S_AXI_AWVALID and S_AXI_WVALID are asserted. axi_wready is 
-    // de-asserted when reset is low. 
+    // S_AXI_AWVALID and S_AXI_WVALID are asserted. axi_wready is
+    // de-asserted when reset is low.
 
     always @(posedge S_AXI_ACLK) begin
         if (S_AXI_ARESETN == 1'b0) begin
             axi_wready <= 1'b0;
         end else begin
             if (~axi_wready && S_AXI_WVALID && S_AXI_AWVALID && aw_en) begin
-                // target is ready to accept write data when 
+                // subordinate is ready to accept write data when
                 // there is a valid write address and write data
-                // on the write address and data bus. This design 
-                // expects no outstanding transactions. 
+                // on the write address and data bus. This design
+                // expects no outstanding transactions.
                 axi_wready <= 1'b1;
             end else begin
                 axi_wready <= 1'b0;
@@ -157,10 +157,10 @@ module uart_v1_0_S00_AXI #(
     // Implement memory mapped register select and write logic generation
     // The write data is accepted and written to memory mapped registers when
     // axi_awready, S_AXI_WVALID, axi_wready and S_AXI_WVALID are asserted. Write strobes are used to
-    // select byte enables of target registers while writing.
+    // select byte enables of subordinate registers while writing.
     // These registers are cleared when reset (active low) is applied.
-    // target register write enable is asserted when valid address and data are available
-    // and the target is ready to accept the write address and write data.
+    // subordinate register write enable is asserted when valid address and data are available
+    // and the subordinate is ready to accept the write address and write data.
     assign target_reg_wren = axi_wready && S_AXI_WVALID && axi_awready && S_AXI_AWVALID;
 
     // always @(posedge S_AXI_ACLK) begin
@@ -215,9 +215,9 @@ module uart_v1_0_S00_AXI #(
 
 
     // Implement write response logic generation
-    // The write response and response valid signals are asserted by the target 
-    // when axi_wready, S_AXI_WVALID, axi_wready and S_AXI_WVALID are asserted.  
-    // This marks the acceptance of address and indicates the status of 
+    // The write response and response valid signals are asserted by the subordinate
+    // when axi_wready, S_AXI_WVALID, axi_wready and S_AXI_WVALID are asserted.
+    // This marks the acceptance of address and indicates the status of
     // write transaction.
 
     always @(posedge S_AXI_ACLK) begin
@@ -229,13 +229,13 @@ module uart_v1_0_S00_AXI #(
 	        begin
                 // indicates a valid write response is available
                 axi_bvalid <= 1'b1;
-                axi_bresp  <= 2'b0;  // 'OKAY' response 
+                axi_bresp  <= 2'b0;  // 'OKAY' response
             end                   // work error responses in future
 	      else
 	        begin
-                if (S_AXI_BREADY && axi_bvalid) 
-	            //check if bready is asserted while bvalid is high) 
-	            //(there is a possibility that bready is always asserted high)   
+                if (S_AXI_BREADY && axi_bvalid)
+	            //check if bready is asserted while bvalid is high)
+	            //(there is a possibility that bready is always asserted high)
 	            begin
                     axi_bvalid <= 1'b0;
                 end
@@ -245,9 +245,9 @@ module uart_v1_0_S00_AXI #(
 
     // Implement axi_arready generation
     // axi_arready is asserted for one S_AXI_ACLK clock cycle when
-    // S_AXI_ARVALID is asserted. axi_awready is 
-    // de-asserted when reset (active low) is asserted. 
-    // The read address is also latched when S_AXI_ARVALID is 
+    // S_AXI_ARVALID is asserted. axi_awready is
+    // de-asserted when reset (active low) is asserted.
+    // The read address is also latched when S_AXI_ARVALID is
     // asserted. axi_araddr is reset to zero on reset assertion.
 
     always @(posedge S_AXI_ACLK) begin
@@ -256,7 +256,7 @@ module uart_v1_0_S00_AXI #(
             axi_araddr  <= 32'b0;
         end else begin
             if (~axi_arready && S_AXI_ARVALID) begin
-                // indicates that the target has acceped the valid read address
+                // indicates that the subordinate has accepted the valid read address
                 axi_arready <= 1'b1;
                 // Read address latching
                 axi_araddr  <= S_AXI_ARADDR;
@@ -267,13 +267,13 @@ module uart_v1_0_S00_AXI #(
     end
 
     // Implement axi_arvalid generation
-    // axi_rvalid is asserted for one S_AXI_ACLK clock cycle when both 
-    // S_AXI_ARVALID and axi_arready are asserted. The target registers 
-    // data are available on the axi_rdata bus at this instance. The 
-    // assertion of axi_rvalid marks the validity of read data on the 
-    // bus and axi_rresp indicates the status of read transaction.axi_rvalid 
-    // is deasserted on reset (active low). axi_rresp and axi_rdata are 
-    // cleared to zero on reset (active low).  
+    // axi_rvalid is asserted for one S_AXI_ACLK clock cycle when both
+    // S_AXI_ARVALID and axi_arready are asserted. The subordinate registers
+    // data are available on the axi_rdata bus at this instance. The
+    // assertion of axi_rvalid marks the validity of read data on the
+    // bus and axi_rresp indicates the status of read transaction.axi_rvalid
+    // is deasserted on reset (active low). axi_rresp and axi_rdata are
+    // cleared to zero on reset (active low).
     always @(posedge S_AXI_ACLK) begin
         if (S_AXI_ARESETN == 1'b0) begin
             axi_rvalid <= 0;
@@ -284,15 +284,15 @@ module uart_v1_0_S00_AXI #(
                 axi_rvalid <= 1'b1;
                 axi_rresp  <= 2'b0;  // 'OKAY' response
             end else if (axi_rvalid && S_AXI_RREADY) begin
-                // Read data is accepted by the controller
+                // Read data is accepted by the manager
                 axi_rvalid <= 1'b0;
             end
         end
     end
 
     // Implement memory mapped register select and read logic generation
-    // target register read enable is asserted when valid address is available
-    // and the target is ready to accept the read address.
+    // subordinate register read enable is asserted when valid address is available
+    // and the subordinate is ready to accept the read address.
     assign target_reg_rden = axi_arready & S_AXI_ARVALID & ~axi_rvalid;
     always @(*) begin
         // Address decoding for reading registers
@@ -310,9 +310,9 @@ module uart_v1_0_S00_AXI #(
         if (S_AXI_ARESETN == 1'b0) begin
             axi_rdata <= 0;
         end else begin
-            // When there is a valid read address (S_AXI_ARVALID) with 
-            // acceptance of read address by the target (axi_arready), 
-            // output the read dada 
+            // When there is a valid read address (S_AXI_ARVALID) with
+            // acceptance of read address by the subordinate (axi_arready),
+            // output the read dada
             if (target_reg_rden) begin
                 axi_rdata <= reg_data_out;  // register read data
             end

@@ -8,7 +8,7 @@ module spi_v1_0_S00_AXI #(
     output wire       start,   // target_reg0[0]    전송 시작 1클럭 펄스
     output wire       cpol,    // target_reg0[2]    clock polarity
     output wire       cpha,    // target_reg0[3]    clock phase
-    output wire [1:0] cs_sel,  // target_reg0[5:4]  target 선택
+    output wire [1:0] cs_sel,  // target_reg0[5:4]  SPI device 선택
     output wire [7:0] clk_div, // target_reg1[15:8] SCLK 분주값
     // done_ie = target_reg0[1] → 내부에서 직접 사용
 
@@ -71,7 +71,7 @@ module spi_v1_0_S00_AXI #(
     reg [C_S_AXI_DATA_WIDTH-1:0] reg_data_out;
     integer byte_index;
 
-    // ── target 레지스터 ─────────────────────────────────
+    // ── AXI register bank ─────────────────────────────────
     reg [C_S_AXI_DATA_WIDTH-1:0] target_reg0;  // 0x00 CTRL   (R/W)
     reg [C_S_AXI_DATA_WIDTH-1:0] target_reg1;  // 0x04 TX DATA (W)
     reg [C_S_AXI_DATA_WIDTH-1:0] target_reg3;  // 0x0C RX DATA (R, done 시 래칭)

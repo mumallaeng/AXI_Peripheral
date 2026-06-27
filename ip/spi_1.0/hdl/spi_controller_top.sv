@@ -14,7 +14,7 @@
 //                         [1]     done_ie : 인터럽트 인에이블 (래퍼에서 직접 처리)
 //                         [2]     cpol    : SPI clock polarity
 //                         [3]     cpha    : SPI clock phase
-//                         [5:4]   cs_sel  : target 선택 (0~3)
+//                         [5:4]   cs_sel  : SPI device 선택 (0~3)
 //                         [7:6]   reserved
 //                         [15:8]  clk_div : SCLK = clk / (2*(clk_div+1))
 //                         [31:16] reserved

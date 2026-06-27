@@ -9,7 +9,7 @@
 		// Do not modify the parameters beyond this line
 
 
-		// Parameters of Axi target Bus Interface S00_AXI
+		// Parameters of AXI subordinate Bus Interface S00_AXI
 		parameter integer C_S00_AXI_DATA_WIDTH	= 32,
 		parameter integer C_S00_AXI_ADDR_WIDTH	= 4
 	)
@@ -20,7 +20,7 @@
 		// Do not modify the ports beyond this line
 
 
-		// Ports of Axi target Bus Interface S00_AXI
+		// Ports of AXI subordinate Bus Interface S00_AXI
 		input wire  s00_axi_aclk,
 		input wire  s00_axi_aresetn,
 		input wire [C_S00_AXI_ADDR_WIDTH-1 : 0] s00_axi_awaddr,
