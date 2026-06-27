@@ -105,12 +105,12 @@ module gpio_v1_0_S00_AXI #(
     //-- Signals for user logic register space example
     //------------------------------------------------
     //-- Number of subordinate registers 4
-    reg [C_S_AXI_DATA_WIDTH-1:0] target_reg0;
-    reg [C_S_AXI_DATA_WIDTH-1:0] target_reg1;
-    reg [C_S_AXI_DATA_WIDTH-1:0] target_reg2;
-    reg [C_S_AXI_DATA_WIDTH-1:0] target_reg3;
-    wire target_reg_rden;
-    wire target_reg_wren;
+    reg [C_S_AXI_DATA_WIDTH-1:0] subordinate_reg0;
+    reg [C_S_AXI_DATA_WIDTH-1:0] subordinate_reg1;
+    reg [C_S_AXI_DATA_WIDTH-1:0] subordinate_reg2;
+    reg [C_S_AXI_DATA_WIDTH-1:0] subordinate_reg3;
+    wire subordinate_reg_rden;
+    wire subordinate_reg_wren;
     reg [C_S_AXI_DATA_WIDTH-1:0] reg_data_out;
     integer byte_index;
     reg aw_en;
@@ -194,16 +194,16 @@ module gpio_v1_0_S00_AXI #(
     // These registers are cleared when reset (active low) is applied.
     // subordinate register write enable is asserted when valid address and data are available
     // and the subordinate is ready to accept the write address and write data.
-    assign target_reg_wren = axi_wready && S_AXI_WVALID && axi_awready && S_AXI_AWVALID;
+    assign subordinate_reg_wren = axi_wready && S_AXI_WVALID && axi_awready && S_AXI_AWVALID;
 
     always @(posedge S_AXI_ACLK) begin
         if (S_AXI_ARESETN == 1'b0) begin
-            target_reg0 <= 0;
-            target_reg1 <= 0;
-            target_reg2 <= 0;
-            target_reg3 <= 0;
+            subordinate_reg0 <= 0;
+            subordinate_reg1 <= 0;
+            subordinate_reg2 <= 0;
+            subordinate_reg3 <= 0;
         end else begin
-            if (target_reg_wren) begin
+            if (subordinate_reg_wren) begin
                 case (axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB])
                     2'h0:
                     for (
@@ -214,7 +214,7 @@ module gpio_v1_0_S00_AXI #(
                     if (S_AXI_WSTRB[byte_index] == 1) begin
                         // Respective byte enables are asserted as per write strobes
                         // subordinate register 0
-                        target_reg0[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+                        subordinate_reg0[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
                     end
                     2'h1:
                     for (
@@ -225,7 +225,7 @@ module gpio_v1_0_S00_AXI #(
                     if (S_AXI_WSTRB[byte_index] == 1) begin
                         // Respective byte enables are asserted as per write strobes
                         // subordinate register 1
-                        target_reg1[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+                        subordinate_reg1[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
                     end
                     2'h2:
                     for (
@@ -236,7 +236,7 @@ module gpio_v1_0_S00_AXI #(
                     if (S_AXI_WSTRB[byte_index] == 1) begin
                         // Respective byte enables are asserted as per write strobes
                         // subordinate register 2
-                        target_reg2[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+                        subordinate_reg2[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
                     end
                     2'h3:
                     for (
@@ -247,13 +247,13 @@ module gpio_v1_0_S00_AXI #(
                     if (S_AXI_WSTRB[byte_index] == 1) begin
                         // Respective byte enables are asserted as per write strobes
                         // subordinate register 3
-                        target_reg3[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+                        subordinate_reg3[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
                     end
                     default: begin
-                        target_reg0 <= target_reg0;
-                        target_reg1 <= target_reg1;
-                        target_reg2 <= target_reg2;
-                        target_reg3 <= target_reg3;
+                        subordinate_reg0 <= subordinate_reg0;
+                        subordinate_reg1 <= subordinate_reg1;
+                        subordinate_reg2 <= subordinate_reg2;
+                        subordinate_reg3 <= subordinate_reg3;
                     end
                 endcase
             end
@@ -339,14 +339,14 @@ module gpio_v1_0_S00_AXI #(
     // Implement memory mapped register select and read logic generation
     // subordinate register read enable is asserted when valid address is available
     // and the subordinate is ready to accept the read address.
-    assign target_reg_rden = axi_arready & S_AXI_ARVALID & ~axi_rvalid;
+    assign subordinate_reg_rden = axi_arready & S_AXI_ARVALID & ~axi_rvalid;
     always @(*) begin
         // Address decoding for reading registers
         case (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB])
-            2'h0   : reg_data_out <= target_reg0;
+            2'h0   : reg_data_out <= subordinate_reg0;
             2'h1   : reg_data_out <= {24'b0, idr};
-            2'h2   : reg_data_out <= target_reg2;
-            2'h3   : reg_data_out <= target_reg3;
+            2'h2   : reg_data_out <= subordinate_reg2;
+            2'h3   : reg_data_out <= subordinate_reg3;
             default : reg_data_out <= 0;
         endcase
     end
@@ -359,15 +359,15 @@ module gpio_v1_0_S00_AXI #(
             // When there is a valid read address (S_AXI_ARVALID) with
             // acceptance of read address by the subordinate (axi_arready),
             // output the read dada
-            if (target_reg_rden) begin
+            if (subordinate_reg_rden) begin
                 axi_rdata <= reg_data_out;  // register read data
             end
         end
     end
 
     // Add user logic here
-    assign cr  = target_reg0[7:0];
-    assign odr = target_reg2[7:0];
+    assign cr  = subordinate_reg0[7:0];
+    assign odr = subordinate_reg2[7:0];
 
     // User logic ends
 

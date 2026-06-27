@@ -134,10 +134,10 @@
       "sclk": {
         "direction": "O"
       },
-      "sdi": {
+      "miso": {
         "direction": "I"
       },
-      "sdo": {
+      "mosi": {
         "direction": "O"
       },
       "GPIOF": {
@@ -150,7 +150,7 @@
       "microblaze_0": {
         "vlnv": "xilinx.com:ip:microblaze:11.0",
         "xci_name": "AXI_Peripheral_microblaze_0_0",
-        "xci_path": "ip\\AXI_Peripheral_microblaze_0_0\\AXI_Peripheral_microblaze_0_0.xci",
+        "xci_path": "ip/AXI_Peripheral_microblaze_0_0/AXI_Peripheral_microblaze_0_0.xci",
         "inst_hier_path": "microblaze_0",
         "parameters": {
           "C_DEBUG_ENABLED": {
@@ -243,7 +243,7 @@
           "dlmb_v10": {
             "vlnv": "xilinx.com:ip:lmb_v10:3.0",
             "xci_name": "AXI_Peripheral_dlmb_v10_0",
-            "xci_path": "ip\\AXI_Peripheral_dlmb_v10_0\\AXI_Peripheral_dlmb_v10_0.xci",
+            "xci_path": "ip/AXI_Peripheral_dlmb_v10_0/AXI_Peripheral_dlmb_v10_0.xci",
             "inst_hier_path": "microblaze_0_local_memory/dlmb_v10",
             "interface_ports": {
               "LMB_M": {
@@ -257,7 +257,7 @@
           "ilmb_v10": {
             "vlnv": "xilinx.com:ip:lmb_v10:3.0",
             "xci_name": "AXI_Peripheral_ilmb_v10_0",
-            "xci_path": "ip\\AXI_Peripheral_ilmb_v10_0\\AXI_Peripheral_ilmb_v10_0.xci",
+            "xci_path": "ip/AXI_Peripheral_ilmb_v10_0/AXI_Peripheral_ilmb_v10_0.xci",
             "inst_hier_path": "microblaze_0_local_memory/ilmb_v10",
             "interface_ports": {
               "LMB_M": {
@@ -271,7 +271,7 @@
           "dlmb_bram_if_cntlr": {
             "vlnv": "xilinx.com:ip:lmb_bram_if_cntlr:4.0",
             "xci_name": "AXI_Peripheral_dlmb_bram_if_cntlr_0",
-            "xci_path": "ip\\AXI_Peripheral_dlmb_bram_if_cntlr_0\\AXI_Peripheral_dlmb_bram_if_cntlr_0.xci",
+            "xci_path": "ip/AXI_Peripheral_dlmb_bram_if_cntlr_0/AXI_Peripheral_dlmb_bram_if_cntlr_0.xci",
             "inst_hier_path": "microblaze_0_local_memory/dlmb_bram_if_cntlr",
             "parameters": {
               "C_ECC": {
@@ -292,7 +292,7 @@
           "ilmb_bram_if_cntlr": {
             "vlnv": "xilinx.com:ip:lmb_bram_if_cntlr:4.0",
             "xci_name": "AXI_Peripheral_ilmb_bram_if_cntlr_0",
-            "xci_path": "ip\\AXI_Peripheral_ilmb_bram_if_cntlr_0\\AXI_Peripheral_ilmb_bram_if_cntlr_0.xci",
+            "xci_path": "ip/AXI_Peripheral_ilmb_bram_if_cntlr_0/AXI_Peripheral_ilmb_bram_if_cntlr_0.xci",
             "inst_hier_path": "microblaze_0_local_memory/ilmb_bram_if_cntlr",
             "parameters": {
               "C_ECC": {
@@ -303,7 +303,7 @@
           "lmb_bram": {
             "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
             "xci_name": "AXI_Peripheral_lmb_bram_0",
-            "xci_path": "ip\\AXI_Peripheral_lmb_bram_0\\AXI_Peripheral_lmb_bram_0.xci",
+            "xci_path": "ip/AXI_Peripheral_lmb_bram_0/AXI_Peripheral_lmb_bram_0.xci",
             "inst_hier_path": "microblaze_0_local_memory/lmb_bram",
             "parameters": {
               "Memory_Type": {
@@ -377,13 +377,13 @@
       "mdm_1": {
         "vlnv": "xilinx.com:ip:mdm:3.2",
         "xci_name": "AXI_Peripheral_mdm_1_0",
-        "xci_path": "ip\\AXI_Peripheral_mdm_1_0\\AXI_Peripheral_mdm_1_0.xci",
+        "xci_path": "ip/AXI_Peripheral_mdm_1_0/AXI_Peripheral_mdm_1_0.xci",
         "inst_hier_path": "mdm_1"
       },
       "clk_wiz_1": {
         "vlnv": "xilinx.com:ip:clk_wiz:6.0",
         "xci_name": "AXI_Peripheral_clk_wiz_1_0",
-        "xci_path": "ip\\AXI_Peripheral_clk_wiz_1_0\\AXI_Peripheral_clk_wiz_1_0.xci",
+        "xci_path": "ip/AXI_Peripheral_clk_wiz_1_0/AXI_Peripheral_clk_wiz_1_0.xci",
         "inst_hier_path": "clk_wiz_1",
         "parameters": {
           "PRIM_SOURCE": {
@@ -400,7 +400,7 @@
       "rst_clk_wiz_1_100M": {
         "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
         "xci_name": "AXI_Peripheral_rst_clk_wiz_1_100M_0",
-        "xci_path": "ip\\AXI_Peripheral_rst_clk_wiz_1_100M_0\\AXI_Peripheral_rst_clk_wiz_1_100M_0.xci",
+        "xci_path": "ip/AXI_Peripheral_rst_clk_wiz_1_100M_0/AXI_Peripheral_rst_clk_wiz_1_100M_0.xci",
         "inst_hier_path": "rst_clk_wiz_1_100M",
         "parameters": {
           "RESET_BOARD_INTERFACE": {
@@ -414,7 +414,7 @@
       "axi_uartlite_0": {
         "vlnv": "xilinx.com:ip:axi_uartlite:2.0",
         "xci_name": "AXI_Peripheral_axi_uartlite_0_0",
-        "xci_path": "ip\\AXI_Peripheral_axi_uartlite_0_0\\AXI_Peripheral_axi_uartlite_0_0.xci",
+        "xci_path": "ip/AXI_Peripheral_axi_uartlite_0_0/AXI_Peripheral_axi_uartlite_0_0.xci",
         "inst_hier_path": "axi_uartlite_0",
         "parameters": {
           "UARTLITE_BOARD_INTERFACE": {
@@ -428,19 +428,19 @@
       "uart_0": {
         "vlnv": "user.org:user:uart:1.0",
         "xci_name": "AXI_Peripheral_uart_0_0",
-        "xci_path": "ip\\AXI_Peripheral_uart_0_0\\AXI_Peripheral_uart_0_0.xci",
+        "xci_path": "ip/AXI_Peripheral_uart_0_0/AXI_Peripheral_uart_0_0.xci",
         "inst_hier_path": "uart_0"
       },
       "timer_0": {
         "vlnv": "user.org:user:timer:1.0",
         "xci_name": "AXI_Peripheral_timer_0_0",
-        "xci_path": "ip\\AXI_Peripheral_timer_0_0\\AXI_Peripheral_timer_0_0.xci",
+        "xci_path": "ip/AXI_Peripheral_timer_0_0/AXI_Peripheral_timer_0_0.xci",
         "inst_hier_path": "timer_0"
       },
       "microblaze_0_axi_intc": {
         "vlnv": "xilinx.com:ip:axi_intc:4.1",
         "xci_name": "AXI_Peripheral_microblaze_0_axi_intc_0",
-        "xci_path": "ip\\AXI_Peripheral_microblaze_0_axi_intc_0\\AXI_Peripheral_microblaze_0_axi_intc_0.xci",
+        "xci_path": "ip/AXI_Peripheral_microblaze_0_axi_intc_0/AXI_Peripheral_microblaze_0_axi_intc_0.xci",
         "inst_hier_path": "microblaze_0_axi_intc",
         "parameters": {
           "C_HAS_FAST": {
@@ -450,7 +450,7 @@
       },
       "microblaze_0_axi_periph": {
         "vlnv": "xilinx.com:ip:axi_interconnect:2.1",
-        "xci_path": "ip\\AXI_Peripheral_microblaze_0_axi_periph_0\\AXI_Peripheral_microblaze_0_axi_periph_0.xci",
+        "xci_path": "ip/AXI_Peripheral_microblaze_0_axi_periph_0/AXI_Peripheral_microblaze_0_axi_periph_0.xci",
         "inst_hier_path": "microblaze_0_axi_periph",
         "xci_name": "AXI_Peripheral_microblaze_0_axi_periph_0",
         "parameters": {
@@ -719,7 +719,7 @@
           "xbar": {
             "vlnv": "xilinx.com:ip:axi_crossbar:2.1",
             "xci_name": "AXI_Peripheral_xbar_0",
-            "xci_path": "ip\\AXI_Peripheral_xbar_0\\AXI_Peripheral_xbar_0.xci",
+            "xci_path": "ip/AXI_Peripheral_xbar_0/AXI_Peripheral_xbar_0.xci",
             "inst_hier_path": "microblaze_0_axi_periph/xbar",
             "parameters": {
               "NUM_MI": {
@@ -1612,7 +1612,7 @@
       "microblaze_0_xlconcat": {
         "vlnv": "xilinx.com:ip:xlconcat:2.1",
         "xci_name": "AXI_Peripheral_microblaze_0_xlconcat_0",
-        "xci_path": "ip\\AXI_Peripheral_microblaze_0_xlconcat_0\\AXI_Peripheral_microblaze_0_xlconcat_0.xci",
+        "xci_path": "ip/AXI_Peripheral_microblaze_0_xlconcat_0/AXI_Peripheral_microblaze_0_xlconcat_0.xci",
         "inst_hier_path": "microblaze_0_xlconcat",
         "parameters": {
           "NUM_PORTS": {
@@ -1623,43 +1623,43 @@
       "spi_0": {
         "vlnv": "user.org:user:spi:1.0",
         "xci_name": "AXI_Peripheral_spi_0_0",
-        "xci_path": "ip\\AXI_Peripheral_spi_0_0\\AXI_Peripheral_spi_0_0.xci",
+        "xci_path": "ip/AXI_Peripheral_spi_0_0/AXI_Peripheral_spi_0_0.xci",
         "inst_hier_path": "spi_0"
       },
       "gpio_0": {
         "vlnv": "user.org:user:gpio:1.0",
         "xci_name": "AXI_Peripheral_gpio_0_0",
-        "xci_path": "ip\\AXI_Peripheral_gpio_0_0\\AXI_Peripheral_gpio_0_0.xci",
+        "xci_path": "ip/AXI_Peripheral_gpio_0_0/AXI_Peripheral_gpio_0_0.xci",
         "inst_hier_path": "gpio_0"
       },
       "gpio_1": {
         "vlnv": "user.org:user:gpio:1.0",
         "xci_name": "AXI_Peripheral_gpio_1_0",
-        "xci_path": "ip\\AXI_Peripheral_gpio_1_0\\AXI_Peripheral_gpio_1_0.xci",
+        "xci_path": "ip/AXI_Peripheral_gpio_1_0/AXI_Peripheral_gpio_1_0.xci",
         "inst_hier_path": "gpio_1"
       },
       "gpio_2": {
         "vlnv": "user.org:user:gpio:1.0",
         "xci_name": "AXI_Peripheral_gpio_2_0",
-        "xci_path": "ip\\AXI_Peripheral_gpio_2_0\\AXI_Peripheral_gpio_2_0.xci",
+        "xci_path": "ip/AXI_Peripheral_gpio_2_0/AXI_Peripheral_gpio_2_0.xci",
         "inst_hier_path": "gpio_2"
       },
       "gpio_3": {
         "vlnv": "user.org:user:gpio:1.0",
         "xci_name": "AXI_Peripheral_gpio_3_0",
-        "xci_path": "ip\\AXI_Peripheral_gpio_3_0\\AXI_Peripheral_gpio_3_0.xci",
+        "xci_path": "ip/AXI_Peripheral_gpio_3_0/AXI_Peripheral_gpio_3_0.xci",
         "inst_hier_path": "gpio_3"
       },
       "gpio_4": {
         "vlnv": "user.org:user:gpio:1.0",
         "xci_name": "AXI_Peripheral_gpio_4_0",
-        "xci_path": "ip\\AXI_Peripheral_gpio_4_0\\AXI_Peripheral_gpio_4_0.xci",
+        "xci_path": "ip/AXI_Peripheral_gpio_4_0/AXI_Peripheral_gpio_4_0.xci",
         "inst_hier_path": "gpio_4"
       },
       "gpio_5": {
         "vlnv": "user.org:user:gpio:1.0",
         "xci_name": "AXI_Peripheral_gpio_4_1",
-        "xci_path": "ip\\AXI_Peripheral_gpio_4_1\\AXI_Peripheral_gpio_4_1.xci",
+        "xci_path": "ip/AXI_Peripheral_gpio_4_1/AXI_Peripheral_gpio_4_1.xci",
         "inst_hier_path": "gpio_5"
       }
     },
@@ -1942,14 +1942,14 @@
       },
       "sdi_0_1": {
         "ports": [
-          "sdi",
-          "spi_0/sdi"
+          "miso",
+          "spi_0/miso"
         ]
       },
       "spi_0_sdo": {
         "ports": [
-          "spi_0/sdo",
-          "sdo"
+          "spi_0/mosi",
+          "mosi"
         ]
       },
       "Net5": {

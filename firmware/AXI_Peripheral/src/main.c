@@ -33,21 +33,21 @@ int main()
 
 //		if (Button_GetState(&hbtnLeft) == ACT_RELEASED) {
 //			UART_Transmit(UART0, 'r');
-//			SPI_SelectTarget(SPI0, 0);
+//			SPI_SelectSubordinate(SPI0, 0);
 //			SPI_WriteTxData(SPI0, 0xAB);
 //			SPI_Start(SPI0);
 //		}
 //		if (Button_GetState(&hbtnRight) == ACT_RELEASED) {
 //			UART_Transmit(UART0, 'c');
-//			SPI_SelectTarget(SPI0, 0);
+//			SPI_SelectSubordinate(SPI0, 0);
 //			SPI_WriteTxData(SPI0, 0xCD);
 //			SPI_Start(SPI0);
 //		}
 		if(Button_GetState(&hbtnLeft) == ACT_RELEASED) {
 		    UART_Transmit(UART0, 'r');
 
-		    // Slave RAM[1]에 0xAB write
-		    SPI_SelectTarget(SPI0, 0);
+		    // Subordinate RAM[1]에 0xAB write
+		    SPI_SelectSubordinate(SPI0, 0);
 
 		    SPI_WriteTxData(SPI0, 0x01);  // wr=1 (write)
 		    SPI_Start(SPI0);
@@ -57,15 +57,15 @@ int main()
 		    SPI_Start(SPI0);
 		    while(SPI_IsBusy(SPI0));
 
-		    SPI_WriteTxData(SPI0, 0xAB);  // data → 슬레이브 LED에 표시
+		    SPI_WriteTxData(SPI0, 0xAB);  // data → Subordinate LED에 표시
 		    SPI_Start(SPI0);
 		    while(SPI_IsBusy(SPI0));
 		}
 		if(Button_GetState(&hbtnRight) == ACT_RELEASED) {
 		    UART_Transmit(UART0, 'c');
 
-		    // Slave RAM[2]에 0xCD write
-		    SPI_SelectTarget(SPI0, 0);
+		    // Subordinate RAM[2]에 0xCD write
+		    SPI_SelectSubordinate(SPI0, 0);
 
 		    SPI_WriteTxData(SPI0, 0x01);  // wr=1 (write)
 		    SPI_Start(SPI0);
@@ -75,7 +75,7 @@ int main()
 		    SPI_Start(SPI0);
 		    while(SPI_IsBusy(SPI0));
 
-		    SPI_WriteTxData(SPI0, 0xCD);  // data → 슬레이브 LED에 표시
+		    SPI_WriteTxData(SPI0, 0xCD);  // data → Subordinate LED에 표시
 		    SPI_Start(SPI0);
 		    while(SPI_IsBusy(SPI0));
 		}

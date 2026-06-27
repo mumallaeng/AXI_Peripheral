@@ -1,4 +1,4 @@
-// IIC 1 Controller : 1 Target 기본 Controller
+// IIC manager: 1 subordinate device 기본 구성
 // 7-bit address
 // 1-byte write/read transfer
 // open-drain bus용 drive_low 출력
@@ -17,7 +17,7 @@ module iic_controller #(
 
     // IIC 설정
     input logic [CLK_DIV_W-1:0] clk_div,
-    input logic [   ADDR_W-1:0] target_addr,
+    input logic [   ADDR_W-1:0] subordinate_addr,
     input logic                 rw,
 
     // IIC resolved bus 관찰 신호
@@ -125,7 +125,7 @@ module iic_controller #(
                         busy <= 1'b1;
                         ack_seen <= 1'b0;
                         clk_div_r    <= (clk_div == '0) ? CLK_DIV_INIT_VALUE : clk_div;
-                        tx_shift_reg <= {target_addr, rw};
+                        tx_shift_reg <= {subordinate_addr, rw};
                         rx_shift_reg <= '0;
                         rw_r <= rw;
                         ack_in_r <= ack_in;

@@ -39,12 +39,12 @@ module iic_v1_0_S00_AXI #(
     reg axi_rvalid;
     localparam integer ADDR_LSB = (C_S_AXI_DATA_WIDTH / 32) + 1;
     localparam integer OPT_MEM_ADDR_BITS = 1;
-    reg [C_S_AXI_DATA_WIDTH-1:0] target_reg0;
-    reg [C_S_AXI_DATA_WIDTH-1:0] target_reg1;
-    reg [C_S_AXI_DATA_WIDTH-1:0] target_reg2;
-    reg [C_S_AXI_DATA_WIDTH-1:0] target_reg3;
-    wire target_reg_rden;
-    wire target_reg_wren;
+    reg [C_S_AXI_DATA_WIDTH-1:0] subordinate_reg0;
+    reg [C_S_AXI_DATA_WIDTH-1:0] subordinate_reg1;
+    reg [C_S_AXI_DATA_WIDTH-1:0] subordinate_reg2;
+    reg [C_S_AXI_DATA_WIDTH-1:0] subordinate_reg3;
+    wire subordinate_reg_rden;
+    wire subordinate_reg_wren;
     reg [C_S_AXI_DATA_WIDTH-1:0] reg_data_out;
     integer byte_index;
     reg aw_en;
@@ -96,16 +96,16 @@ module iic_v1_0_S00_AXI #(
             end
         end
     end
-    assign target_reg_wren = axi_wready && S_AXI_WVALID && axi_awready && S_AXI_AWVALID;
+    assign subordinate_reg_wren = axi_wready && S_AXI_WVALID && axi_awready && S_AXI_AWVALID;
 
     always @(posedge S_AXI_ACLK) begin
         if (S_AXI_ARESETN == 1'b0) begin
-            target_reg0 <= 0;
-            target_reg1 <= 0;
-            target_reg2 <= 0;
-            target_reg3 <= 0;
+            subordinate_reg0 <= 0;
+            subordinate_reg1 <= 0;
+            subordinate_reg2 <= 0;
+            subordinate_reg3 <= 0;
         end else begin
-            if (target_reg_wren) begin
+            if (subordinate_reg_wren) begin
                 case (axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB])
                     2'h0: begin
                         for (
@@ -114,7 +114,7 @@ module iic_v1_0_S00_AXI #(
                             byte_index = byte_index + 1
                         )
                         if (S_AXI_WSTRB[byte_index] == 1) begin
-                            target_reg0[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+                            subordinate_reg0[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
                         end
                     end
                     2'h1: begin
@@ -124,7 +124,7 @@ module iic_v1_0_S00_AXI #(
                             byte_index = byte_index + 1
                         )
                         if (S_AXI_WSTRB[byte_index] == 1) begin
-                            target_reg1[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+                            subordinate_reg1[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
                         end
                     end
                     2'h2: begin
@@ -134,7 +134,7 @@ module iic_v1_0_S00_AXI #(
                             byte_index = byte_index + 1
                         )
                         if (S_AXI_WSTRB[byte_index] == 1) begin
-                            target_reg2[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+                            subordinate_reg2[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
                         end
                     end
                     2'h3: begin
@@ -144,14 +144,14 @@ module iic_v1_0_S00_AXI #(
                             byte_index = byte_index + 1
                         )
                         if (S_AXI_WSTRB[byte_index] == 1) begin
-                            target_reg3[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+                            subordinate_reg3[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
                         end
                     end
                     default: begin
-                        target_reg0 <= target_reg0;
-                        target_reg1 <= target_reg1;
-                        target_reg2 <= target_reg2;
-                        target_reg3 <= target_reg3;
+                        subordinate_reg0 <= subordinate_reg0;
+                        subordinate_reg1 <= subordinate_reg1;
+                        subordinate_reg2 <= subordinate_reg2;
+                        subordinate_reg3 <= subordinate_reg3;
                     end
                 endcase
             end
@@ -201,14 +201,14 @@ module iic_v1_0_S00_AXI #(
         end
     end
 
-    assign target_reg_rden = axi_arready & S_AXI_ARVALID & ~axi_rvalid;
+    assign subordinate_reg_rden = axi_arready & S_AXI_ARVALID & ~axi_rvalid;
 
     always @(*) begin
         case (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB])
-            2'h0   : reg_data_out <= target_reg0;
-            2'h1   : reg_data_out <= target_reg1;
-            2'h2   : reg_data_out <= target_reg2;
-            2'h3   : reg_data_out <= target_reg3;
+            2'h0   : reg_data_out <= subordinate_reg0;
+            2'h1   : reg_data_out <= subordinate_reg1;
+            2'h2   : reg_data_out <= subordinate_reg2;
+            2'h3   : reg_data_out <= subordinate_reg3;
             default : reg_data_out <= 0;
         endcase
     end
@@ -216,7 +216,7 @@ module iic_v1_0_S00_AXI #(
         if (S_AXI_ARESETN == 1'b0) begin
             axi_rdata <= 0;
         end else begin
-            if (target_reg_rden) begin
+            if (subordinate_reg_rden) begin
                 axi_rdata <= reg_data_out;
             end
         end

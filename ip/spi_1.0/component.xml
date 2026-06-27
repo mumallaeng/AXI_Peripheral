@@ -366,7 +366,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>sdo</spirit:name>
+        <spirit:name>mosi</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -379,7 +379,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>sdi</spirit:name>
+        <spirit:name>miso</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>

@@ -2,6 +2,7 @@
 #define SRC_HAL_SPI_HAL_SPI_H_
 
 #include <stdint.h>
+#include "xparameters.h"
 
 /* ── 레지스터 구조체 ─────────────────────────────────────────── */
 typedef struct {
@@ -12,7 +13,7 @@ typedef struct {
 } SPI_TypeDef_t;
 
 /* ── 베이스 주소 ─────────────────────────────────────────────── */
-#define SPI_BASEADDR    XPAR_AXI_SPI_CONTROLLER_0_S00_AXI_BASEADDR
+#define SPI_BASEADDR    XPAR_SPI_0_S00_AXI_BASEADDR
 #define SPI0            ((SPI_TypeDef_t *) SPI_BASEADDR)
 
 /* ── CTRL 비트 필드 ──────────────────────────────────────────── */
@@ -31,7 +32,7 @@ typedef struct {
 
 /* ── 함수 선언 ───────────────────────────────────────────────── */
 void    SPI_Init(SPI_TypeDef_t *spi, uint8_t cpol, uint8_t cpha, uint8_t clk_div);
-void    SPI_SelectTarget(SPI_TypeDef_t *spi, uint8_t cs_sel);
+void    SPI_SelectSubordinate(SPI_TypeDef_t *spi, uint8_t cs_sel);
 void    SPI_WriteTxData(SPI_TypeDef_t *spi, uint8_t data);
 uint8_t SPI_ReadRxData(SPI_TypeDef_t *spi);
 void    SPI_Start(SPI_TypeDef_t *spi);

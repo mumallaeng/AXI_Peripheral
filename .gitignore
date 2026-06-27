@@ -59,24 +59,14 @@ RemoteSystemsTempFiles/
 **/psu_init.*
 **/fsbl/
 **/bsp/
+firmware/AXI_Peripheral_platform/export/
+firmware/AXI_Peripheral_platform/hw/drivers/
+firmware/AXI_Peripheral_platform/microblaze_0/
+firmware/AXI_Peripheral_platform/tempdsa/
 
 # Vitis project descriptors are source-controlled for the firmware workspace.
 !firmware/*/platform.spr
 !firmware/*/platform.tcl
-!firmware/AXI_Peripheral_platform/export/
-!firmware/AXI_Peripheral_platform/export/AXI_Peripheral_platform/
-!firmware/AXI_Peripheral_platform/export/AXI_Peripheral_platform/AXI_Peripheral_platform.xpfm
-!firmware/AXI_Peripheral_platform/export/AXI_Peripheral_platform/hw/
-!firmware/AXI_Peripheral_platform/export/AXI_Peripheral_platform/hw/AXI_Peripheral_wrapper.xsa
-!firmware/AXI_Peripheral_platform/export/AXI_Peripheral_platform/sw/
-!firmware/AXI_Peripheral_platform/export/AXI_Peripheral_platform/sw/AXI_Peripheral_platform.spfm
-!firmware/AXI_Peripheral_platform/export/AXI_Peripheral_platform/sw/AXI_Peripheral_platform/
-!firmware/AXI_Peripheral_platform/export/AXI_Peripheral_platform/sw/AXI_Peripheral_platform/boot/
-!firmware/AXI_Peripheral_platform/export/AXI_Peripheral_platform/sw/AXI_Peripheral_platform/boot/AXI_Peripheral_platform.bif
-!firmware/AXI_Peripheral_platform/export/AXI_Peripheral_platform/sw/AXI_Peripheral_platform/boot/generic.readme
-!firmware/AXI_Peripheral_platform/export/AXI_Peripheral_platform/sw/AXI_Peripheral_platform/standalone_microblaze_0/
-firmware/AXI_Peripheral_platform/export/AXI_Peripheral_platform/sw/AXI_Peripheral_platform/standalone_microblaze_0/*
-!firmware/AXI_Peripheral_platform/export/AXI_Peripheral_platform/sw/AXI_Peripheral_platform/standalone_microblaze_0/system.mss
 
 # Vivado IP Packager example projects are generated teaching scaffolds.
 ip/*_1.0/example_designs/

@@ -25,7 +25,7 @@ void SPI_Init(SPI_TypeDef_t *spi, uint8_t cpol, uint8_t cpha, uint8_t clk_div)
  * CTRL[5:4] cs_sel 비트만 변경, 나머지 비트 유지
  * cs_sel : 0~3
  */
-void SPI_SelectTarget(SPI_TypeDef_t *spi, uint8_t cs_sel)
+void SPI_SelectSubordinate(SPI_TypeDef_t *spi, uint8_t cs_sel)
 {
     spi->CTRL &= ~SPI_CTRL_CS_SEL_MASK;
     spi->CTRL |= ((uint32_t)(cs_sel & 0x3) << SPI_CTRL_CS_SEL_POS);

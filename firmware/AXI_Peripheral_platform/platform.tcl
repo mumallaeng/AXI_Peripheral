@@ -5,8 +5,7 @@
 
 set script_dir [file dirname [file normalize [info script]]]
 set workspace_dir [file dirname $script_dir]
-set repo_root [file dirname $workspace_dir]
-set xsa_path [file join $repo_root AXI_Peripheral_wrapper.xsa]
+set xsa_path [file join $script_dir hw AXI_Peripheral_wrapper.xsa]
 
 platform create -name {AXI_Peripheral_platform} \
     -hw $xsa_path \
@@ -24,3 +23,4 @@ platform generate -domains
 platform active {AXI_Peripheral_platform}
 platform generate -quick
 platform generate -domains
+platform generate
