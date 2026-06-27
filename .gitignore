@@ -36,7 +36,6 @@ systems/bd/*/ui/
 *.ltx
 *.mcs
 *.mmi
-*.xsa
 *.hwh
 *.sysdef
 
