@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module spi_controller (
+module spi_master (
     // global signals
     input logic clk,
     input logic reset_n,
@@ -9,7 +9,7 @@ module spi_controller (
     input logic cpol,  // SPI clock polarity
     input logic cpha,  // SPI clock phase
     input logic [7:0] clk_div,  // SCLK = clk / (2*(clk_div+1))
-    input logic [1:0] cs_sel,  // SPI device 선택 (0~3)
+    input logic [1:0] cs_sel,  // 슬레이브 선택 (0~3)
     input  logic [7:0]  tx_data,        // 전송 데이터 (start 전에 유효해야 함)
     output logic busy,  // 전송 중 HIGH
     output logic [7:0] rx_data,  // 수신 데이터 (done 후 유효)
@@ -18,7 +18,7 @@ module spi_controller (
     output logic sclk,
     output logic mosi,
     input logic miso,
-    output logic [3:0] cs_n  // Chip Select, active low (4개)
+    output logic [3:0] ss_n  // Chip Select, active low (4개)
 );
 
     typedef enum logic [1:0] {
@@ -41,7 +41,7 @@ module spi_controller (
     logic             cpha_r;
     logic             sclk_r;
     logic       [1:0] cs_sel_r;
-    logic       [3:0] cs_n_r;
+    logic       [3:0] ss_n_r;
 
     // ── 2단 동기화기 (miso 메타스태빌리티 방지) ──────────
     logic miso_sync0, miso_sync;
@@ -57,7 +57,7 @@ module spi_controller (
     end
 
     assign sclk = sclk_r;
-    assign cs_n = cs_n_r;
+    assign ss_n = ss_n_r;
 
     // CS 디코더 (active low)
     function automatic logic [3:0] cs_decode;
@@ -95,7 +95,7 @@ module spi_controller (
         if (!reset_n) begin
             state        <= IDLE;
             mosi         <= 1'b1;
-            cs_n_r       <= 4'b1111;
+            ss_n_r       <= 4'b1111;
             busy         <= 1'b0;
             done         <= 1'b0;
             tx_shift_reg <= 0;
@@ -114,7 +114,7 @@ module spi_controller (
             case (state)
                 IDLE: begin
                     mosi   <= 1'b1;
-                    cs_n_r <= 4'b1111;
+                    ss_n_r <= 4'b1111;
                     sclk_r <= cpol;
                     if (start) begin
                         state        <= START;
@@ -126,7 +126,7 @@ module spi_controller (
                         bit_cnt      <= 0;
                         step         <= 1'b0;
                         busy         <= 1'b1;
-                        cs_n_r       <= cs_decode(cs_sel, 1'b1);
+                        ss_n_r       <= cs_decode(cs_sel, 1'b1);
                     end
                 end
 
@@ -176,7 +176,7 @@ module spi_controller (
                 STOP: begin
                     done    <= 1'b1;
                     busy    <= 1'b0;
-                    cs_n_r  <= 4'b1111;
+                    ss_n_r  <= 4'b1111;
                     sclk_r  <= cpol_r;
                     mosi    <= 1'b1;
                     state   <= IDLE;

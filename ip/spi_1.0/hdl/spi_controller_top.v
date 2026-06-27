@@ -1,9 +1,9 @@
 `timescale 1ns / 1ps
 
 // ============================================================
-//  spi_controller_top
-//  AXI4-Lite 래퍼와 spi_controller 코어 사이의 인터페이스 모듈.
-//  래퍼에서 subordinate_reg 비트를 이 모듈의 포트로 연결한다.
+//  spi_master_top
+//  AXI4-Lite 래퍼와 spi_master 코어 사이의 인터페이스 모듈.
+//  래퍼에서 slv_reg 비트를 이 모듈의 포트로 연결한다.
 // ============================================================
 //
 //  [ 레지스터 맵 ]
@@ -14,7 +14,7 @@
 //                         [1]     done_ie : 인터럽트 인에이블 (래퍼에서 직접 처리)
 //                         [2]     cpol    : SPI clock polarity
 //                         [3]     cpha    : SPI clock phase
-//                         [5:4]   cs_sel  : SPI device 선택 (0~3)
+//                         [5:4]   cs_sel  : 슬레이브 선택 (0~3)
 //                         [7:6]   reserved
 //                         [15:8]  clk_div : SCLK = clk / (2*(clk_div+1))
 //                         [31:16] reserved
@@ -29,35 +29,35 @@
 //  intr = CTRL[1] (done_ie) & STATUS[1] (done_flag)
 // ============================================================
 
-module spi_controller_top (
+module spi_master_top (
     input clk,
     input rst,
 
-    // ── CTRL (subordinate_reg0) ──────────────────────────────────
+    // ── CTRL (slv_reg0) ──────────────────────────────────
     input       start,   // [0]
     input       cpol,    // [2]
     input       cpha,    // [3]
     input [1:0] cs_sel,  // [5:4]
     input [7:0] clk_div, // [15:8]
 
-    // ── TX DATA (subordinate_reg1) ───────────────────────────────
+    // ── TX DATA (slv_reg1) ───────────────────────────────
     input [7:0] tx_data,  // [7:0]
 
-    // ── STATUS (subordinate_reg2) ────────────────────────────────
+    // ── STATUS (slv_reg2) ────────────────────────────────
     output busy,  // [0]
     output done,  // [1] → 래퍼에서 done_flag로 래칭
 
-    // ── RX DATA (subordinate_reg3) ───────────────────────────────
+    // ── RX DATA (slv_reg3) ───────────────────────────────
     output [7:0] rx_data,  // [7:0]
 
     // ── 외부 SPI 핀 ──────────────────────────────────────
     output       sclk,
     output       mosi,
     input        miso,
-    output [3:0] cs_n   // active low, 4개
+    output [3:0] ss_n   // active low, 4개
 );
 
-    spi_controller u_spi_controller (
+    spi_master u_spi_master (
         .clk    (clk),
         .reset_n(rst),
         .start  (start),
@@ -72,10 +72,10 @@ module spi_controller_top (
         .sclk   (sclk),
         .mosi   (mosi),
         .miso   (miso),
-        .cs_n   (cs_n)
+        .ss_n   (ss_n)
     );
 
-    // intr = subordinate_reg0[1] (done_ie) & done_flag
+    // intr = slv_reg0[1] (done_ie) & done_flag
     // → AXI wrapper 내부에서 생성. 이 모듈은 관여하지 않음.
 
 endmodule
