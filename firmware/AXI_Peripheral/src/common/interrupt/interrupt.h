@@ -17,10 +17,12 @@
 
 #define TMR_VEC_ID 		XPAR_INTC_0_TIMER_0_VEC_ID
 #define UART_VEC_ID 	XPAR_INTC_0_UART_0_VEC_ID
+#define SPI_VEC_ID    XPAR_INTC_0_AXI_SPI_CONTROLLER_0_VEC_ID
 
 
 int SetupInterruptsystem();
 void TMR_ISR(void *CallbackRef);
 void UART_ISR(void *CallbackRef);
+void SPI_ISR(void *CallbackRef);
 
 #endif /* SRC_COMMON_INTERRUPT_INTERRUPT_H_ */

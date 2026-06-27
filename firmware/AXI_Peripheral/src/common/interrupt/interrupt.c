@@ -8,9 +8,11 @@
 #include "../../driver/FND/FND.h"
 #include "../../HAL/UART/UART.h"
 #include "../../driver/LED/LED.h"
+#include "../../HAL/SPI/SPI.h"
 
 XIntc IntrController;
 extern uint8_t rx_data;
+extern uint8_t spi_rx_data;
 
 void TMR_ISR(void * CallbackRef)
 {
@@ -30,6 +32,17 @@ void UART_ISR(void * CallbackRef)
 	}
 
 }
+void SPI_ISR(void *CallbackRef)
+{
+    spi_rx_data = SPI_ReadRxData(SPI0);  // 수신 데이터 저장 + done_flag 자동 클리어
+    if(spi_rx_data == 0xAB) {
+        LED_Toggle(2);
+    }
+    else if(spi_rx_data == 0xCD) {
+        LED_Toggle(3);
+    }
+
+}
 
 int SetupInterruptsystem()
 {
@@ -45,15 +58,16 @@ int SetupInterruptsystem()
 	if(status != XST_SUCCESS){
 		return XST_FAILURE;
 	}
-
-
-
 	//2 - 2. UART_ISR 함수를 Intc와 연결
 	status = XIntc_Connect(&IntrController, UART_VEC_ID, (XInterruptHandler)UART_ISR, (void *)0);
 	if(status != XST_SUCCESS){
 		return XST_FAILURE;
 	}
-
+	// 2-3. SPI_ISR 함수를 Intc와 연결
+	status = XIntc_Connect(&IntrController, SPI_VEC_ID, (XInterruptHandler)SPI_ISR, (void *)0);
+	if(status != XST_SUCCESS){
+	    return XST_FAILURE;
+	}
 
 	// 3. interrupt controller 시작
 	status = XIntc_Start(&IntrController, XIN_REAL_MODE);
@@ -64,6 +78,7 @@ int SetupInterruptsystem()
 	// 4. 각각의 인터럽트 채널 활성화
 	XIntc_Enable(&IntrController, TMR_VEC_ID);
 	XIntc_Enable(&IntrController, UART_VEC_ID);
+	XIntc_Enable(&IntrController, SPI_VEC_ID);
 
 	// ** 변경 없음. 5. Microblaze의 Exception 초기화 및 활성화
 	Xil_ExceptionInit();
