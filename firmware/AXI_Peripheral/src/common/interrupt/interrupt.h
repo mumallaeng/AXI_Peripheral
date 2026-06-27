@@ -17,7 +17,7 @@
 
 #define TMR_VEC_ID 		XPAR_INTC_0_TIMER_0_VEC_ID
 #define UART_VEC_ID 	XPAR_INTC_0_UART_0_VEC_ID
-#define SPI_VEC_ID    XPAR_INTC_0_SPI_0_VEC_ID
+#define SPI_VEC_ID    XPAR_INTC_0_AXI_SPI_CONTROLLER_0_VEC_ID
 
 
 int SetupInterruptsystem();

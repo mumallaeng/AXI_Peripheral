@@ -28,7 +28,7 @@ uint32_t stopWatchStateLed;
 stopWatch_t stopWatchTimeData;
 
 uint8_t rx_data;
-
+uint8_t spi_rx_data;
 
 
 void StopWatch_Init()
@@ -38,9 +38,10 @@ void StopWatch_Init()
 	Button_Init();
 	stopWatchState = STOP;
 	rx_data = 0;
+	spi_rx_data = 0;
 	counter = 0;
-	LED_PinOn(0);
-	stopWatchLed = 0x01;
+//	LED_PinOn(0);
+//	stopWatchLed = 0x01;
 	stopWatchStateLed = 0x00;
 	stopWatchTimeData.hour = 0;
 	stopWatchTimeData.min = 0;

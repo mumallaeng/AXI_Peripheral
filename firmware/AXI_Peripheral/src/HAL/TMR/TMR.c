@@ -11,7 +11,7 @@ void TMR_SetPSC(TMR_TypeDef_t *tmr, uint32_t psc)
 	tmr->PSC = psc;
 }
 
-uint32_t TMR_GetPSC(TMR_TypeDef_t *tmr)
+void TMR_GetPSC(TMR_TypeDef_t *tmr)
 {
 	return tmr->PSC;
 }
@@ -20,7 +20,7 @@ void TMR_SetARR(TMR_TypeDef_t *tmr, uint32_t arr)
 {
 	tmr->ARR = arr;
 }
-uint32_t TMR_GetARR(TMR_TypeDef_t *tmr)
+void TMR_GetARR(TMR_TypeDef_t *tmr)
 {
 	return tmr->ARR;
 }
@@ -29,7 +29,7 @@ void TMR_SetCNR(TMR_TypeDef_t *tmr, uint32_t cnt)
 {
 	tmr->CNT = cnt;
 }
-uint32_t TMR_GetCNT(TMR_TypeDef_t *tmr)
+void TMR_GetCNT(TMR_TypeDef_t *tmr)
 {
 	return tmr->CNT;
 }
