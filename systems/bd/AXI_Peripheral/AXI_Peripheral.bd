@@ -46,7 +46,7 @@
     },
     "interface_ports": {
       "usb_uart": {
-        "mode": "controller",
+        "mode": "Master",
         "vlnv": "xilinx.com:interface:uart_rtl:1.0"
       }
     },
@@ -150,7 +150,7 @@
         },
         "interface_ports": {
           "DLMB": {
-            "mode": "controller",
+            "mode": "Master",
             "address_space_ref": "Data",
             "base_address": {
               "minimum": "0x00000000",
@@ -159,7 +159,7 @@
             }
           },
           "ILMB": {
-            "mode": "controller",
+            "mode": "Master",
             "address_space_ref": "Instruction",
             "base_address": {
               "minimum": "0x00000000",
@@ -168,7 +168,7 @@
             }
           },
           "M_AXI_DP": {
-            "mode": "controller",
+            "mode": "Master",
             "address_space_ref": "Data",
             "base_address": {
               "minimum": "0x00000000",
@@ -191,11 +191,11 @@
       "microblaze_0_local_memory": {
         "interface_ports": {
           "DLMB": {
-            "mode": "Mirroredcontroller",
+            "mode": "MirroredMaster",
             "vlnv": "xilinx.com:interface:lmb_rtl:1.0"
           },
           "ILMB": {
-            "mode": "Mirroredcontroller",
+            "mode": "MirroredMaster",
             "vlnv": "xilinx.com:interface:lmb_rtl:1.0"
           }
         },
@@ -217,7 +217,7 @@
             "inst_hier_path": "microblaze_0_local_memory/dlmb_v10",
             "interface_ports": {
               "LMB_M": {
-                "mode": "Mirroredcontroller",
+                "mode": "MirroredMaster",
                 "bridges": [
                   "LMB_Sl_0"
                 ]
@@ -231,7 +231,7 @@
             "inst_hier_path": "microblaze_0_local_memory/ilmb_v10",
             "interface_ports": {
               "LMB_M": {
-                "mode": "Mirroredcontroller",
+                "mode": "MirroredMaster",
                 "bridges": [
                   "LMB_Sl_0"
                 ]
@@ -356,39 +356,39 @@
         },
         "interface_ports": {
           "S00_AXI": {
-            "mode": "target",
+            "mode": "Slave",
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
           },
           "M00_AXI": {
-            "mode": "controller",
+            "mode": "Master",
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
           },
           "M01_AXI": {
-            "mode": "controller",
+            "mode": "Master",
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
           },
           "M02_AXI": {
-            "mode": "controller",
+            "mode": "Master",
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
           },
           "M03_AXI": {
-            "mode": "controller",
+            "mode": "Master",
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
           },
           "M04_AXI": {
-            "mode": "controller",
+            "mode": "Master",
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
           },
           "M05_AXI": {
-            "mode": "controller",
+            "mode": "Master",
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
           },
           "M06_AXI": {
-            "mode": "controller",
+            "mode": "Master",
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
           },
           "M07_AXI": {
-            "mode": "controller",
+            "mode": "Master",
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
           }
         },
@@ -570,7 +570,7 @@
             },
             "interface_ports": {
               "S00_AXI": {
-                "mode": "target",
+                "mode": "Slave",
                 "bridges": [
                   "M00_AXI",
                   "M01_AXI",
@@ -587,11 +587,11 @@
           "s00_couplers": {
             "interface_ports": {
               "M_AXI": {
-                "mode": "controller",
+                "mode": "Master",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
               },
               "S_AXI": {
-                "mode": "target",
+                "mode": "Slave",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
               }
             },
@@ -641,11 +641,11 @@
           "m00_couplers": {
             "interface_ports": {
               "M_AXI": {
-                "mode": "controller",
+                "mode": "Master",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
               },
               "S_AXI": {
-                "mode": "target",
+                "mode": "Slave",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
               }
             },
@@ -695,11 +695,11 @@
           "m01_couplers": {
             "interface_ports": {
               "M_AXI": {
-                "mode": "controller",
+                "mode": "Master",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
               },
               "S_AXI": {
-                "mode": "target",
+                "mode": "Slave",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
               }
             },
@@ -749,11 +749,11 @@
           "m02_couplers": {
             "interface_ports": {
               "M_AXI": {
-                "mode": "controller",
+                "mode": "Master",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
               },
               "S_AXI": {
-                "mode": "target",
+                "mode": "Slave",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
               }
             },
@@ -803,11 +803,11 @@
           "m03_couplers": {
             "interface_ports": {
               "M_AXI": {
-                "mode": "controller",
+                "mode": "Master",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
               },
               "S_AXI": {
-                "mode": "target",
+                "mode": "Slave",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
               }
             },
@@ -857,11 +857,11 @@
           "m04_couplers": {
             "interface_ports": {
               "M_AXI": {
-                "mode": "controller",
+                "mode": "Master",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
               },
               "S_AXI": {
-                "mode": "target",
+                "mode": "Slave",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
               }
             },
@@ -911,11 +911,11 @@
           "m05_couplers": {
             "interface_ports": {
               "M_AXI": {
-                "mode": "controller",
+                "mode": "Master",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
               },
               "S_AXI": {
-                "mode": "target",
+                "mode": "Slave",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
               }
             },
@@ -965,11 +965,11 @@
           "m06_couplers": {
             "interface_ports": {
               "M_AXI": {
-                "mode": "controller",
+                "mode": "Master",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
               },
               "S_AXI": {
-                "mode": "target",
+                "mode": "Slave",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
               }
             },
@@ -1019,11 +1019,11 @@
           "m07_couplers": {
             "interface_ports": {
               "M_AXI": {
-                "mode": "controller",
+                "mode": "Master",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
               },
               "S_AXI": {
-                "mode": "target",
+                "mode": "Slave",
                 "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
               }
             },

@@ -157,9 +157,9 @@ proc create_hier_cell_microblaze_0_local_memory { parentCell nameHier } {
   current_bd_instance $hier_obj
 
   # Create interface pins
-  create_bd_intf_pin -mode Mirroredcontroller -vlnv xilinx.com:interface:lmb_rtl:1.0 DLMB
+  create_bd_intf_pin -mode MirroredMaster -vlnv xilinx.com:interface:lmb_rtl:1.0 DLMB
 
-  create_bd_intf_pin -mode Mirroredcontroller -vlnv xilinx.com:interface:lmb_rtl:1.0 ILMB
+  create_bd_intf_pin -mode MirroredMaster -vlnv xilinx.com:interface:lmb_rtl:1.0 ILMB
 
 
   # Create pins
@@ -241,7 +241,7 @@ proc create_root_design { parentCell } {
 
 
   # Create interface ports
-  set usb_uart [ create_bd_intf_port -mode controller -vlnv xilinx.com:interface:uart_rtl:1.0 usb_uart ]
+  set usb_uart [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:uart_rtl:1.0 usb_uart ]
 
 
   # Create ports
