@@ -1,4 +1,4 @@
-// iic(I2C) 1 Controller : 1 Target 기본 Controller
+// IIC 1 Controller : 1 Target 기본 Controller
 // 7-bit address
 // 1-byte write/read transfer
 // open-drain bus용 drive_low 출력
@@ -15,12 +15,12 @@ module iic_controller #(
     input logic clk,
     input logic reset_n,
 
-    // iic(I2C) 설정
-    input  logic [CLK_DIV_W-1:0] clk_div,
-    input  logic [ADDR_W-1:0]    target_addr,
-    input  logic                 rw,
+    // IIC 설정
+    input logic [CLK_DIV_W-1:0] clk_div,
+    input logic [   ADDR_W-1:0] target_addr,
+    input logic                 rw,
 
-    // iic(I2C) resolved bus 관찰 신호
+    // IIC resolved bus 관찰 신호
     input logic scl,
     input logic sda,
 
@@ -29,15 +29,15 @@ module iic_controller #(
     output logic ctrl_sda_drive_low,
 
     // transaction 요청/전송 데이터
-    input  logic                 start,
-    input  logic [DATA_W-1:0]    tx_data,
-    input  logic                 ack_in,
+    input logic              start,
+    input logic [DATA_W-1:0] tx_data,
+    input logic              ack_in,
 
     // transaction 상태/수신 결과
-    output logic                 ack_seen,
-    output logic [DATA_W-1:0]    rx_data,
-    output logic                 busy,
-    output logic                 done
+    output logic              ack_seen,
+    output logic [DATA_W-1:0] rx_data,
+    output logic              busy,
+    output logic              done
 );
 
     typedef enum logic [3:0] {
@@ -65,17 +65,17 @@ module iic_controller #(
     logic [CLK_DIV_W-1:0] clk_div_r;
     logic                 qtr_tick;
 
-    logic [1:0] step;
-    logic [2:0] bit_cnt;
+    logic [          1:0] step;
+    logic [          2:0] bit_cnt;
 
-    logic [7:0] tx_shift_reg;
-    logic [7:0] rx_shift_reg;
-    logic       rw_r;
-    logic       ack_in_r;
+    logic [          7:0] tx_shift_reg;
+    logic [          7:0] rx_shift_reg;
+    logic                 rw_r;
+    logic                 ack_in_r;
 
-    wire tx_bit_is_one = tx_shift_reg[7];
+    wire                  tx_bit_is_one = tx_shift_reg[7];
 
-    always_ff @(posedge clk or negedge reset_n) begin : i2c_tick_generator
+    always_ff @(posedge clk or negedge reset_n) begin : iic_tick_generator
         if (!reset_n) begin
             div_cnt  <= '0;
             qtr_tick <= 1'b0;
@@ -93,7 +93,7 @@ module iic_controller #(
         end
     end
 
-    always_ff @(posedge clk or negedge reset_n) begin : I2C_CONTROLLER_FSM
+    always_ff @(posedge clk or negedge reset_n) begin : iic_controller_fsm
         if (!reset_n) begin
             state              <= CTRL_IDLE;
             byte_phase         <= BYTE_ADDR;
@@ -122,15 +122,15 @@ module iic_controller #(
                     bit_cnt            <= '0;
 
                     if (start) begin
-                        busy         <= 1'b1;
-                        ack_seen     <= 1'b0;
+                        busy <= 1'b1;
+                        ack_seen <= 1'b0;
                         clk_div_r    <= (clk_div == '0) ? CLK_DIV_INIT_VALUE : clk_div;
                         tx_shift_reg <= {target_addr, rw};
                         rx_shift_reg <= '0;
-                        rw_r         <= rw;
-                        ack_in_r     <= ack_in;
-                        byte_phase   <= BYTE_ADDR;
-                        state        <= CTRL_GEN_START;
+                        rw_r <= rw;
+                        ack_in_r <= ack_in;
+                        byte_phase <= BYTE_ADDR;
+                        state <= CTRL_GEN_START;
                     end
                 end
 
