@@ -60,6 +60,10 @@ RemoteSystemsTempFiles/
 **/fsbl/
 **/bsp/
 
+# Vitis project descriptors are source-controlled for the firmware workspace.
+!firmware/*/platform.spr
+!firmware/*/platform.tcl
+
 # Vivado IP Packager example projects are generated teaching scaffolds.
 ip/*_1.0/example_designs/
 
