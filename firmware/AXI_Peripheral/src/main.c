@@ -6,9 +6,61 @@
 #include "HAL/TMR/TMR.h"
 #include "HAL/UART/UART.h"
 #include "HAL/SPI/SPI.h"
+#include "HAL/IIC/IIC.h"
 #include "driver/Button/Button.h"
 #include "driver/SPI_RAM/SPI_RAM.h"
 #include "driver/SW/SW.h"
+
+static void IIC_PrintProbeResult(uint8_t target_addr, uint32_t status)
+{
+	xil_printf("[IIC] addr=0x%x status=0x%x busy=%d done=%d ack=%d rx=0x%x\r\n",
+			target_addr,
+			status,
+			(status & IIC_STATUS_BUSY) ? 1 : 0,
+			(status & IIC_STATUS_DONE) ? 1 : 0,
+			(status & IIC_STATUS_ACK_SEEN) ? 1 : 0,
+			(status & IIC_STATUS_RX_MASK) >> IIC_STATUS_RX_POS);
+}
+
+static void IIC_SerialTerminalCheck(void)
+{
+	const uint16_t clk_div = 250;
+	const uint8_t probe_data = 0x08;
+	uint32_t status;
+	uint8_t found = 0;
+
+	xil_printf("\r\n[IIC] serial check start\r\n");
+	xil_printf("[IIC] base=0x%x\r\n", IIC0_BASEADDR);
+
+	IIC_SetConfig(IIC0, 0x27, clk_div);
+	xil_printf("[IIC] config write/read=0x%x\r\n", IIC_GetConfig(IIC0));
+
+	IIC_WriteTxData(IIC0, probe_data);
+	IIC_StartWrite(IIC0, 0);
+	status = IIC_WaitDone(IIC0, 1000000);
+	IIC_PrintProbeResult(0x27, status);
+	IIC_ClearDone(IIC0, 0);
+
+	xil_printf("[IIC] scan 0x20..0x3f\r\n");
+	for (uint8_t addr = 0x20; addr <= 0x3f; addr++) {
+		IIC_SetConfig(IIC0, addr, clk_div);
+		IIC_WriteTxData(IIC0, probe_data);
+		IIC_StartWrite(IIC0, 0);
+		status = IIC_WaitDone(IIC0, 1000000);
+
+		if ((status & IIC_STATUS_ACK_SEEN) != 0u) {
+			IIC_PrintProbeResult(addr, status);
+			found = 1;
+		}
+
+		IIC_ClearDone(IIC0, 0);
+	}
+
+	if (!found) {
+		xil_printf("[IIC] no ACK in 0x20..0x3f\r\n");
+	}
+	xil_printf("[IIC] serial check done\r\n\r\n");
+}
 
 int main()
 {
@@ -25,6 +77,7 @@ int main()
 
 	StopWatch_Init();
 	SetupInterruptsystem();
+	IIC_SerialTerminalCheck();
 
 	//	uint32_t prevTime = 0;
 
