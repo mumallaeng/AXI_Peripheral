@@ -5,6 +5,10 @@ module iic_v1_0 #(
     parameter integer C_S00_AXI_DATA_WIDTH = 32,
     parameter integer C_S00_AXI_ADDR_WIDTH = 4
 ) (
+    inout  wire scl,
+    inout  wire sda,
+    output wire intr,
+
     input  wire                                  s00_axi_aclk,
     input  wire                                  s00_axi_aresetn,
     input  wire [    C_S00_AXI_ADDR_WIDTH-1 : 0] s00_axi_awaddr,
@@ -27,6 +31,28 @@ module iic_v1_0 #(
     output wire                                  s00_axi_rvalid,
     input  wire                                  s00_axi_rready
 );
+    wire ctrl_scl_drive_low;
+    wire ctrl_sda_drive_low;
+
+    // IIC open-drain output model
+    // drive_low=1: drive 0, drive_low=0: high impedance (Z)
+    assign scl = ctrl_scl_drive_low ? 1'b0 : 1'bz;
+    assign sda = ctrl_sda_drive_low ? 1'b0 : 1'bz;
+
+    // AXI register block -> IIC controller
+    wire        start;
+    wire        rw;
+    wire        ack_in;
+    wire [15:0] clk_div;
+    wire [ 6:0] target_addr;
+    wire [ 7:0] tx_data;
+
+    // IIC controller -> AXI register block
+    wire        busy;
+    wire        done;
+    wire        ack_seen;
+    wire [ 7:0] rx_data;
+
     iic_v1_0_S00_AXI #(
         .C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
         .C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
@@ -51,7 +77,37 @@ module iic_v1_0 #(
         .S_AXI_RDATA  (s00_axi_rdata),
         .S_AXI_RRESP  (s00_axi_rresp),
         .S_AXI_RVALID (s00_axi_rvalid),
-        .S_AXI_RREADY (s00_axi_rready)
+        .S_AXI_RREADY (s00_axi_rready),
+        .start        (start),
+        .rw           (rw),
+        .ack_in       (ack_in),
+        .clk_div      (clk_div),
+        .target_addr  (target_addr),
+        .tx_data      (tx_data),
+        .busy         (busy),
+        .done         (done),
+        .ack_seen     (ack_seen),
+        .rx_data      (rx_data),
+        .intr         (intr)
+    );
+
+    iic_controller iic_controller_inst (
+        .clk               (s00_axi_aclk),
+        .reset_n           (s00_axi_aresetn),
+        .clk_div           (clk_div),
+        .target_addr       (target_addr),
+        .rw                (rw),
+        .scl               (scl),
+        .sda               (sda),
+        .ctrl_scl_drive_low(ctrl_scl_drive_low),
+        .ctrl_sda_drive_low(ctrl_sda_drive_low),
+        .start             (start),
+        .tx_data           (tx_data),
+        .ack_in            (ack_in),
+        .ack_seen          (ack_seen),
+        .rx_data           (rx_data),
+        .busy              (busy),
+        .done              (done)
     );
 
 endmodule
