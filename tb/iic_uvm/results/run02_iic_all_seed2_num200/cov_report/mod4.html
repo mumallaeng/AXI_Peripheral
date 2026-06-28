@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: iic_v1_0_S00_AXI</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_iic_v1_0_S00_AXI'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_iic_v1_0_S00_AXI')">iic_v1_0_S00_AXI</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s7 cl rt"> 74.88</td>
+<td class="s9 cl rt"><a href="mod4.html#Line" > 97.50</a></td>
+<td class="s6 cl rt"><a href="mod4.html#Cond" > 64.79</a></td>
+<td class="s4 cl rt"><a href="mod4.html#Toggle" > 49.72</a></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod4.html#Branch" > 87.50</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/pedu07/tmp/axi_iic_uvm_monitor_runs_repo/tb/iic_uvm/../../ip/iic_1.0/hdl/iic_v1_0_S00_AXI.v')">/home/pedu07/tmp/axi_iic_uvm_monitor_runs_repo/tb/iic_uvm/../../ip/iic_1.0/hdl/iic_v1_0_S00_AXI.v</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod4.html#inst_tag_4"  onclick="showContent('inst_tag_4')">tb_top.dut.iic_v1_0_S00_AXI_inst</a></td>
+<td class="s7 cl rt"> 74.88</td>
+<td class="s9 cl rt"><a href="mod4.html#Line" > 97.50</a></td>
+<td class="s6 cl rt"><a href="mod4.html#Cond" > 64.79</a></td>
+<td class="s4 cl rt"><a href="mod4.html#Toggle" > 49.72</a></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod4.html#Branch" > 87.50</a></td>
+<td class="wht cl rt"></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='tag_iic_v1_0_S00_AXI'>
+<hr>
+<a name="inst_tag_4"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_4" >tb_top.dut.iic_v1_0_S00_AXI_inst</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s7 cl rt"> 74.88</td>
+<td class="s9 cl rt"><a href="mod4.html#Line" > 97.50</a></td>
+<td class="s6 cl rt"><a href="mod4.html#Cond" > 64.79</a></td>
+<td class="s4 cl rt"><a href="mod4.html#Toggle" > 49.72</a></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod4.html#Branch" > 87.50</a></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s7 cl rt"> 74.88</td>
+<td class="s9 cl rt"> 97.50</td>
+<td class="s6 cl rt"> 64.79</td>
+<td class="s4 cl rt"> 49.72</td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 87.50</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s8 cl rt"> 87.16</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s6 cl rt"> 61.49</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td><a href="mod11.html#inst_tag_11" >dut</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td colspan=8>no children</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<hr>
+Since this is the module's only instance, the coverage report is the same as for the module.</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_iic_v1_0_S00_AXI'>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod4.html" >iic_v1_0_S00_AXI</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">TOTAL</td><td></td><td>80</td><td>78</td><td>97.50</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>93</td><td>10</td><td>10</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>110</td><td>4</td><td>4</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>118</td><td>5</td><td>5</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>132</td><td>28</td><td>28</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>188</td><td>8</td><td>8</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>202</td><td>7</td><td>7</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>216</td><td>8</td><td>8</td><td>100.00</td></tr>
+<tr class="s6"><td class="lf">ALWAYS</td><td>232</td><td>6</td><td>4</td><td>66.67</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>242</td><td>4</td><td>4</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+92                          always @(posedge S_AXI_ACLK) begin
+93         1/1                  if (S_AXI_ARESETN == 1'b0) begin
+94         1/1                      axi_awready &lt;= 1'b0;
+95         1/1                      aw_en       &lt;= 1'b1;
+96                              end else begin
+97         1/1                      if (~axi_awready &amp;&amp; S_AXI_AWVALID &amp;&amp; S_AXI_WVALID &amp;&amp; aw_en) begin
+98         1/1                          axi_awready &lt;= 1'b1;
+99         1/1                          aw_en       &lt;= 1'b0;
+100        1/1                      end else if (S_AXI_BREADY &amp;&amp; axi_bvalid) begin
+101        1/1                          aw_en       &lt;= 1'b1;
+102        1/1                          axi_awready &lt;= 1'b0;
+103                                 end else begin
+104        1/1                          axi_awready &lt;= 1'b0;
+105                                 end
+106                             end
+107                         end
+108                     
+109                         always @(posedge S_AXI_ACLK) begin
+110        1/1                  if (S_AXI_ARESETN == 1'b0) begin
+111        1/1                      axi_awaddr &lt;= 0;
+112        1/1                  end else if (~axi_awready &amp;&amp; S_AXI_AWVALID &amp;&amp; S_AXI_WVALID &amp;&amp; aw_en) begin
+113        1/1                      axi_awaddr &lt;= S_AXI_AWADDR;
+114                             end
+                        MISSING_ELSE
+115                         end
+116                     
+117                         always @(posedge S_AXI_ACLK) begin
+118        1/1                  if (S_AXI_ARESETN == 1'b0) begin
+119        1/1                      axi_wready &lt;= 1'b0;
+120                             end else begin
+121        1/1                      if (~axi_wready &amp;&amp; S_AXI_WVALID &amp;&amp; S_AXI_AWVALID &amp;&amp; aw_en) begin
+122        1/1                          axi_wready &lt;= 1'b1;
+123                                 end else begin
+124        1/1                          axi_wready &lt;= 1'b0;
+125                                 end
+126                             end
+127                         end
+128                     
+129                         assign subordinate_reg_wren = axi_wready &amp;&amp; S_AXI_WVALID &amp;&amp; axi_awready &amp;&amp; S_AXI_AWVALID;
+130                     
+131                         always @(posedge S_AXI_ACLK) begin
+132        1/1                  if (S_AXI_ARESETN == 1'b0) begin
+133        1/1                      subordinate_reg0 &lt;= CTRL_RESET;
+134        1/1                      subordinate_reg1 &lt;= CONFIG_RESET;
+135        1/1                      subordinate_reg2 &lt;= 0;
+136        1/1                      subordinate_reg3 &lt;= 0;
+137        1/1                      start_pulse      &lt;= 1'b0;
+138                             end else begin
+139        1/1                      start_pulse &lt;= 1'b0;
+140                     
+141        1/1                      subordinate_reg2[0]     &lt;= busy;
+142        1/1                      subordinate_reg2[2]     &lt;= ack_seen;
+143        1/1                      subordinate_reg2[3]     &lt;= intr_i;
+144        1/1                      subordinate_reg2[7:4]   &lt;= 4'b0;
+145        1/1                      subordinate_reg2[15:8]  &lt;= rx_data;
+146        1/1                      subordinate_reg2[31:16] &lt;= 16'b0;
+147        1/1                      subordinate_reg3[15:8]  &lt;= rx_data;
+148                     
+149        1/1                      if (done) begin
+150        1/1                          subordinate_reg2[1] &lt;= 1'b1;
+151                                 end
+                        MISSING_ELSE
+152                     
+153        1/1                      if (subordinate_reg_wren) begin
+154        1/1                          case (axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB])
+155                                         2'h0: begin
+156        1/1                                  if (S_AXI_WSTRB[0] == 1'b1) begin
+157        1/1                                      subordinate_reg0[3:1] &lt;= S_AXI_WDATA[3:1];
+158        1/1                                      start_pulse           &lt;= S_AXI_WDATA[0];
+159        1/1                                      if (S_AXI_WDATA[4] == 1'b1) begin
+160        1/1                                          subordinate_reg2[1] &lt;= 1'b0;
+161                                                 end
+                        MISSING_ELSE
+162                                             end
+                   <font color = "red">==>  MISSING_ELSE</font>
+163                                         end
+164                                         2'h1: begin
+165        1/1                                  for (
+166                                                 byte_index = 0;
+167                                                 byte_index &lt;= (C_S_AXI_DATA_WIDTH / 8) - 1;
+168                                                 byte_index = byte_index + 1
+169                                             ) begin
+170        1/1                                      if (S_AXI_WSTRB[byte_index] == 1'b1) begin
+171        1/1                                          subordinate_reg1[(byte_index*8) +: 8] &lt;= S_AXI_WDATA[(byte_index*8) +: 8];
+172                                                 end
+                   <font color = "red">==>  MISSING_ELSE</font>
+173                                             end
+174                                         end
+175                                         2'h3: begin
+176        1/1                                  if (S_AXI_WSTRB[0] == 1'b1) begin
+177        1/1                                      subordinate_reg3[7:0] &lt;= S_AXI_WDATA[7:0];
+178                                             end
+                   <font color = "red">==>  MISSING_ELSE</font>
+179                                         end
+180                                         default: begin
+181                                         end
+182                                     endcase
+183                                 end
+                        MISSING_ELSE
+184                             end
+185                         end
+186                     
+187                         always @(posedge S_AXI_ACLK) begin
+188        1/1                  if (S_AXI_ARESETN == 1'b0) begin
+189        1/1                      axi_bvalid &lt;= 0;
+190        1/1                      axi_bresp  &lt;= 2'b0;
+191                             end else begin
+192        1/1                      if (axi_awready &amp;&amp; S_AXI_AWVALID &amp;&amp; ~axi_bvalid &amp;&amp; axi_wready &amp;&amp; S_AXI_WVALID) begin
+193        1/1                          axi_bvalid &lt;= 1'b1;
+194        1/1                          axi_bresp  &lt;= 2'b0;
+195        1/1                      end else if (S_AXI_BREADY &amp;&amp; axi_bvalid) begin
+196        1/1                          axi_bvalid &lt;= 1'b0;
+197                                 end
+                        MISSING_ELSE
+198                             end
+199                         end
+200                     
+201                         always @(posedge S_AXI_ACLK) begin
+202        1/1                  if (S_AXI_ARESETN == 1'b0) begin
+203        1/1                      axi_arready &lt;= 1'b0;
+204        1/1                      axi_araddr  &lt;= 0;
+205                             end else begin
+206        1/1                      if (~axi_arready &amp;&amp; S_AXI_ARVALID) begin
+207        1/1                          axi_arready &lt;= 1'b1;
+208        1/1                          axi_araddr  &lt;= S_AXI_ARADDR;
+209                                 end else begin
+210        1/1                          axi_arready &lt;= 1'b0;
+211                                 end
+212                             end
+213                         end
+214                     
+215                         always @(posedge S_AXI_ACLK) begin
+216        1/1                  if (S_AXI_ARESETN == 1'b0) begin
+217        1/1                      axi_rvalid &lt;= 0;
+218        1/1                      axi_rresp  &lt;= 0;
+219                             end else begin
+220        1/1                      if (axi_arready &amp;&amp; S_AXI_ARVALID &amp;&amp; ~axi_rvalid) begin
+221        1/1                          axi_rvalid &lt;= 1'b1;
+222        1/1                          axi_rresp  &lt;= 2'b0;
+223        1/1                      end else if (axi_rvalid &amp;&amp; S_AXI_RREADY) begin
+224        1/1                          axi_rvalid &lt;= 1'b0;
+225                                 end
+                        MISSING_ELSE
+226                             end
+227                         end
+228                     
+229                         assign subordinate_reg_rden = axi_arready &amp; S_AXI_ARVALID &amp; ~axi_rvalid;
+230                     
+231                         always @(*) begin
+232        1/1                  case (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB])
+233        1/1                      2'h0:    reg_data_out = subordinate_reg0;
+234        <font color = "red">0/1     ==>              2'h1:    reg_data_out = subordinate_reg1;</font>
+235        1/1                      2'h2:    reg_data_out = subordinate_reg2;
+236        1/1                      2'h3:    reg_data_out = subordinate_reg3;
+237        <font color = "red">0/1     ==>              default: reg_data_out = 0;</font>
+238                             endcase
+239                         end
+240                     
+241                         always @(posedge S_AXI_ACLK) begin
+242        1/1                  if (S_AXI_ARESETN == 1'b0) begin
+243        1/1                      axi_rdata &lt;= 0;
+244        1/1                  end else if (subordinate_reg_rden) begin
+245        1/1                      axi_rdata &lt;= reg_data_out;
+246                             end
+                        MISSING_ELSE
+</pre>
+<hr>
+<a name="Cond"></a>
+Cond Coverage for Module : <a href="mod4.html" >iic_v1_0_S00_AXI</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s6"><td class="lf">Conditions</td><td>71</td><td>46</td><td>64.79</td></tr>
+<tr class="s6"><td class="lf">Logical</td><td>71</td><td>46</td><td>64.79</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       89
+ EXPRESSION (subordinate_reg0[3] &amp; subordinate_reg2[1])
+             ---------1---------   ---------2---------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       93
+ EXPRESSION (S_AXI_ARESETN == 1'b0)
+            -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       97
+ EXPRESSION (((~axi_awready)) &amp;&amp; S_AXI_AWVALID &amp;&amp; S_AXI_WVALID &amp;&amp; aw_en)
+             --------1-------    ------2------    ------3-----    --4--
+</pre>
+<table class="noborder">
+<col span="4" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>-4-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       100
+ EXPRESSION (S_AXI_BREADY &amp;&amp; axi_bvalid)
+             ------1-----    -----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       110
+ EXPRESSION (S_AXI_ARESETN == 1'b0)
+            -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       112
+ EXPRESSION (((~axi_awready)) &amp;&amp; S_AXI_AWVALID &amp;&amp; S_AXI_WVALID &amp;&amp; aw_en)
+             --------1-------    ------2------    ------3-----    --4--
+</pre>
+<table class="noborder">
+<col span="4" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>-4-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       118
+ EXPRESSION (S_AXI_ARESETN == 1'b0)
+            -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       121
+ EXPRESSION (((~axi_wready)) &amp;&amp; S_AXI_WVALID &amp;&amp; S_AXI_AWVALID &amp;&amp; aw_en)
+             -------1-------    ------2-----    ------3------    --4--
+</pre>
+<table class="noborder">
+<col span="4" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>-4-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       129
+ EXPRESSION (axi_wready &amp;&amp; S_AXI_WVALID &amp;&amp; axi_awready &amp;&amp; S_AXI_AWVALID)
+             -----1----    ------2-----    -----3-----    ------4------
+</pre>
+<table class="noborder">
+<col span="4" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>-4-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       132
+ EXPRESSION (S_AXI_ARESETN == 1'b0)
+            -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       156
+ EXPRESSION (S_AXI_WSTRB[0] == 1'b1)
+            ------------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       159
+ EXPRESSION (S_AXI_WDATA[4] == 1'b1)
+            ------------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       176
+ EXPRESSION (S_AXI_WSTRB[0] == 1'b1)
+            ------------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       188
+ EXPRESSION (S_AXI_ARESETN == 1'b0)
+            -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       192
+ EXPRESSION (axi_awready &amp;&amp; S_AXI_AWVALID &amp;&amp; ((~axi_bvalid)) &amp;&amp; axi_wready &amp;&amp; S_AXI_WVALID)
+             -----1-----    ------2------    -------3-------    -----4----    ------5-----
+</pre>
+<table class="noborder">
+<col span="5" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>-4-</th><th>-5-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       195
+ EXPRESSION (S_AXI_BREADY &amp;&amp; axi_bvalid)
+             ------1-----    -----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       202
+ EXPRESSION (S_AXI_ARESETN == 1'b0)
+            -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       206
+ EXPRESSION (((~axi_arready)) &amp;&amp; S_AXI_ARVALID)
+             --------1-------    ------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       216
+ EXPRESSION (S_AXI_ARESETN == 1'b0)
+            -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       220
+ EXPRESSION (axi_arready &amp;&amp; S_AXI_ARVALID &amp;&amp; ((~axi_rvalid)))
+             -----1-----    ------2------    -------3-------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       223
+ EXPRESSION (axi_rvalid &amp;&amp; S_AXI_RREADY)
+             -----1----    ------2-----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       229
+ EXPRESSION (axi_arready &amp; S_AXI_ARVALID &amp; ((~axi_rvalid)))
+             -----1-----   ------2------   -------3-------
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       242
+ EXPRESSION (S_AXI_ARESETN == 1'b0)
+            -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod4.html" >iic_v1_0_S00_AXI</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s5">
+<td>Totals</td>
+<td class="rt">52</td>
+<td class="rt">31</td>
+<td class="rt">59.62 </td>
+</tr><tr class="s4">
+<td>Total Bits</td>
+<td class="rt">716</td>
+<td class="rt">356</td>
+<td class="rt">49.72 </td>
+</tr><tr class="s5">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">358</td>
+<td class="rt">179</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s4">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">358</td>
+<td class="rt">177</td>
+<td class="rt">49.44 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s6">
+<td>Ports</td>
+<td class="rt">32</td>
+<td class="rt">21</td>
+<td class="rt">65.62 </td>
+</tr><tr class="s6">
+<td>Port Bits</td>
+<td class="rt">288</td>
+<td class="rt">174</td>
+<td class="rt">60.42 </td>
+</tr><tr class="s6">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">144</td>
+<td class="rt">88</td>
+<td class="rt">61.11 </td>
+</tr><tr class="s5">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">144</td>
+<td class="rt">86</td>
+<td class="rt">59.72 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s5">
+<td>Signals</td>
+<td class="rt">20</td>
+<td class="rt">10</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s4">
+<td>Signal Bits</td>
+<td class="rt">428</td>
+<td class="rt">182</td>
+<td class="rt">42.52 </td>
+</tr><tr class="s4">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">214</td>
+<td class="rt">91</td>
+<td class="rt">42.52 </td>
+</tr><tr class="s4">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">214</td>
+<td class="rt">91</td>
+<td class="rt">42.52 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>S_AXI_ACLK</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_ARESETN</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_AWADDR[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_AWADDR[3:2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_AWPROT[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_AWVALID</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_AWREADY</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>S_AXI_WDATA[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_WDATA[15:8]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_WDATA[22:16]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_WDATA[31:23]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_WSTRB[0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_WSTRB[3:1]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_WVALID</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_WREADY</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>S_AXI_BRESP[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>S_AXI_BVALID</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>S_AXI_BREADY</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_ARADDR[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_ARADDR[2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_ARADDR[3]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_ARPROT[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_ARVALID</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>S_AXI_ARREADY</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>S_AXI_RDATA[15:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>S_AXI_RDATA[31:16]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>S_AXI_RRESP[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>S_AXI_RVALID</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>S_AXI_RREADY</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>start</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rw</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>ack_in</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>clk_div[6:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>clk_div[7]</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>clk_div[15:8]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>target_addr[6:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>tx_data[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>busy</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>done</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>ack_seen</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rx_data[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>intr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>axi_awaddr[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>axi_awaddr[3:2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>axi_awready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>axi_wready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>axi_bresp[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>axi_bvalid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>axi_araddr[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>axi_araddr[2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>axi_araddr[3]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>axi_arready</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>axi_rdata[15:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>axi_rdata[31:16]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>axi_rresp[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>axi_rvalid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>subordinate_reg0[0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>subordinate_reg0[3:1]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>subordinate_reg0[31:4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>subordinate_reg1[6:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>subordinate_reg1[7]</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>subordinate_reg1[15:8]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>subordinate_reg1[22:16]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>subordinate_reg1[31:23]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>subordinate_reg2[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>subordinate_reg2[7:4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>subordinate_reg2[15:8]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>subordinate_reg2[31:16]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>subordinate_reg3[15:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>subordinate_reg3[31:16]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>reg_data_out[15:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>reg_data_out[31:16]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>subordinate_reg_rden</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>subordinate_reg_wren</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>intr_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>aw_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>start_pulse</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod4.html" >iic_v1_0_S00_AXI</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Branches</td>
+<td></td>
+<td class="rt">40</td>
+<td class="rt">35</td>
+<td class="rt">87.50 </td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">93</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">110</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">118</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s7">
+<td>IF</td>
+<td class="rt">132</td>
+<td class="rt">11</td>
+<td class="rt">8</td>
+<td class="rt">72.73 </td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">188</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">202</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">216</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s6">
+<td>CASE</td>
+<td class="rt">232</td>
+<td class="rt">5</td>
+<td class="rt">3</td>
+<td class="rt">60.00 </td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">242</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+93                 if (S_AXI_ARESETN == 1'b0) begin
+                   <font color = "green">-1-</font>  
+94                     axi_awready <= 1'b0;
+           <font color = "green">            ==></font>
+95                     aw_en       <= 1'b1;
+96                 end else begin
+97                     if (~axi_awready && S_AXI_AWVALID && S_AXI_WVALID && aw_en) begin
+                       <font color = "green">-2-</font>  
+98                         axi_awready <= 1'b1;
+           <font color = "green">                ==></font>
+99                         aw_en       <= 1'b0;
+100                    end else if (S_AXI_BREADY && axi_bvalid) begin
+                                <font color = "green">-3-</font>  
+101                        aw_en       <= 1'b1;
+           <font color = "green">                ==></font>
+102                        axi_awready <= 1'b0;
+103                    end else begin
+104                        axi_awready <= 1'b0;
+           <font color = "green">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+110                if (S_AXI_ARESETN == 1'b0) begin
+                   <font color = "green">-1-</font>  
+111                    axi_awaddr <= 0;
+           <font color = "green">            ==></font>
+112                end else if (~axi_awready && S_AXI_AWVALID && S_AXI_WVALID && aw_en) begin
+                            <font color = "green">-2-</font>  
+113                    axi_awaddr <= S_AXI_AWADDR;
+           <font color = "green">            ==></font>
+114                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+118                if (S_AXI_ARESETN == 1'b0) begin
+                   <font color = "green">-1-</font>  
+119                    axi_wready <= 1'b0;
+           <font color = "green">            ==></font>
+120                end else begin
+121                    if (~axi_wready && S_AXI_WVALID && S_AXI_AWVALID && aw_en) begin
+                       <font color = "green">-2-</font>  
+122                        axi_wready <= 1'b1;
+           <font color = "green">                ==></font>
+123                    end else begin
+124                        axi_wready <= 1'b0;
+           <font color = "green">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+132                if (S_AXI_ARESETN == 1'b0) begin
+                   <font color = "green">-1-</font>  
+133                    subordinate_reg0 <= CTRL_RESET;
+           <font color = "green">            ==></font>
+134                    subordinate_reg1 <= CONFIG_RESET;
+135                    subordinate_reg2 <= 0;
+136                    subordinate_reg3 <= 0;
+137                    start_pulse      <= 1'b0;
+138                end else begin
+139                    start_pulse <= 1'b0;
+140        
+141                    subordinate_reg2[0]     <= busy;
+142                    subordinate_reg2[2]     <= ack_seen;
+143                    subordinate_reg2[3]     <= intr_i;
+144                    subordinate_reg2[7:4]   <= 4'b0;
+145                    subordinate_reg2[15:8]  <= rx_data;
+146                    subordinate_reg2[31:16] <= 16'b0;
+147                    subordinate_reg3[15:8]  <= rx_data;
+148        
+149                    if (done) begin
+                       <font color = "green">-2-</font>  
+150                        subordinate_reg2[1] <= 1'b1;
+           <font color = "green">                ==></font>
+151                    end
+                       MISSING_ELSE
+           <font color = "green">            ==></font>
+152        
+153                    if (subordinate_reg_wren) begin
+                       <font color = "green">-3-</font>  
+154                        case (axi_awaddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB])
+                           <font color = "red">-4-</font>  
+155                            2'h0: begin
+156                                if (S_AXI_WSTRB[0] == 1'b1) begin
+                                   <font color = "red">-5-</font>  
+157                                    subordinate_reg0[3:1] <= S_AXI_WDATA[3:1];
+158                                    start_pulse           <= S_AXI_WDATA[0];
+159                                    if (S_AXI_WDATA[4] == 1'b1) begin
+                                       <font color = "green">-6-</font>  
+160                                        subordinate_reg2[1] <= 1'b0;
+           <font color = "green">                                ==></font>
+161                                    end
+                                       MISSING_ELSE
+           <font color = "green">                            ==></font>
+162                                end
+                                   MISSING_ELSE
+           <font color = "red">                        ==></font>
+163                            end
+164                            2'h1: begin
+165                                for (
+           <font color = "green">                        ==></font>
+166                                    byte_index = 0;
+167                                    byte_index <= (C_S_AXI_DATA_WIDTH / 8) - 1;
+168                                    byte_index = byte_index + 1
+169                                ) begin
+170                                    if (S_AXI_WSTRB[byte_index] == 1'b1) begin
+171                                        subordinate_reg1[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+172                                    end
+173                                end
+174                            end
+175                            2'h3: begin
+176                                if (S_AXI_WSTRB[0] == 1'b1) begin
+                                   <font color = "red">-7-</font>  
+177                                    subordinate_reg3[7:0] <= S_AXI_WDATA[7:0];
+           <font color = "green">                            ==></font>
+178                                end
+                                   MISSING_ELSE
+           <font color = "red">                        ==></font>
+179                            end
+180                            default: begin
+           <font color = "red">                    ==></font>
+181                            end
+182                        endcase
+183                    end
+                       MISSING_ELSE
+           <font color = "green">            ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>-7-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>2'h0 </td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>2'h0 </td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>2'h0 </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>2'h1 </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>2'h3 </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>2'h3 </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+188                if (S_AXI_ARESETN == 1'b0) begin
+                   <font color = "green">-1-</font>  
+189                    axi_bvalid <= 0;
+           <font color = "green">            ==></font>
+190                    axi_bresp  <= 2'b0;
+191                end else begin
+192                    if (axi_awready && S_AXI_AWVALID && ~axi_bvalid && axi_wready && S_AXI_WVALID) begin
+                       <font color = "green">-2-</font>  
+193                        axi_bvalid <= 1'b1;
+           <font color = "green">                ==></font>
+194                        axi_bresp  <= 2'b0;
+195                    end else if (S_AXI_BREADY && axi_bvalid) begin
+                                <font color = "green">-3-</font>  
+196                        axi_bvalid <= 1'b0;
+           <font color = "green">                ==></font>
+197                    end
+                       MISSING_ELSE
+           <font color = "green">            ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+202                if (S_AXI_ARESETN == 1'b0) begin
+                   <font color = "green">-1-</font>  
+203                    axi_arready <= 1'b0;
+           <font color = "green">            ==></font>
+204                    axi_araddr  <= 0;
+205                end else begin
+206                    if (~axi_arready && S_AXI_ARVALID) begin
+                       <font color = "green">-2-</font>  
+207                        axi_arready <= 1'b1;
+           <font color = "green">                ==></font>
+208                        axi_araddr  <= S_AXI_ARADDR;
+209                    end else begin
+210                        axi_arready <= 1'b0;
+           <font color = "green">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+216                if (S_AXI_ARESETN == 1'b0) begin
+                   <font color = "green">-1-</font>  
+217                    axi_rvalid <= 0;
+           <font color = "green">            ==></font>
+218                    axi_rresp  <= 0;
+219                end else begin
+220                    if (axi_arready && S_AXI_ARVALID && ~axi_rvalid) begin
+                       <font color = "green">-2-</font>  
+221                        axi_rvalid <= 1'b1;
+           <font color = "green">                ==></font>
+222                        axi_rresp  <= 2'b0;
+223                    end else if (axi_rvalid && S_AXI_RREADY) begin
+                                <font color = "green">-3-</font>  
+224                        axi_rvalid <= 1'b0;
+           <font color = "green">                ==></font>
+225                    end
+                       MISSING_ELSE
+           <font color = "green">            ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+232                case (axi_araddr[ADDR_LSB+OPT_MEM_ADDR_BITS:ADDR_LSB])
+                   <font color = "red">-1-</font>  
+233                    2'h0:    reg_data_out = subordinate_reg0;
+           <font color = "green">            ==></font>
+234                    2'h1:    reg_data_out = subordinate_reg1;
+           <font color = "red">            ==></font>
+235                    2'h2:    reg_data_out = subordinate_reg2;
+           <font color = "green">            ==></font>
+236                    2'h3:    reg_data_out = subordinate_reg3;
+           <font color = "green">            ==></font>
+237                    default: reg_data_out = 0;
+           <font color = "red">            ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>2'h0 </td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>2'h1 </td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>2'h2 </td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>2'h3 </td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>default</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+242                if (S_AXI_ARESETN == 1'b0) begin
+                   <font color = "green">-1-</font>  
+243                    axi_rdata <= 0;
+           <font color = "green">            ==></font>
+244                end else if (subordinate_reg_rden) begin
+                            <font color = "green">-2-</font>  
+245                    axi_rdata <= reg_data_out;
+           <font color = "green">            ==></font>
+246                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_4">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Cond">Cond</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+  <ul name="tag_iic_v1_0_S00_AXI">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Cond">Cond</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

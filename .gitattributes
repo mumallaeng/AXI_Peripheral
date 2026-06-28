@@ -18,6 +18,8 @@
 *.spfm text eol=lf
 *.mss text eol=lf
 
+tb/iic_uvm/results/** linguist-generated
+
 *.xsa binary
 *.bit binary
 *.mmi binary
