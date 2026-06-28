@@ -11,4 +11,4 @@ individual packaged IP RTL without loading the full MicroBlaze block design.
 | `spi_rtl_check.xpr` | `spi_v1_0` | `ip/spi_1.0/hdl` |
 | `iic_rtl_check.xpr` | `iic_v1_0` | `ip/iic_1.0/hdl` |
 
-The full system block design remains in the repository root `AXI_Peripheral.xpr`.
+Create the full system block design with `scripts/vivado/create_project.tcl`.

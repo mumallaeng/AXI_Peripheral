@@ -14,15 +14,14 @@ Tracked platform inputs:
 
 ```text
 AXI_Peripheral_platform/platform.tcl
-AXI_Peripheral_platform/platform.spr
-AXI_Peripheral_platform/hw/AXI_Peripheral_wrapper.xsa
+hw/AXI_Peripheral_wrapper.xsa
 ```
 
 Regenerate the platform outputs after clone, pull, or hardware updates:
 
 ```sh
 cd firmware
-xsct AXI_Peripheral_platform/platform.tcl
+env -u LD_PRELOAD -u LD_LIBRARY_PATH xsct AXI_Peripheral_platform/platform.tcl
 ```
 
 On Windows, run the same command from a Vitis 2020.2 command prompt:
@@ -34,4 +33,5 @@ xsct.bat AXI_Peripheral_platform\platform.tcl
 
 Regenerated paths such as `AXI_Peripheral_platform/export/`,
 `AXI_Peripheral_platform/microblaze_0/`, `AXI_Peripheral_platform/tempdsa/`,
-`Debug/`, and `Release/` are local build products.
+`AXI_Peripheral_platform/platform.spr`, `Debug/`, and `Release/` are local
+build products.

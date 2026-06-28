@@ -1,11 +1,15 @@
 # Re-create the Vitis platform project from the Vivado-exported XSA.
 #
 # Expected XSA:
-#   AXI_Peripheral_wrapper.xsa
+#   ../hw/AXI_Peripheral_wrapper.xsa
 
 set script_dir [file dirname [file normalize [info script]]]
 set workspace_dir [file dirname $script_dir]
-set xsa_path [file join $script_dir hw AXI_Peripheral_wrapper.xsa]
+if {[info exists ::env(AXI_PERIPHERAL_XSA)] && $::env(AXI_PERIPHERAL_XSA) ne ""} {
+    set xsa_path [file normalize $::env(AXI_PERIPHERAL_XSA)]
+} else {
+    set xsa_path [file join $workspace_dir hw AXI_Peripheral_wrapper.xsa]
+}
 
 platform create -name {AXI_Peripheral_platform} \
     -hw $xsa_path \

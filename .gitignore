@@ -17,6 +17,9 @@
 vivado_pid*.str
 
 # Vivado generated project output
+AXI_Peripheral.xpr
+AXI_Peripheral.srcs/
+board_repos/
 *.cache/
 *.gen/
 *.hw/
@@ -28,7 +31,13 @@ xvlog.pb
 *.os/
 *.srcs/sources_1/bd/*/hw_handoff/
 *.srcs/sources_1/bd/*/ipshared/
+systems/bd/
+systems/bd/*/*.bd
+systems/bd/*/*.bda
+systems/bd/*/ip/
+systems/bd/*/ipshared/
 systems/bd/*/ui/
+systems/hdl/*_wrapper.v
 
 # Vivado hardware/export products
 *.bit
@@ -61,11 +70,11 @@ RemoteSystemsTempFiles/
 **/bsp/
 firmware/AXI_Peripheral_platform/export/
 firmware/AXI_Peripheral_platform/hw/drivers/
+firmware/AXI_Peripheral_platform/hw/
 firmware/AXI_Peripheral_platform/microblaze_0/
 firmware/AXI_Peripheral_platform/tempdsa/
 
 # Vitis project descriptors are source-controlled for the firmware workspace.
-!firmware/*/platform.spr
 !firmware/*/platform.tcl
 
 # Vivado IP Packager example projects are generated teaching scaffolds.
