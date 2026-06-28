@@ -90,3 +90,60 @@ uint8_t IIC_IsAckSeen(IIC_TypeDef_t *iic)
 {
     return (IIC_GetStatus(iic) & IIC_STATUS_ACK_SEEN) ? 1u : 0u;
 }
+
+uint8_t IIC_StatusIsBusy(uint32_t status)
+{
+    return (status & IIC_STATUS_BUSY) ? 1u : 0u;
+}
+
+uint8_t IIC_StatusIsDone(uint32_t status)
+{
+    return (status & IIC_STATUS_DONE) ? 1u : 0u;
+}
+
+uint8_t IIC_StatusIsAckSeen(uint32_t status)
+{
+    return (status & IIC_STATUS_ACK_SEEN) ? 1u : 0u;
+}
+
+uint8_t IIC_StatusRxData(uint32_t status)
+{
+    return (uint8_t)((status & IIC_STATUS_RX_MASK) >> IIC_STATUS_RX_POS);
+}
+
+uint32_t IIC_WriteByte(IIC_TypeDef_t *iic, uint8_t target_addr, uint16_t clk_div, uint8_t data, uint32_t timeout)
+{
+    uint32_t status;
+
+    IIC_SetConfig(iic, target_addr, clk_div);
+    IIC_WriteTxData(iic, data);
+    IIC_StartWrite(iic, 0u);
+    status = IIC_WaitDone(iic, timeout);
+    IIC_ClearDone(iic, 0u);
+
+    return status;
+}
+
+uint32_t IIC_ReadByte(IIC_TypeDef_t *iic, uint8_t target_addr, uint16_t clk_div, uint8_t ack_in, uint8_t *data, uint32_t timeout)
+{
+    uint32_t status;
+
+    IIC_SetConfig(iic, target_addr, clk_div);
+    IIC_StartRead(iic, ack_in, 0u);
+    status = IIC_WaitDone(iic, timeout);
+
+    if (data != 0) {
+        *data = IIC_StatusRxData(status);
+    }
+
+    IIC_ClearDone(iic, 0u);
+
+    return status;
+}
+
+uint8_t IIC_ProbeAddress(IIC_TypeDef_t *iic, uint8_t target_addr, uint16_t clk_div, uint8_t probe_data, uint32_t timeout)
+{
+    uint32_t status = IIC_WriteByte(iic, target_addr, clk_div, probe_data, timeout);
+
+    return IIC_StatusIsAckSeen(status);
+}
