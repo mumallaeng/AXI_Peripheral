@@ -15,7 +15,7 @@ VCS_OUTPUT = -o simv
 # ── 소스 파일 (컴파일 순서 주의) ──────────────────────────
 #  1) DUT (Verilog) — 하위 모듈이 먼저 와도 VCS는 elaboration에서 해결하나
 #     명시적으로 top → 하위 순서로 둠
-#  2) TB SPI slave 모델
+#  2) TB SPI target 모델
 #  3) UVM interface / package
 #  4) tb_top
 VCS_SRC_FILES  = ../../ip/spi_1.0/hdl/spi_controller.sv

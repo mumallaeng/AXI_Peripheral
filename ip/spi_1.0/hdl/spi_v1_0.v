@@ -8,7 +8,7 @@ module spi_v1_0 #(
     // Do not modify the parameters beyond this line
 
 
-    // Parameters of Axi Slave Bus Interface S00_AXI
+    // Parameters of Axi target Bus Interface S00_AXI
     parameter integer C_S00_AXI_DATA_WIDTH = 32,
     parameter integer C_S00_AXI_ADDR_WIDTH = 4
 ) (
@@ -25,7 +25,7 @@ module spi_v1_0 #(
     // ── 인터럽트
     output wire intr,  // done_ie & done_flag
 
-    // Ports of Axi Slave Bus Interface S00_AXI
+    // Ports of Axi target Bus Interface S00_AXI
     input  wire                                  s00_axi_aclk,
     input  wire                                  s00_axi_aresetn,
     input  wire [    C_S00_AXI_ADDR_WIDTH-1 : 0] s00_axi_awaddr,
@@ -102,7 +102,7 @@ module spi_v1_0 #(
 
 
     // Add user logic here
-    spi_master_top U_SPI_CON (
+    spi_controller_top U_SPI_CON (
         .clk(s00_axi_aclk),
         .rst(s00_axi_aresetn),
         .start(start),  // [0]

@@ -22,7 +22,7 @@ module tb_top ();
     );
 
     // ── DUT: AXI SPI Controller ────────────────────────────
-    spi_controller_v1_0 #(
+    spi_v1_0 #(
         .C_S00_AXI_DATA_WIDTH(32),
         .C_S00_AXI_ADDR_WIDTH(4)
     ) dut (

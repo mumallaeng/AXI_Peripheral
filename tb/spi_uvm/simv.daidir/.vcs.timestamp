@@ -1,0 +1,955 @@
+618      
+0 uvm_macros.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/uvm_macros.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/uvm_macros.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/uvm_macros.svh
+0 macros/uvm_version_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/macros/uvm_version_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/macros/uvm_version_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/macros/uvm_version_defines.svh
+0 macros/uvm_global_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/macros/uvm_global_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/macros/uvm_global_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/macros/uvm_global_defines.svh
+0 macros/snps_macros.svp
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/macros/snps_macros.svp
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/macros/snps_macros.svp
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/macros/snps_macros.svp
+0 macros/uvm_message_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/macros/uvm_message_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/macros/uvm_message_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/macros/uvm_message_defines.svh
+0 macros/uvm_phase_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/macros/uvm_phase_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/macros/uvm_phase_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/macros/uvm_phase_defines.svh
+0 macros/uvm_object_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/macros/uvm_object_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/macros/uvm_object_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/macros/uvm_object_defines.svh
+0 macros/uvm_printer_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/macros/uvm_printer_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/macros/uvm_printer_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/macros/uvm_printer_defines.svh
+0 macros/uvm_tlm_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/macros/uvm_tlm_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/macros/uvm_tlm_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/macros/uvm_tlm_defines.svh
+0 tlm1/uvm_tlm_imps.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm1/uvm_tlm_imps.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm1/uvm_tlm_imps.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm1/uvm_tlm_imps.svh
+0 macros/uvm_sequence_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/macros/uvm_sequence_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/macros/uvm_sequence_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/macros/uvm_sequence_defines.svh
+0 macros/uvm_callback_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/macros/uvm_callback_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/macros/uvm_callback_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/macros/uvm_callback_defines.svh
+0 macros/uvm_reg_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/macros/uvm_reg_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/macros/uvm_reg_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/macros/uvm_reg_defines.svh
+0 macros/uvm_deprecated_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/macros/uvm_deprecated_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/macros/uvm_deprecated_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/macros/uvm_deprecated_defines.svh
+0 dpi/uvm_dpi.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/dpi/uvm_dpi.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/dpi/uvm_dpi.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/dpi/uvm_dpi.svh
+0 dpi/uvm_hdl.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/dpi/uvm_hdl.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/dpi/uvm_hdl.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/dpi/uvm_hdl.svh
+0 dpi/uvm_svcmd_dpi.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/dpi/uvm_svcmd_dpi.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/dpi/uvm_svcmd_dpi.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/dpi/uvm_svcmd_dpi.svh
+0 dpi/uvm_regex.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/dpi/uvm_regex.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/dpi/uvm_regex.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/dpi/uvm_regex.svh
+0 base/uvm_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_base.svh
+0 base/uvm_coreservice.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_coreservice.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_coreservice.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_coreservice.svh
+0 base/uvm_version.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_version.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_version.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_version.svh
+0 base/uvm_object_globals.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_object_globals.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_object_globals.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_object_globals.svh
+0 base/uvm_misc.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_misc.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_misc.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_misc.svh
+0 base/uvm_object.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_object.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_object.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_object.svh
+0 base/uvm_pool.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_pool.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_pool.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_pool.svh
+0 base/uvm_queue.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_queue.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_queue.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_queue.svh
+0 base/uvm_factory.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_factory.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_factory.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_factory.svh
+0 base/uvm_registry.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_registry.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_registry.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_registry.svh
+0 base/uvm_spell_chkr.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_spell_chkr.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_spell_chkr.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_spell_chkr.svh
+0 base/uvm_resource.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_resource.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_resource.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_resource.svh
+0 base/uvm_resource_specializations.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_resource_specializations.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_resource_specializations.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_resource_specializations.svh
+0 base/uvm_resource_db.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_resource_db.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_resource_db.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_resource_db.svh
+0 base/uvm_config_db.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_config_db.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_config_db.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_config_db.svh
+0 base/uvm_printer.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_printer.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_printer.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_printer.svh
+0 base/uvm_comparer.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_comparer.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_comparer.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_comparer.svh
+0 base/uvm_packer.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_packer.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_packer.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_packer.svh
+0 base/uvm_links.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_links.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_links.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_links.svh
+0 base/uvm_tr_database.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_tr_database.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_tr_database.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_tr_database.svh
+0 base/uvm_tr_stream.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_tr_stream.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_tr_stream.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_tr_stream.svh
+0 base/uvm_recorder.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_recorder.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_recorder.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_recorder.svh
+0 base/uvm_event_callback.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_event_callback.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_event_callback.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_event_callback.svh
+0 base/uvm_event.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_event.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_event.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_event.svh
+0 base/uvm_barrier.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_barrier.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_barrier.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_barrier.svh
+0 base/uvm_callback.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_callback.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_callback.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_callback.svh
+0 base/uvm_report_message.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_report_message.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_report_message.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_report_message.svh
+0 base/uvm_report_catcher.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_report_catcher.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_report_catcher.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_report_catcher.svh
+0 base/uvm_report_server.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_report_server.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_report_server.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_report_server.svh
+0 base/uvm_report_handler.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_report_handler.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_report_handler.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_report_handler.svh
+0 base/uvm_report_object.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_report_object.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_report_object.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_report_object.svh
+0 base/uvm_transaction.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_transaction.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_transaction.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_transaction.svh
+0 base/uvm_phase.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_phase.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_phase.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_phase.svh
+0 base/uvm_domain.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_domain.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_domain.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_domain.svh
+0 base/uvm_bottomup_phase.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_bottomup_phase.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_bottomup_phase.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_bottomup_phase.svh
+0 base/uvm_topdown_phase.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_topdown_phase.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_topdown_phase.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_topdown_phase.svh
+0 base/uvm_task_phase.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_task_phase.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_task_phase.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_task_phase.svh
+0 base/uvm_common_phases.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_common_phases.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_common_phases.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_common_phases.svh
+0 base/uvm_runtime_phases.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_runtime_phases.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_runtime_phases.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_runtime_phases.svh
+0 base/uvm_component.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_component.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_component.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_component.svh
+0 base/uvm_root.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_root.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_root.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_root.svh
+0 base/uvm_objection.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_objection.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_objection.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_objection.svh
+0 base/uvm_heartbeat.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_heartbeat.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_heartbeat.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_heartbeat.svh
+0 base/uvm_globals.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_globals.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_globals.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_globals.svh
+0 base/uvm_cmdline_processor.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_cmdline_processor.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_cmdline_processor.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_cmdline_processor.svh
+0 base/uvm_traversal.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_traversal.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_traversal.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_traversal.svh
+0 dap/uvm_dap.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/dap/uvm_dap.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/dap/uvm_dap.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/dap/uvm_dap.svh
+0 dap/uvm_set_get_dap_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/dap/uvm_set_get_dap_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/dap/uvm_set_get_dap_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/dap/uvm_set_get_dap_base.svh
+0 dap/uvm_simple_lock_dap.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/dap/uvm_simple_lock_dap.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/dap/uvm_simple_lock_dap.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/dap/uvm_simple_lock_dap.svh
+0 dap/uvm_get_to_lock_dap.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/dap/uvm_get_to_lock_dap.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/dap/uvm_get_to_lock_dap.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/dap/uvm_get_to_lock_dap.svh
+0 dap/uvm_set_before_get_dap.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/dap/uvm_set_before_get_dap.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/dap/uvm_set_before_get_dap.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/dap/uvm_set_before_get_dap.svh
+0 tlm1/uvm_tlm.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm1/uvm_tlm.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm1/uvm_tlm.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm1/uvm_tlm.svh
+0 tlm1/uvm_tlm_ifs.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm1/uvm_tlm_ifs.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm1/uvm_tlm_ifs.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm1/uvm_tlm_ifs.svh
+0 tlm1/uvm_sqr_ifs.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm1/uvm_sqr_ifs.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm1/uvm_sqr_ifs.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm1/uvm_sqr_ifs.svh
+0 base/uvm_port_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/base/uvm_port_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/base/uvm_port_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/base/uvm_port_base.svh
+0 tlm1/uvm_imps.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm1/uvm_imps.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm1/uvm_imps.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm1/uvm_imps.svh
+0 tlm1/uvm_ports.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm1/uvm_ports.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm1/uvm_ports.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm1/uvm_ports.svh
+0 tlm1/uvm_exports.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm1/uvm_exports.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm1/uvm_exports.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm1/uvm_exports.svh
+0 tlm1/uvm_analysis_port.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm1/uvm_analysis_port.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm1/uvm_analysis_port.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm1/uvm_analysis_port.svh
+0 tlm1/uvm_tlm_fifo_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm1/uvm_tlm_fifo_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm1/uvm_tlm_fifo_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm1/uvm_tlm_fifo_base.svh
+0 tlm1/uvm_tlm_fifos.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm1/uvm_tlm_fifos.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm1/uvm_tlm_fifos.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm1/uvm_tlm_fifos.svh
+0 tlm1/uvm_tlm_req_rsp.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm1/uvm_tlm_req_rsp.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm1/uvm_tlm_req_rsp.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm1/uvm_tlm_req_rsp.svh
+0 tlm1/uvm_sqr_connections.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm1/uvm_sqr_connections.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm1/uvm_sqr_connections.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm1/uvm_sqr_connections.svh
+0 comps/uvm_comps.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/comps/uvm_comps.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/comps/uvm_comps.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/comps/uvm_comps.svh
+0 comps/uvm_pair.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/comps/uvm_pair.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/comps/uvm_pair.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/comps/uvm_pair.svh
+0 comps/uvm_policies.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/comps/uvm_policies.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/comps/uvm_policies.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/comps/uvm_policies.svh
+0 comps/uvm_in_order_comparator.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/comps/uvm_in_order_comparator.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/comps/uvm_in_order_comparator.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/comps/uvm_in_order_comparator.svh
+0 comps/uvm_algorithmic_comparator.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/comps/uvm_algorithmic_comparator.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/comps/uvm_algorithmic_comparator.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/comps/uvm_algorithmic_comparator.svh
+0 comps/uvm_random_stimulus.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/comps/uvm_random_stimulus.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/comps/uvm_random_stimulus.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/comps/uvm_random_stimulus.svh
+0 comps/uvm_subscriber.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/comps/uvm_subscriber.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/comps/uvm_subscriber.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/comps/uvm_subscriber.svh
+0 comps/uvm_monitor.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/comps/uvm_monitor.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/comps/uvm_monitor.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/comps/uvm_monitor.svh
+0 comps/uvm_driver.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/comps/uvm_driver.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/comps/uvm_driver.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/comps/uvm_driver.svh
+0 comps/uvm_push_driver.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/comps/uvm_push_driver.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/comps/uvm_push_driver.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/comps/uvm_push_driver.svh
+0 comps/uvm_scoreboard.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/comps/uvm_scoreboard.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/comps/uvm_scoreboard.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/comps/uvm_scoreboard.svh
+0 comps/uvm_agent.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/comps/uvm_agent.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/comps/uvm_agent.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/comps/uvm_agent.svh
+0 comps/uvm_env.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/comps/uvm_env.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/comps/uvm_env.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/comps/uvm_env.svh
+0 comps/uvm_test.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/comps/uvm_test.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/comps/uvm_test.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/comps/uvm_test.svh
+0 seq/uvm_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/seq/uvm_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/seq/uvm_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/seq/uvm_seq.svh
+0 seq/uvm_sequence_item.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/seq/uvm_sequence_item.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/seq/uvm_sequence_item.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/seq/uvm_sequence_item.svh
+0 seq/uvm_sequencer_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/seq/uvm_sequencer_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/seq/uvm_sequencer_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/seq/uvm_sequencer_base.svh
+0 seq/uvm_sequencer_analysis_fifo.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/seq/uvm_sequencer_analysis_fifo.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/seq/uvm_sequencer_analysis_fifo.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/seq/uvm_sequencer_analysis_fifo.svh
+0 seq/uvm_sequencer_param_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/seq/uvm_sequencer_param_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/seq/uvm_sequencer_param_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/seq/uvm_sequencer_param_base.svh
+0 seq/uvm_sequencer.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/seq/uvm_sequencer.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/seq/uvm_sequencer.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/seq/uvm_sequencer.svh
+0 seq/uvm_push_sequencer.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/seq/uvm_push_sequencer.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/seq/uvm_push_sequencer.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/seq/uvm_push_sequencer.svh
+0 seq/uvm_sequence_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/seq/uvm_sequence_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/seq/uvm_sequence_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/seq/uvm_sequence_base.svh
+0 seq/uvm_sequence.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/seq/uvm_sequence.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/seq/uvm_sequence.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/seq/uvm_sequence.svh
+0 seq/uvm_sequence_library.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/seq/uvm_sequence_library.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/seq/uvm_sequence_library.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/seq/uvm_sequence_library.svh
+0 seq/uvm_sequence_builtin.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/seq/uvm_sequence_builtin.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/seq/uvm_sequence_builtin.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/seq/uvm_sequence_builtin.svh
+0 tlm2/uvm_tlm2.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm2/uvm_tlm2.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm2/uvm_tlm2.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm2/uvm_tlm2.svh
+0 tlm2/uvm_tlm2_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm2/uvm_tlm2_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm2/uvm_tlm2_defines.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm2/uvm_tlm2_defines.svh
+0 tlm2/uvm_tlm2_time.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm2/uvm_tlm2_time.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm2/uvm_tlm2_time.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm2/uvm_tlm2_time.svh
+0 tlm2/uvm_tlm2_generic_payload.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm2/uvm_tlm2_generic_payload.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm2/uvm_tlm2_generic_payload.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm2/uvm_tlm2_generic_payload.svh
+0 tlm2/uvm_tlm2_ifs.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm2/uvm_tlm2_ifs.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm2/uvm_tlm2_ifs.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm2/uvm_tlm2_ifs.svh
+0 tlm2/uvm_tlm2_imps.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm2/uvm_tlm2_imps.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm2/uvm_tlm2_imps.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm2/uvm_tlm2_imps.svh
+0 tlm2/uvm_tlm2_ports.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm2/uvm_tlm2_ports.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm2/uvm_tlm2_ports.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm2/uvm_tlm2_ports.svh
+0 tlm2/uvm_tlm2_exports.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm2/uvm_tlm2_exports.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm2/uvm_tlm2_exports.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm2/uvm_tlm2_exports.svh
+0 tlm2/uvm_tlm2_sockets_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm2/uvm_tlm2_sockets_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm2/uvm_tlm2_sockets_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm2/uvm_tlm2_sockets_base.svh
+0 tlm2/uvm_tlm2_sockets.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/tlm2/uvm_tlm2_sockets.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/tlm2/uvm_tlm2_sockets.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/tlm2/uvm_tlm2_sockets.svh
+0 reg/uvm_reg_model.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/uvm_reg_model.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/uvm_reg_model.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/uvm_reg_model.svh
+0 reg/uvm_reg_item.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/uvm_reg_item.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/uvm_reg_item.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/uvm_reg_item.svh
+0 reg/uvm_reg_adapter.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/uvm_reg_adapter.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/uvm_reg_adapter.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/uvm_reg_adapter.svh
+0 reg/uvm_reg_predictor.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/uvm_reg_predictor.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/uvm_reg_predictor.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/uvm_reg_predictor.svh
+0 reg/uvm_reg_sequence.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/uvm_reg_sequence.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/uvm_reg_sequence.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/uvm_reg_sequence.svh
+0 reg/uvm_reg_cbs.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/uvm_reg_cbs.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/uvm_reg_cbs.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/uvm_reg_cbs.svh
+0 reg/uvm_reg_backdoor.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/uvm_reg_backdoor.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/uvm_reg_backdoor.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/uvm_reg_backdoor.svh
+0 reg/uvm_reg_field.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/uvm_reg_field.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/uvm_reg_field.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/uvm_reg_field.svh
+0 reg/uvm_vreg_field.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/uvm_vreg_field.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/uvm_vreg_field.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/uvm_vreg_field.svh
+0 reg/uvm_reg.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/uvm_reg.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/uvm_reg.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/uvm_reg.svh
+0 reg/uvm_reg_indirect.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/uvm_reg_indirect.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/uvm_reg_indirect.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/uvm_reg_indirect.svh
+0 reg/uvm_reg_fifo.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/uvm_reg_fifo.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/uvm_reg_fifo.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/uvm_reg_fifo.svh
+0 reg/uvm_reg_file.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/uvm_reg_file.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/uvm_reg_file.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/uvm_reg_file.svh
+0 reg/uvm_mem_mam.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/uvm_mem_mam.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/uvm_mem_mam.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/uvm_mem_mam.svh
+0 reg/uvm_vreg.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/uvm_vreg.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/uvm_vreg.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/uvm_vreg.svh
+0 reg/uvm_mem.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/uvm_mem.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/uvm_mem.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/uvm_mem.svh
+0 reg/uvm_reg_map.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/uvm_reg_map.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/uvm_reg_map.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/uvm_reg_map.svh
+0 reg/uvm_reg_block.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/uvm_reg_block.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/uvm_reg_block.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/uvm_reg_block.svh
+0 reg/sequences/uvm_reg_hw_reset_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/sequences/uvm_reg_hw_reset_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/sequences/uvm_reg_hw_reset_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/sequences/uvm_reg_hw_reset_seq.svh
+0 reg/sequences/uvm_reg_bit_bash_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/sequences/uvm_reg_bit_bash_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/sequences/uvm_reg_bit_bash_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/sequences/uvm_reg_bit_bash_seq.svh
+0 reg/sequences/uvm_mem_walk_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/sequences/uvm_mem_walk_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/sequences/uvm_mem_walk_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/sequences/uvm_mem_walk_seq.svh
+0 reg/sequences/uvm_mem_access_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/sequences/uvm_mem_access_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/sequences/uvm_mem_access_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/sequences/uvm_mem_access_seq.svh
+0 reg/sequences/uvm_reg_access_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/sequences/uvm_reg_access_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/sequences/uvm_reg_access_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/sequences/uvm_reg_access_seq.svh
+0 reg/sequences/uvm_reg_mem_shared_access_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/sequences/uvm_reg_mem_shared_access_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/sequences/uvm_reg_mem_shared_access_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/sequences/uvm_reg_mem_shared_access_seq.svh
+0 reg/sequences/uvm_reg_mem_built_in_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/sequences/uvm_reg_mem_built_in_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/sequences/uvm_reg_mem_built_in_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/sequences/uvm_reg_mem_built_in_seq.svh
+0 reg/sequences/uvm_reg_mem_hdl_paths_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/sequences/uvm_reg_mem_hdl_paths_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/sequences/uvm_reg_mem_hdl_paths_seq.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/sequences/uvm_reg_mem_hdl_paths_seq.svh
+0 reg/snps_uvm_reg_bank.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/reg/snps_uvm_reg_bank.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/reg/snps_uvm_reg_bank.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/reg/snps_uvm_reg_bank.svh
+0 vcs/vcs_uvm_alt.sv
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/vcs/vcs_uvm_alt.sv
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/vcs/vcs_uvm_alt.sv
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/vcs/vcs_uvm_alt.sv
+0 msglog.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/msglog.svh
+0 uvm_msglog_report_server.sv
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/uvm_msglog_report_server.sv
+0 uvm_vcs_recorder.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/uvm_vcs_recorder.svh
+0 uvm_vcs_tr_database.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/uvm_vcs_tr_database.svh
+0 uvm_vcs_tr_stream.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/uvm_vcs_tr_stream.svh
+0 uvm_vcs_record_interface.sv
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/uvm_vcs_record_interface.sv
+0 uvm_verdi_recorder.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/uvm_verdi_recorder.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/uvm_verdi_recorder.svh
+0 uvm_verdi_pli_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/uvm_verdi_pli_base.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/uvm_verdi_pli_base.svh
+0 uvm_verdi_tr_database.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/uvm_verdi_tr_database.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/uvm_verdi_tr_database.svh
+0 uvm_verdi_tr_stream.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/uvm_verdi_tr_stream.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/uvm_verdi_tr_stream.svh
+0 uvm_verdi_reg_map_recording.sv
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/uvm_verdi_reg_map_recording.sv
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/uvm_verdi_reg_map_recording.sv
+0 uvm_verdi_message_catcher.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/uvm_verdi_message_catcher.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/uvm_verdi_message_catcher.svh
+0 uvm_verdi_factory.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/uvm_verdi_factory.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/uvm_verdi_factory.svh
+0 ./dpi/uvm_verdi_dpi.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/./dpi/uvm_verdi_dpi.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/./dpi/uvm_verdi_dpi.svh
+0 uvm_verdi_reg_recording.sv
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/uvm_verdi_reg_recording.sv
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/uvm_verdi_reg_recording.sv
+0 uvm_verdi_pli.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/systemverilog/uvm_verdi_pli.svh
+0 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/uvm_verdi_pli.svh
+65
++define+UVM_VCS_RECORD
++define+UVM_VERDI_VIF_RECORD
++incdir+/tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/
++incdir+/tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs
++incdir+/tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi
++incdir+rtl
++incdir+tb
++itf+/tools/synopsys/vcs/W-2024.09-SP2/linux64/lib/vcsdp_lite.tab
++vcsd1
++vpi
+-Mamsrun=
+-Masflags=
+-Mcc=gcc
+-Mcfl= -pipe -DVCSMX -DUVM_DPI_DO_TYPE_CHECK -fPIC -O -I/tools/synopsys/vcs/W-2024.09-SP2/include
+-Mcplusplus=g++
+-Mcrt0=
+-Mcrtn=
+-Mcsrc=/tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/dpi/uvm_dpi.cc /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/dpi/uvm_verdi_dpi.cpp
+-Mexternalobj=
+-Mldflags= -rdynamic
+-Mobjects= /tools/synopsys/vcs/W-2024.09-SP2/linux64/lib/libvirsim.so /tools/synopsys/vcs/W-2024.09-SP2/linux64/lib/liberrorinf.so /tools/synopsys/vcs/W-2024.09-SP2/linux64/lib/libsnpsmalloc.so /tools/synopsys/vcs/W-2024.09-SP2/linux64/lib/libvfs.so
+-Mout=simv
+-Msaverestoreobj=/tools/synopsys/vcs/W-2024.09-SP2/linux64/lib/vcs_save_restore_new.o
+-Msyslibs=/tools/synopsys/verdi/X-2025.06-1/share/PLI/VCS/LINUX64/pli.a -ldl
+-Mvcsaceobjs=
+-Mxcflags= -pipe -DVCSMX -DUVM_DPI_DO_TYPE_CHECK -fPIC -I/tools/synopsys/vcs/W-2024.09-SP2/include
+-Mxllcflags=
+-P
+-Xufe=2steps
+-Xufe=2steps
+-Xufe=2steps
+-Xufe=2steps
+-cm
+-debug_access+all
+-fsdb
+-full64
+-gen_obj
+-kdb
+-kdb=common_elab
+-kdb=common_elab
+-kdb=common_elab
+-l
+-lca
+-ntb_opts
+-o simv
+-picarchive
+-sverilog
+-timescale=1ns/1ps
+/tools/synopsys/vcs/W-2024.09-SP2/linux64/bin/vcs1
+comp.log
+/tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/uvm_pkg.sv
+/tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv
+/tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv
+uvm-1.2
+line+cond+fsm+tgl+branch+assert
+simv
+/tools/synopsys/verdi/X-2025.06-1/share/PLI/VCS/LINUX64/verdi.tab
+../../ip/spi_1.0/hdl/spi_controller.sv
+../../ip/spi_1.0/hdl/spi_controller_top.v
+../../ip/spi_1.0/hdl/spi_v1_0_S00_AXI.v
+../../ip/spi_1.0/hdl/spi_v1_0.v
+./rtl_spi_target_model.sv
+./spi_if.sv
+./spi_pkg.sv
+./tb_top.sv
+72
+XDG_SESSION_ID=4877
+XDG_RUNTIME_DIR=/run/user/1036
+WV_HOME=/tools/synopsys/wv/W-2024.09-SP2-4
+VSCODE_NONCE=0887b64f-460d-41b7-ad03-aa90e96d61e2
+VSCODE_IPC_HOOK_CLI=/run/user/1036/vscode-ipc-8e8f3bb9-f395-4985-ab01-08468c9b280f.sock
+VSCODE_GIT_IPC_HANDLE=/run/user/1036/vscode-git-a88cc2fa32.sock
+VSCODE_GIT_ASKPASS_NODE=/home/pedu26/.vscode-server/cli/servers/Stable-7e7950df89d055b5a378379db9ee14290772148a/server/node
+VSCODE_GIT_ASKPASS_MAIN=/home/pedu26/.vscode-server/cli/servers/Stable-7e7950df89d055b5a378379db9ee14290772148a/server/extensions/git/dist/askpass-main.js
+VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+VMR_MODE_FLAG=64
+VERDI_HOME=/tools/synopsys/verdi/X-2025.06-1
+VENDOR=unknown
+VCS_UVM_HOME=/tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2
+VCS_PYTHON3=/tools/synopsys/vcs/W-2024.09-SP2/linux64/bin/Python3/bin/python3
+VCS_PATHMAP_PRELOAD_DONE=1
+VCS_MX_HOME_INTERNAL=1
+VCS_MODE_FLAG=64
+VCS_LOG_FILE=comp.log
+VCS_LCAMSG_PRINT_OFF=1
+VCS_INTERNAL_CONVERTEDLIBS=
+VCS_HOME=/tools/synopsys/vcs/W-2024.09-SP2
+VCS_EXEC_DONE=1
+VCS_DEPTH=0
+VCS_ARG_ADDED_FOR_TMP=1
+VCS_ARCH=linux64
+UNAME=/bin/uname
+TOOL_HOME=/tools/synopsys/vcs/W-2024.09-SP2/linux64
+TERM_PROGRAM_VERSION=1.126.0
+TERM_PROGRAM=vscode
+S_COLORS=auto
+SYN_HOME=/tools/synopsys/syn/W-2024.09-SP5-2
+SYNOPSYS_LC_ROOT=/tools/synopsys/lc/V-2023.12-SP5-6
+STARRC_HOME=/tools/synopsys/starrc/W-2024.09-SP4-1
+SSH_ORIGINAL_COMMAND=sh
+SSH_CONNECTION=10.10.20.29 61645 10.10.20.251 20022
+SSH_CLIENT=10.10.20.29 61645 20022
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+SPYGLASS_HOME_DIR=/tools/synopsys/spyglass/X-2025.06-1/SPYGLASS_HOME
+SNPS_VERDI_INTERNAL_LP_XML_NEW_FLOW=1
+SNPS_VCS_VHDL_WRAPPER_KDB=1
+SNPS_VCS_PYTHON3=/tools/synopsys/vcs/W-2024.09-SP2/linux64/bin/Python3/bin/python3
+SNPS_VCS_CLANG_PATH=/tools/synopsys/vcs/W-2024.09-SP2/linux64/clang
+SNPS_INTERNAL_VCS_LINUX_OS=linux
+SCRNAME=vcs
+SCRIPT_NAME=vcs
+SALT_LICENSE_SERVER=1717@kccipangyo1:1717@61.108.38.195
+PT_HOME=/tools/synopsys/prime/W-2024.09-SP4-1
+PRIMEWAVE=/tools/synopsys/primewave/W-2024.09-SP2-3
+PRIMESIM_HOME=/tools/synopsys/primesim/W-2024.09-SP2-2
+OVA_UUM=0
+OSTYPE=linux
+MFLAGS=
+MAKE_TERMOUT=/dev/pts/46
+MAKE_TERMERR=/dev/pts/46
+MAKELEVEL=1
+MAKEFLAGS=
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+LC_HOME=/tools/synopsys/lc/V-2023.12-SP5-6
+LC_ALL=C
+ICV_HOME_DIR=/tools/synopsys/icvalidator/W-2024.09-SP1
+ICC2_HOME=/tools/synopsys/icc2/W-2024.09-SP3
+HSP_HOME=/tools/synopsys/hspice/W-2024.09-SP2-2/hspice
+HOSTTYPE=x86_64-linux
+GROUP=pedu26
+GIT_ASKPASS=/home/pedu26/.vscode-server/cli/servers/Stable-7e7950df89d055b5a378379db9ee14290772148a/server/extensions/git/dist/askpass.sh
+FS_HOME_DIR=/tools/synopsys/fusioncompiler/X-2025.06-SP3
+FM_HOME=/tools/synopsys/fm/W-2024.09-SP4-1
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1036/bus
+CUSTOM_COMPILER=/tools/synopsys/customcompiler/W-2024.09-SP2-3
+COPILOT_DEBUG_NONCE=52ea1e424c20e95ca1a7c159359f49ba
+COLORTERM=truecolor
+CALIBRE_HOME=/tools/siemens/calibre/aok_cal_2024.3_16.10
+0
+0
+185
+1782633349 spi_test.sv
+1782633349 spi_env.sv
+1782633349 spi_coverage.sv
+1782633349 spi_scoreboard.sv
+1782633349 spi_agent.sv
+1782633349 spi_monitor.sv
+1782633349 spi_driver.sv
+1782633349 spi_sequence.sv
+1782633349 spi_seq_item.sv
+1740892349 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_pli.svh
+1752984263 /tools/synopsys/verdi/X-2025.06-1/share/PLI/VCS/include/verdi_trans_recorder_dpi.svh
+1740892349 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_reg_recording.sv
+1740892349 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/./dpi/uvm_verdi_dpi.svh
+1740892349 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_factory.svh
+1740892349 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_message_catcher.svh
+1740892349 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_reg_map_recording.sv
+1740892349 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_tr_stream.svh
+1740892349 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_tr_database.svh
+1740892349 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_pli_base.svh
+1740892349 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_recorder.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/uvm_vcs_record_interface.sv
+1740892349 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/uvm_vcs_tr_stream.svh
+1740892349 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/uvm_vcs_tr_database.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/uvm_vcs_recorder.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/uvm_msglog_report_server.sv
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/msglog.svh
+1740892349 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/vcs_uvm_alt.sv
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/snps_uvm_reg_bank.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/sequences/uvm_reg_mem_hdl_paths_seq.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/sequences/uvm_reg_mem_built_in_seq.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/sequences/uvm_reg_mem_shared_access_seq.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/sequences/uvm_reg_access_seq.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/sequences/uvm_mem_access_seq.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/sequences/uvm_mem_walk_seq.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/sequences/uvm_reg_bit_bash_seq.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/sequences/uvm_reg_hw_reset_seq.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/uvm_reg_block.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/uvm_reg_map.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/uvm_mem.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/uvm_vreg.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/uvm_mem_mam.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/uvm_reg_file.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/uvm_reg_fifo.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/uvm_reg_indirect.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/uvm_reg.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/uvm_vreg_field.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/uvm_reg_field.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/uvm_reg_backdoor.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/uvm_reg_cbs.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/uvm_reg_sequence.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/uvm_reg_predictor.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/uvm_reg_adapter.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/uvm_reg_item.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/reg/uvm_reg_model.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2_sockets.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2_sockets_base.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2_exports.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2_ports.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2_imps.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2_ifs.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2_generic_payload.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2_time.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2_defines.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm2/uvm_tlm2.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/seq/uvm_sequence_builtin.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/seq/uvm_sequence_library.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/seq/uvm_sequence.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/seq/uvm_sequence_base.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/seq/uvm_push_sequencer.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/seq/uvm_sequencer.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/seq/uvm_sequencer_param_base.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/seq/uvm_sequencer_analysis_fifo.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/seq/uvm_sequencer_base.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/seq/uvm_sequence_item.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/seq/uvm_seq.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/comps/uvm_test.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/comps/uvm_env.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/comps/uvm_agent.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/comps/uvm_scoreboard.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/comps/uvm_push_driver.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/comps/uvm_driver.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/comps/uvm_monitor.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/comps/uvm_subscriber.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/comps/uvm_random_stimulus.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/comps/uvm_algorithmic_comparator.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/comps/uvm_in_order_comparator.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/comps/uvm_policies.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/comps/uvm_pair.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/comps/uvm_comps.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm1/uvm_sqr_connections.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm_req_rsp.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm_fifos.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm_fifo_base.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm1/uvm_analysis_port.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm1/uvm_exports.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm1/uvm_ports.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm1/uvm_imps.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_port_base.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm1/uvm_sqr_ifs.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm_ifs.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/dap/uvm_set_before_get_dap.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/dap/uvm_get_to_lock_dap.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/dap/uvm_simple_lock_dap.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/dap/uvm_set_get_dap_base.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/dap/uvm_dap.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_traversal.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_cmdline_processor.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_globals.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_heartbeat.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_objection.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_root.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_component.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_runtime_phases.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_common_phases.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_task_phase.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_topdown_phase.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_bottomup_phase.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_domain.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_phase.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_transaction.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_report_object.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_report_handler.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_report_message.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_callback.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_barrier.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_event.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_event_callback.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_recorder.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_tr_stream.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_tr_database.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_links.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_packer.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_comparer.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_printer.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_config_db.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_resource_db.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_resource_specializations.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_resource.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_spell_chkr.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_registry.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_factory.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_queue.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_pool.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_object.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_misc.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_object_globals.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_version.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_coreservice.svh
+1740892347 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/base/uvm_base.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/dpi/uvm_regex.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/dpi/uvm_svcmd_dpi.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/dpi/uvm_hdl.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/dpi/uvm_dpi.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/macros/uvm_deprecated_defines.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/macros/uvm_reg_defines.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/macros/uvm_callback_defines.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/macros/uvm_sequence_defines.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/tlm1/uvm_tlm_imps.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/macros/uvm_tlm_defines.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/macros/uvm_printer_defines.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/macros/uvm_object_defines.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/macros/uvm_phase_defines.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/macros/uvm_message_defines.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/macros/snps_macros.svp
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/macros/uvm_global_defines.svh
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/macros/uvm_version_defines.svh
+1740892349 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/uvm_macros.svh
+1782633673 ./tb_top.sv
+1782633349 ./spi_pkg.sv
+1782633349 ./spi_if.sv
+1782633349 ./rtl_spi_target_model.sv
+1782633601 ../../ip/spi_1.0/hdl/spi_v1_0.v
+1782633586 ../../ip/spi_1.0/hdl/spi_v1_0_S00_AXI.v
+1782633574 ../../ip/spi_1.0/hdl/spi_controller_top.v
+1782633349 ../../ip/spi_1.0/hdl/spi_controller.sv
+1740892349 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv
+1740892349 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv
+1740892349 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/uvm_pkg.sv
+1740888327 /tools/synopsys/vcs/W-2024.09-SP2/include/cm_vcsd.tab
+1752984263 /tools/synopsys/verdi/X-2025.06-1/share/PLI/VCS/LINUX64/verdi.tab
+1740888368 /tools/synopsys/vcs/W-2024.09-SP2/linux64/lib/vcsdp_lite.tab
+6
+1740892348 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/dpi/uvm_dpi.cc
+1740892349 /tools/synopsys/vcs/W-2024.09-SP2/etc/uvm-1.2/verdi/dpi/uvm_verdi_dpi.cpp
+1740891987 /tools/synopsys/vcs/W-2024.09-SP2/linux64/lib/libvirsim.so
+1740889567 /tools/synopsys/vcs/W-2024.09-SP2/linux64/lib/liberrorinf.so
+1740889560 /tools/synopsys/vcs/W-2024.09-SP2/linux64/lib/libsnpsmalloc.so
+1740889556 /tools/synopsys/vcs/W-2024.09-SP2/linux64/lib/libvfs.so
+1782633701 simv.daidir
+-1 partitionlib

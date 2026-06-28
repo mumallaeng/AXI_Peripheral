@@ -4,7 +4,7 @@ module spi_v1_0_S00_AXI #(
     parameter integer C_S_AXI_DATA_WIDTH = 32,
     parameter integer C_S_AXI_ADDR_WIDTH = 4
 ) (
-    // ── CTRL (slv_reg0 → spi_master_top) ─────────────────
+    // ── CTRL (slv_reg0 → spi_controller_top) ─────────────────
     output wire       start,   // slv_reg0[0]    전송 시작 1클럭 펄스
     output wire       cpol,    // slv_reg0[2]    clock polarity
     output wire       cpha,    // slv_reg0[3]    clock phase
@@ -12,14 +12,14 @@ module spi_v1_0_S00_AXI #(
     output wire [7:0] clk_div, // slv_reg1[15:8] SCLK 분주값
     // done_ie = slv_reg0[1] → 내부에서 직접 사용
 
-    // ── TX DATA (slv_reg1 → spi_master_top) ──────────────
+    // ── TX DATA (slv_reg1 → spi_controller_top) ──────────────
     output wire [7:0] tx_data,  // slv_reg1[7:0]
 
-    // ── STATUS (spi_master_top → slv_reg2) ───────────────
+    // ── STATUS (spi_controller_top → slv_reg2) ───────────────
     input wire busy,  // slv_reg2[0]
     input wire done,  // 1클럭 펄스
 
-    // ── RX DATA (spi_master_top → slv_reg3) ──────────────
+    // ── RX DATA (spi_controller_top → slv_reg3) ──────────────
     input wire [7:0] rx_data,  // done 시 래칭
 
     // ── 인터럽트 ──────────────────────────────────────────

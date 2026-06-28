@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 
 // ============================================================
-//  spi_master_top
-//  AXI4-Lite 래퍼와 spi_master 코어 사이의 인터페이스 모듈.
+//  spi_controller_top
+//  AXI4-Lite 래퍼와 spi_controller 코어 사이의 인터페이스 모듈.
 //  래퍼에서 slv_reg 비트를 이 모듈의 포트로 연결한다.
 // ============================================================
 //
@@ -29,7 +29,7 @@
 //  intr = CTRL[1] (done_ie) & STATUS[1] (done_flag)
 // ============================================================
 
-module spi_master_top (
+module spi_controller_top (
     input clk,
     input rst,
 
@@ -57,7 +57,7 @@ module spi_master_top (
     output [3:0] cs_n   // active low, 4개
 );
 
-    spi_master u_spi_master (
+    spi_controller u_spi_controller (
         .clk    (clk),
         .reset_n(rst),
         .start  (start),
