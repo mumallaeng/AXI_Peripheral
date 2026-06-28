@@ -13,7 +13,7 @@ typedef struct {
 } SPI_TypeDef_t;
 
 /* ���� 踰좎씠�뒪 二쇱냼 ���������������������������������������������������������������������������������������������� */
-#define SPI_BASEADDR    XPAR_AXI_SPI_CONTROLLER_0_S00_AXI_BASEADDR
+#define SPI_BASEADDR    XPAR_SPI_0_S00_AXI_BASEADDR
 #define SPI0            ((SPI_TypeDef_t *) SPI_BASEADDR)
 
 /* ���� CTRL 鍮꾪듃 �븘�뱶 ���������������������������������������������������������������������������������������� */

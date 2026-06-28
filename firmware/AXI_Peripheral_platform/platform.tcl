@@ -11,6 +11,21 @@ if {[info exists ::env(AXI_PERIPHERAL_XSA)] && $::env(AXI_PERIPHERAL_XSA) ne ""}
     set xsa_path [file join $workspace_dir hw AXI_Peripheral_wrapper.xsa]
 }
 
+# Vitis keeps generated BSP metadata such as system.mss under the platform
+# project. Remove stale generated outputs before re-creating the platform so
+# renamed BD IP instances do not leave old HW_INSTANCE entries behind.
+foreach generated_path [list \
+    [file join $script_dir export] \
+    [file join $script_dir logs] \
+    [file join $script_dir microblaze_0] \
+    [file join $script_dir platform.spr] \
+    [file join $script_dir tempdsa] \
+] {
+    if {[file exists $generated_path]} {
+        file delete -force $generated_path
+    }
+}
+
 platform create -name {AXI_Peripheral_platform} \
     -hw $xsa_path \
     -out $workspace_dir
@@ -27,4 +42,5 @@ platform generate -domains
 platform active {AXI_Peripheral_platform}
 platform generate -quick
 platform generate -domains
+platform generate
 platform generate

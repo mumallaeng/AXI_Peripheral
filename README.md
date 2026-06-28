@@ -102,3 +102,44 @@ On Windows:
 cd firmware
 xsct.bat AXI_Peripheral_platform\platform.tcl
 ```
+
+## macOS board utility
+
+`init_project.sh` is for regenerating the Vivado/Vitis project state. Board
+bring-up actions such as Vitis firmware build, board programming, and serial
+terminal logging are handled by:
+
+```sh
+./scripts/board_tool.sh
+```
+
+This script currently supports only the macOS host + Docker Vivado/Vitis flow.
+It uses Docker for Vitis/Vivado CLI work, `openFPGALoader` for board upload, and
+`tio` for the serial terminal.
+The `build` action regenerates the Vitis platform/BSP when needed, then builds
+the firmware sources directly with the MicroBlaze GCC toolchain.
+The `program` and `run` actions automatically generate the Vivado bitstream
+first when `build/vivado/AXI_Peripheral.runs/impl_1/AXI_Peripheral_wrapper.bit`
+or the matching `.mmi` file is missing.
+
+Common commands:
+
+```sh
+./scripts/board_tool.sh build
+./scripts/board_tool.sh bitstream
+./scripts/board_tool.sh program
+./scripts/board_tool.sh serial
+./scripts/board_tool.sh run
+./scripts/board_tool.sh list-serial
+```
+
+Without an action, the script opens a numbered menu.
+
+The serial terminal defaults to `9600` baud, `8N1`, and no flow control. To
+select a port explicitly:
+
+```sh
+./scripts/board_tool.sh serial --port /dev/cu.usbserial-0001 --baud 9600
+```
+
+Exit `tio` with `Ctrl-t`, then `q`.

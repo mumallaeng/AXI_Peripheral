@@ -22,11 +22,11 @@ typedef struct{
 #define TMR0      ((TMR_TypeDef_t *) TMR0_BASEADDR)
 
 void TMR_SetPSC(TMR_TypeDef_t *tmr, uint32_t psc);
-void TMR_GetPSC(TMR_TypeDef_t *tmr);
+uint32_t TMR_GetPSC(TMR_TypeDef_t *tmr);
 void TMR_SetARR(TMR_TypeDef_t *tmr, uint32_t arr);
-void TMR_GetARR(TMR_TypeDef_t *tmr);
+uint32_t TMR_GetARR(TMR_TypeDef_t *tmr);
 void TMR_SetCNR(TMR_TypeDef_t *tmr, uint32_t cnt);
-void TMR_GetCNT(TMR_TypeDef_t *tmr);
+uint32_t TMR_GetCNT(TMR_TypeDef_t *tmr);
 void TMR_StartTimer(TMR_TypeDef_t *tmr);
 void TMR_StopTimer (TMR_TypeDef_t *tmr);
 void TMR_StartInterrupt(TMR_TypeDef_t *tmr);
