@@ -52,9 +52,9 @@ module spi_master_top (
 
     // ── 외부 SPI 핀 ──────────────────────────────────────
     output       sclk,
-    output       mosi,
-    input        miso,
-    output [3:0] ss_n   // active low, 4개
+    output       sdo,
+    input        sdi,
+    output [3:0] cs_n   // active low, 4개
 );
 
     spi_master u_spi_master (
@@ -70,9 +70,9 @@ module spi_master_top (
         .rx_data(rx_data),
         .done   (done),
         .sclk   (sclk),
-        .mosi   (mosi),
-        .miso   (miso),
-        .ss_n   (ss_n)
+        .sdo   (sdo),
+        .sdi   (sdi),
+        .cs_n   (cs_n)
     );
 
     // intr = slv_reg0[1] (done_ie) & done_flag

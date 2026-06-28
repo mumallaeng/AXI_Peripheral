@@ -18,8 +18,8 @@ module spi_v1_0 #(
     // Do not modify the ports beyond this line
     // ── 외부 SPI 핀
     output wire       sclk,
-    output wire       mosi,
-    input  wire       miso,
+    output wire       sdo,
+    input  wire       sdi,
     output wire [3:0] cs_n,  // active low, 4개
 
     // ── 인터럽트
@@ -115,9 +115,9 @@ module spi_v1_0 #(
         .done(done),  // [1] → 래퍼에서 done_flag로 래칭
         .rx_data(rx_data),  // [7:0]
         .sclk(sclk),
-        .mosi(mosi),
-        .miso(miso),
-        .ss_n(cs_n)  // active low, 4개
+        .sdo(sdo),
+        .sdi(sdi),
+        .cs_n(cs_n)  // active low, 4개
     );
     // User logic ends
 
