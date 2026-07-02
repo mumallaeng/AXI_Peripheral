@@ -4,6 +4,45 @@ set -eu
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 REPO_ROOT=$(CDPATH= cd -- "$SCRIPT_DIR/.." && pwd)
 
+is_wsl() {
+    [ "$(uname -s)" = "Linux" ] && [ -r /proc/version ] && grep -qiE 'microsoft|wsl' /proc/version
+}
+
+find_windows_powershell() {
+    if command -v powershell.exe >/dev/null 2>&1; then
+        command -v powershell.exe
+        return 0
+    fi
+
+    for candidate in \
+        /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe \
+        /c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe
+    do
+        if [ -f "$candidate" ]; then
+            printf '%s\n' "$candidate"
+            return 0
+        fi
+    done
+
+    return 1
+}
+
+if is_wsl; then
+    if ! command -v wslpath >/dev/null 2>&1; then
+        echo "ERROR: WSL detected but wslpath was not found." >&2
+        exit 1
+    fi
+
+    POWERSHELL_EXE=$(find_windows_powershell) || {
+        echo "ERROR: WSL detected but Windows PowerShell was not found." >&2
+        echo "Run from Windows PowerShell with scripts/init_project.ps1, or restore WSL Windows interop." >&2
+        exit 1
+    }
+
+    PS_SCRIPT=$(wslpath -w "$SCRIPT_DIR/init_project.ps1")
+    exec "$POWERSHELL_EXE" -NoProfile -ExecutionPolicy Bypass -File "$PS_SCRIPT" "$@"
+fi
+
 PROJECT_DIR=${1:-build/vivado}
 XSA_PATH=${AXI_PERIPHERAL_XSA:-$REPO_ROOT/build/hw/AXI_Peripheral_wrapper.xsa}
 
